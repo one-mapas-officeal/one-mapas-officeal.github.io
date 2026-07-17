@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title class="notranslate">Avisos Rolox</title>
+    
+    <!-- Google Translate (Mantido) -->
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'pt', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+        }
+    </script>
+
+    <style>
+        body { font-family: sans-serif; background: #050505; color: #e0e0e0; padding: 20px; text-align: center; }
+        #google_translate_element { margin: 20px auto; padding: 10px; background: #222; display: inline-block; border-radius: 5px; }
+        .card { background: #0f0f0f; padding: 20px; margin-bottom: 15px; border-radius: 10px; border: 1px solid #333; text-align: left; max-width: 600px; margin: 15px auto; animation: slideDown 0.5s ease-out; }
+        @keyframes slideDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+        #cronometro { color: #ff3333; font-size: 1.2em; font-weight: bold; margin-bottom: 10px; }
+        #contador-fake { color: #00ff00; font-size: 1.1em; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+
+    <div id="google_translate_element"></div>
+    <h1 class="notranslate">Avisos Rolox</h1>
+    <div id="cronometro">Carregando...</div>
+    <div id="contador-fake">Usuários online: 100.000.000.000.000.000</div>
+    <div id="lista-avisos">Carregando notícias...</div>
+
+    <script>
+        // URL do seu arquivo JSON no GitHub
+        const URL_GITHUB = 'https://raw.githubusercontent.com/one-mapas-officeal/one-mapas-officeal.github.io/refs/heads/main/rolox/Avisos_database.com/Tes';
+
+        // Cronômetro (Mantido)
+        const targetDate = new Date('2026-12-01T00:00:00').getTime();
+        setInterval(() => {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            document.getElementById('cronometro').innerHTML = `Lançamento: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+        }, 1000);
+
+        // Notícias via GitHub
+        async function carregarNoticias() {
+            try {
+                const response = await fetch(URL_GITHUB);
+                const data = await response.json();
+                
+                // Se o JSON for um array, invertemos para que o último do arquivo fique no topo
+                const lista = document.getElementById('lista-avisos');
+                lista.innerHTML = ""; // Limpa carregando...
+                
+                // Ordena: Assumindo que o arquivo tenha uma data ou índice, 
+                // aqui apenas inverte a ordem para o último item cair no topo
+                data.reverse().forEach(a => {
+                    const card = document.createElement('div');
+                    card.className = 'card';
+                    card.innerHTML = `<h3>${a.titulo}</h3><p>${a.conteudo}</p>`;
+                    lista.appendChild(card);
+                });
+            } catch (err) {
+                document.getElementById('lista-avisos').innerText = "Erro ao carregar notícias do GitHub.";
+            }
+        }
+        
+        carregarNoticias();
+    </script>
+</body>
+</html>
