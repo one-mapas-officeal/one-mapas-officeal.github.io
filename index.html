@@ -2,38 +2,39 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>EM-BREVE rolox | Global Innovation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meus Projetos</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;700&display=swap');
-        
-        body { background: #050505; color: #e0e0e0; font-family: 'Inter', sans-serif; margin: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; text-align: center; padding: 20px; }
-        .container { width: 90%; max-width: 700px; background: #0f0f0f; padding: 40px; border: 1px solid #333; box-shadow: 0 0 30px rgba(0, 0, 0, 0.5); }
-        h1 { color: #fff; font-size: 2.5em; text-transform: uppercase; letter-spacing: 4px; }
-        .highlight { color: #ff3333; }
-        #countdown { font-size: 1.5em; color: #ff3333; font-weight: bold; margin: 20px 0; }
-        .global-msg { font-size: 1.1em; margin-bottom: 20px; font-weight: 300; }
-        .features { margin: 20px 0; border-top: 1px solid #222; padding-top: 20px; text-align: left; }
-        .features ul { list-style: none; padding: 0; }
-        .features li { margin: 10px 0; font-size: 0.9em; }
-        .legal { font-size: 0.8em; border-top: 1px solid #222; padding-top: 20px; text-align: left; margin-top: 20px; opacity: 0.8; }
-        button { background: #ff3333; color: white; border: none; padding: 10px 20px; cursor: pointer; font-weight: bold; margin-top: 20px; width: 100%; }
-        .btn-avisos { background: #333; border: 1px solid #ff3333; margin-top: 10px; }
-        .btn-rolox-atual {
-    background: transparent; 
-    border: 1px solid #ff3333; 
-    color: #ff3333; 
-    margin-top: 10px;
-}
-
-.btn-rolox-atual:hover {
-    background: #ff3333;
-    color: white;
-}
-              </style>
-  </head>
+        body { font-family: sans-serif; line-height: 1.6; max-width: 800px; margin: 40px auto; padding: 20px; background: #f4f4f9; }
+        h1 { text-align: center; color: #333; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 30px; }
+        .card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); text-align: center; }
+        a { display: inline-block; margin-top: 10px; padding: 10px 15px; background: #007bff; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; }
+        a:hover { background: #0056b3; }
+        .nome-projeto { font-size: 1.2em; margin: 0; color: #444; text-transform: capitalize; }
+    </style>
+</head>
 <body>
-  <a href="https://one-mapas-officeal.github.io/rolox/" style="text-decoration: none;">
-    <button class="btn-avisos">rolox</button>
+
+    <h1>Meus Projetos</h1>
+
+    <div class="grid">
+        <!-- Apenas coloque o link no atributo data-url -->
+        <div class="card" data-url="https://one-mapas-officeal.github.io/rolox"></div>
+        <div class="card" data-url="https://one-mapas-officeal.github.io/exemplo-projeto"></div>
+    </div>
+
+    <script>
+        // Este script pega o que está após a última barra e coloca como título
+        document.querySelectorAll('.card').forEach(card => {
+            const url = card.getAttribute('data-url');
+            const nome = url.split('/').pop().replace(/-/g, ' ');
+            
+            card.innerHTML = `
+                <h3 class="nome-projeto">${nome}</h3>
+                <a href="${url}" target="_blank">Acessar</a>
+            `;
+        });
+    </script>
 </body>
 </html>
-                
