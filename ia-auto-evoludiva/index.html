@@ -6,8 +6,8 @@
     <style>
         body { 
             background: #121212; 
-            color: #fff; 
-            font-family: sans-serif; 
+            color: #e3e3e3; 
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
             margin: 0; 
             padding: 0; 
             display: flex; 
@@ -15,48 +15,149 @@
             overflow: hidden; 
         }
         
-        /* BARRA LATERAL (SIDEBAR) */
+        /* BARRA LATERAL ESTILO GEMINI */
         .sidebar {
             width: 280px;
-            background: #181818;
-            border-right: 1px solid #333;
+            background: #1e1e1e;
+            border-right: 1px solid #2a2a2a;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            padding: 20px;
+            padding: 12px;
             box-sizing: border-box;
+            user-select: none;
         }
-        .sidebar h3 {
-            margin-top: 0;
-            color: #007bff;
-            font-size: 1.2em;
-            border-bottom: 1px solid #333;
-            padding-bottom: 10px;
-        }
-        .history-list {
-            flex-grow: 1;
+
+        .sidebar-top {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
             overflow-y: auto;
-            margin-top: 15px;
+            flex-grow: 1;
+            padding-right: 4px;
         }
-        .history-item {
-            padding: 10px;
+
+        .sidebar-top::-webkit-scrollbar {
+            width: 6px;
+        }
+        .sidebar-top::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 3px;
+        }
+
+        .brand-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px 12px;
             margin-bottom: 8px;
-            background: #222;
-            border-radius: 4px;
-            font-size: 0.85em;
-            cursor: pointer;
-            border: 1px solid transparent;
         }
-        .history-item:hover {
-            border-color: #007bff;
+
+        .brand-title {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #f1f3f4;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .brand-title span {
+            color: #8ab4f8;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 12px;
+            border-radius: 9999px;
+            color: #e3e3e3;
+            font-size: 0.9rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+
+        .nav-item:hover {
             background: #2a2a2a;
         }
+
+        .section-title {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #9aa0a6;
+            padding: 12px 12px 4px 12px;
+            letter-spacing: 0.05em;
+        }
+
+        .history-item {
+            padding: 8px 12px;
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            color: #c4c7c5;
+            cursor: pointer;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            transition: background 0.2s;
+        }
+
+        .history-item:hover {
+            background: #2a2a2a;
+            color: #fff;
+        }
+
+        .history-item.active {
+            background: #004a77;
+            color: #c2e7ff;
+        }
+
         .sidebar-footer {
-            border-top: 1px solid #333;
-            padding-top: 10px;
-            font-size: 0.8em;
-            color: #888;
-            text-align: center;
+            border-top: 1px solid #2a2a2a;
+            padding-top: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 6px;
+            font-size: 0.9rem;
+            color: #e3e3e3;
+        }
+
+        .user-avatar {
+            width: 32px;
+            height: 32px;
+            background: #8ab4f8;
+            color: #000;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .settings-btn {
+            background: none;
+            border: none;
+            color: #9aa0a6;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: auto;
+            margin: 0;
+        }
+        .settings-btn:hover {
+            background: #2a2a2a;
+            color: #fff;
         }
 
         /* ÁREA PRINCIPAL */
@@ -72,84 +173,117 @@
             width: 100%; 
             max-width: 450px; 
             padding: 25px; 
-            border: 1px solid #333; 
+            border: 1px solid #2a2a2a; 
             background: #1e1e1e; 
-            border-radius: 8px; 
-            box-shadow: 0 4px 10px rgba(0,0,0,0.5); 
+            border-radius: 12px; 
+            box-shadow: 0 4px 20px rgba(0,0,0,0.7); 
             text-align: center; 
         }
         
-        input, textarea { 
+        input, textarea, select { 
             width: 90%; 
             padding: 12px; 
             margin: 10px 0; 
             background: #2a2a2a; 
             border: 1px solid #444; 
             color: #fff; 
-            border-radius: 4px; 
+            border-radius: 8px; 
             font-size: 1em; 
             box-sizing: border-box;
+            outline: none;
+        }
+        input:focus, textarea:focus, select:focus {
+            border-color: #8ab4f8;
         }
         
         button { 
-            width: 95%; 
+            width: 90%; 
             padding: 12px; 
             margin-top: 10px; 
-            background: #007bff; 
-            color: white; 
+            background: #8ab4f8; 
+            color: #000; 
             border: none; 
             cursor: pointer; 
-            border-radius: 4px; 
+            border-radius: 8px; 
             font-weight: bold; 
             font-size: 1em; 
+            transition: background 0.2s;
         }
-        button:hover { background: #0056b3; }
+        button:hover { background: #aecbfa; }
         
-        .btn-danger { background: #d9534f; }
-        .btn-danger:hover { background: #c9302c; }
+        .btn-danger { background: #f28b82; color: #000; }
+        .btn-danger:hover { background: #f6aea9; }
         
-        #btn-toggle { cursor: pointer; color: #aaa; margin-top: 15px; font-size: 0.9em; text-decoration: underline; }
+        #btn-toggle { cursor: pointer; color: #8ab4f8; margin-top: 15px; font-size: 0.9em; text-decoration: none; }
+        #btn-toggle:hover { text-decoration: underline; }
         .hidden { display: none; }
         
         .output-box { 
             margin-top: 15px; 
             padding: 15px; 
-            background: #111; 
-            border: 1px dashed #555; 
+            background: #121212; 
+            border: 1px solid #333; 
             text-align: left; 
             word-break: break-all; 
             font-size: 0.9em; 
             max-height: 200px; 
             overflow-y: auto; 
-            border-radius: 4px; 
+            border-radius: 8px; 
         }
         
         .status-badge { 
-            font-size: 0.8em; 
-            padding: 3px 8px; 
-            border-radius: 4px; 
-            background: #333; 
+            font-size: 0.75em; 
+            padding: 4px 10px; 
+            border-radius: 9999px; 
+            background: #2a2a2a; 
+            color: #8ab4f8; 
             display: inline-block; 
             margin-bottom: 10px; 
+            border: 1px solid #3c4043;
         }
     </style>
 </head>
 <body>
 
+    <!-- BARRA LATERAL ESTILO GEMINI -->
     <div class="sidebar">
-        <div>
-            <h3>Painel de Pastas</h3>
-            <div class="status-badge">Hierarquia Ativa</div>
+        <div class="sidebar-top">
+            <div class="brand-header">
+                <div class="brand-title">✨ <span>Aria</span></div>
+            </div>
+
+            <div class="nav-item" onclick="novaConversa()">
+                ✏️ Nova conversa
+            </div>
+
+            <div class="section-title">Idioma / Tradução</div>
+            <div style="padding: 0 8px;">
+                <select id="idioma-select" style="width: 100%; margin: 4px 0 12px 0;">
+                    <option value="pt" selected>Português (PT)</option>
+                    <option value="en">English (EN)</option>
+                    <option value="es">Español (ES)</option>
+                    <option value="fr">Français (FR)</option>
+                </select>
+            </div>
+
+            <div class="section-title">Recentes</div>
             <div class="history-list" id="sidebar-history">
-                <div class="history-item">📁 conta/user_inicial</div>
+                <div class="history-item active">📁 contas/user_inicial</div>
             </div>
         </div>
+
         <div class="sidebar-footer">
-            Aria v2 Core - Auto Evolutivo
+            <div class="user-profile">
+                <div class="user-avatar" id="avatar-letra">A</div>
+                <span id="label-usuario">Convidado</span>
+            </div>
+            <button class="settings-btn" title="Configurações">⚙️</button>
         </div>
     </div>
 
+    <!-- ÁREA PRINCIPAL -->
     <div class="main-content">
+        <!-- TELA DE LOGIN / REGISTRO -->
         <div class="container" id="auth-box">
             <h2 id="titulo">Login Aria</h2>
             <span class="status-badge">Núcleo Auto-Evolutivo Ativo</span>
@@ -159,8 +293,9 @@
             <p id="btn-toggle" onclick="alternarTela()">Registrar-se</p>
         </div>
 
+        <!-- PAINEL PRINCIPAL DO USUÁRIO E EVOLUÇÃO DAS IAs -->
         <div class="container hidden" id="chat-box">
-            <h2>Painel Aria - <span id="span-user" style="color: #007bff;"></span></h2>
+            <h2>Painel Aria - <span id="span-user" style="color: #8ab4f8;"></span></h2>
             <div class="status-badge">Pasta de Testes & Hierarquia Evolutiva</div>
             
             <textarea id="pergunta" rows="3" placeholder="Digite sua busca ou comando para a IA..."></textarea>
@@ -188,23 +323,26 @@
         function enviarAuth() {
             const user = document.getElementById('user').value.trim();
             const pass = document.getElementById('pass').value.trim();
+            const lang = document.getElementById('idioma-select').value;
             
             if(!user || !pass) {
                 alert("Por favor, preencha todos os campos!");
                 return;
             }
 
-            fetch(`${API_URL}/?id=${encodeURIComponent(user)}&senha=${encodeURIComponent(pass)}`)
+            fetch(`${API_URL}/?id=${encodeURIComponent(user)}&senha=${encodeURIComponent(pass)}&lang=${lang}`)
             .then(response => response.text())
             .then(htmlResposta => {
                 usuarioAtual = user;
                 document.getElementById('span-user').innerText = user;
+                document.getElementById('label-usuario').innerText = user;
+                document.getElementById('avatar-letra').innerText = user.charAt(0).toUpperCase();
+                
                 document.getElementById('auth-box').classList.add('hidden');
                 document.getElementById('chat-box').classList.remove('hidden');
                 
-                // Adiciona item na barra lateral
                 const sidebarHistory = document.getElementById('sidebar-history');
-                sidebarHistory.innerHTML += `<div class="history-item">📁 contas/user_${user}</div>`;
+                sidebarHistory.innerHTML += `<div class="history-item active">📁 contas/user_${user}</div>`;
             })
             .catch(err => {
                 console.error("Erro de conexão:", err);
@@ -214,11 +352,12 @@
 
         function enviarBusca() {
             const query = document.getElementById('pergunta').value.trim();
+            const lang = document.getElementById('idioma-select').value;
             if(!query) return;
 
             document.getElementById('resultado-pesquisa').innerHTML = "Processando via sub-IAs e hierarquia de testes...";
 
-            fetch(`${API_URL}/?id=${encodeURIComponent(usuarioAtual)}&pergunta=${encodeURIComponent(query)}`)
+            fetch(`${API_URL}/?id=${encodeURIComponent(usuarioAtual)}&pergunta=${encodeURIComponent(query)}&lang=${lang}`)
             .then(response => response.text())
             .then(htmlResposta => {
                 const parser = new DOMParser();
@@ -233,10 +372,19 @@
             });
         }
 
+        function novaConversa() {
+            if(usuarioAtual) {
+                document.getElementById('pergunta').value = "";
+                document.getElementById('resultado-pesquisa').innerText = "Aguardando comando do sistema...";
+            }
+        }
+
         function sair() {
             usuarioAtual = "";
             document.getElementById('chat-box').classList.add('hidden');
             document.getElementById('auth-box').classList.remove('hidden');
+            document.getElementById('label-usuario').innerText = "Convidado";
+            document.getElementById('avatar-letra').innerText = "A";
             document.getElementById('pergunta').value = "";
             document.getElementById('resultado-pesquisa').innerText = "Aguardando comando do sistema...";
             document.getElementById('user').value = "";
