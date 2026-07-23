@@ -43,7 +43,7 @@
     </div>
 
     <script>
-        // URL do processador Codespaces fornecida
+        // URL atualizada do Codespaces v2.py
         const API_URL = "https://bug-free-space-xylophone-77vw76xx4gwr3rwjq-5000.app.github.dev";
         
         let isLogin = true;
@@ -65,21 +65,17 @@
                 return;
             }
 
-            const tipoAcao = isLogin ? 'login' : 'registrar';
-
-            // Comunicação direta com o processador no Codespaces via parâmetros GET (conforme estruturado no app.py)
             fetch(`${API_URL}/?id=${encodeURIComponent(user)}&senha=${encodeURIComponent(pass)}`)
             .then(response => response.text())
             .then(htmlResposta => {
-                // Como o processador retorna uma página HTML injetada, validamos o acesso
                 usuarioAtual = user;
                 document.getElementById('span-user').innerText = user;
                 document.getElementById('auth-box').classList.add('hidden');
                 document.getElementById('chat-box').classList.remove('hidden');
             })
             .catch(err => {
-                console.error("Erro de conexão com o processador:", err);
-                alert("Erro ao conectar com o Codespaces. Verifique se o servidor está online.");
+                console.error("Erro de conexão:", err);
+                alert("Erro ao conectar com o Codespaces.");
             });
         }
 
@@ -87,13 +83,11 @@
             const query = document.getElementById('pergunta').value.trim();
             if(!query) return;
 
-            document.getElementById('resultado-pesquisainnerHTML = "Processando via sub-IAs e hierarquia de testes...";
+            document.getElementById('resultado-pesquisa').innerHTML = "Processando via sub-IAs e hierarquia de testes...";
 
-            // Envia a consulta contendo o ID do usuário e a pergunta para o processador remoto
             fetch(`${API_URL}/?id=${encodeURIComponent(usuarioAtual)}&pergunta=${encodeURIComponent(query)}`)
             .then(response => response.text())
             .then(htmlResposta => {
-                // Extrai o conteúdo da resposta gerada pelo processador remoto
                 const parser = new DOMParser();
                 const doc = parser.parseFromString(htmlResposta, 'text/html');
                 const conteudoDiv = doc.getElementById('conteudo');
