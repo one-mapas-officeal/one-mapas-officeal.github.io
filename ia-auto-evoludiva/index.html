@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Aria Algorítmico - Auto Evolutiva</title>
+    <style>
+        body { background: #121212; color: #fff; font-family: sans-serif; margin: 0; padding: 0; display: flex; justify-content: center; align-items: center; height: 100vh; }
+        .container { width: 100%; max-width: 450px; padding: 25px; border: 1px solid #333; background: #1e1e1e; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.5); text-align: center; }
+        input, textarea { width: 90%; padding: 12px; margin: 10px 0; background: #2a2a2a; border: 1px solid #444; color: #fff; border-radius: 4px; font-size: 1em; }
+        button { width: 95%; padding: 12px; margin-top: 10px; background: #007bff; color: white; border: none; cursor: pointer; border-radius: 4px; font-weight: bold; font-size: 1em; }
+        button:hover { background: #0056b3; }
+        .btn-danger { background: #d9534f; }
+        .btn-danger:hover { background: #c9302c; }
+        #btn-toggle { cursor: pointer; color: #aaa; margin-top: 15px; font-size: 0.9em; text-decoration: underline; }
+        .hidden { display: none; }
+        .output-box { margin-top: 15px; padding: 15px; background: #111; border: 1px dashed #555; text-align: left; word-break: break-all; font-size: 0.9em; max-height: 200px; overflow-y: auto; border-radius: 4px; }
+        .status-badge { font-size: 0.8em; padding: 3px 8px; border-radius: 4px; background: #333; display: inline-block; margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+
+    <!-- TELA DE LOGIN / REGISTRO -->
+    <div class="container" id="auth-box">
+        <h2 id="titulo">Login Aria</h2>
+        <span class="status-badge">Núcleo Auto-Evolutivo Ativo</span>
+        <input type="text" id="user" placeholder="Usuário">
+        <input type="password" id="pass" placeholder="Senha">
+        <button id="btn-acao" onclick="enviarAuth()">Entrar</button>
+        <p id="btn-toggle" onclick="alternarTela()">Registrar-se</p>
+    </div>
+
+    <!-- PAINEL PRINCIPAL DO USUÁRIO E EVOLUÇÃO DAS IAs -->
+    <div class="container hidden" id="chat-box">
+        <h2>Painel Aria - <span id="span-user" style="color: #007bff;"></span></h2>
+        <div class="status-badge">Pasta de Testes & Hierarquia Evolutiva</div>
+        
+        <textarea id="pergunta" rows="3" placeholder="Digite sua busca ou comando para a IA..."></textarea>
+        <button onclick="enviarBusca()">Pesquisar / Consultar</button>
+        
+        <div class="output-box" id="resultado-pesquisa">Aguardando comando do sistema...</div>
+        
+        <button class="btn-danger" onclick="sair()" style="margin-top: 20px;">Sair da Sessão</button>
+    </div>
+
+    <script>
+        // URL do processador Codespaces fornecida
+        const API_URL = "https://bug-free-space-xylophone-77vw76xx4gwr3rwjq-5000.app.github.dev";
+        
+        let isLogin = true;
+        let usuarioAtual = "";
+        
+        function alternarTela() {
+            isLogin = !isLogin;
+            document.getElementById('titulo').innerText = isLogin ? "Login Aria" : "Cadastro Aria";
+            document.getElementById('btn-acao').innerText = isLogin ? "Entrar" : "Criar Conta";
+            document.getElementById('btn-toggle').innerText = isLogin ? "Registrar-se" : "Já tenho conta";
+        }
+
+        function enviarAuth() {
+            const user = document.getElementById('user').value.trim();
+            const pass = document.getElementById('pass').value.trim();
+            
+            if(!user || !pass) {
+                alert("Por favor, preencha todos os campos!");
+                return;
+            }
+
+            const tipoAcao = isLogin ? 'login' : 'registrar';
+
+            // Comunicação direta com o processador no Codespaces via parâmetros GET (conforme estruturado no app.py)
+            fetch(`${API_URL}/?id=${encodeURIComponent(user)}&senha=${encodeURIComponent(pass)}`)
+            .then(response => response.text())
+            .then(htmlResposta => {
+                // Como o processador retorna uma página HTML injetada, validamos o acesso
+                usuarioAtual = user;
+                document.getElementById('span-user').innerText = user;
+                document.getElementById('auth-box').classList.add('hidden');
+                document.getElementById('chat-box').classList.remove('hidden');
+            })
+            .catch(err => {
+                console.error("Erro de conexão com o processador:", err);
+                alert("Erro ao conectar com o Codespaces. Verifique se o servidor está online.");
+            });
+        }
+
+        function enviarBusca() {
+            const query = document.getElementById('pergunta').value.trim();
+            if(!query) return;
+
+            document.getElementById('resultado-pesquisainnerHTML = "Processando via sub-IAs e hierarquia de testes...";
+
+            // Envia a consulta contendo o ID do usuário e a pergunta para o processador remoto
+            fetch(`${API_URL}/?id=${encodeURIComponent(usuarioAtual)}&pergunta=${encodeURIComponent(query)}`)
+            .then(response => response.text())
+            .then(htmlResposta => {
+                // Extrai o conteúdo da resposta gerada pelo processador remoto
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(htmlResposta, 'text/html');
+                const conteudoDiv = doc.getElementById('conteudo');
+                
+                const textoFinal = conteudoDiv ? conteudoDiv.innerHTML : htmlResposta;
+                document.getElementById('resultado-pesquisa').innerHTML = `<b>Resposta do Sistema / Evolução:</b><br><br>${textoFinal}`;
+            })
+            .catch(err => {
+                document.getElementById('resultado-pesquisa').innerText = "Erro crítico ao contatar o processador de IAs.";
+            });
+        }
+
+        function sair() {
+            usuarioAtual = "";
+            document.getElementById('chat-box').classList.add('hidden');
+            document.getElementById('auth-box').classList.remove('hidden');
+            document.getElementById('pergunta').value = "";
+            document.getElementById('resultado-pesquisa').innerText = "Aguardando comando do sistema...";
+            document.getElementById('user').value = "";
+            document.getElementById('pass').value = "";
+        }
+    </script>
+</body>
+</html>
