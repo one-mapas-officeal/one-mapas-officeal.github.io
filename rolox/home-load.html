@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>EM-BREVE rolox | Global Innovation</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;700&display=swap');
+        
+        body { background: #050505; color: #e0e0e0; font-family: 'Inter', sans-serif; margin: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; text-align: center; padding: 20px; }
+        .container { width: 90%; max-width: 700px; background: #0f0f0f; padding: 40px; border: 1px solid #333; box-shadow: 0 0 30px rgba(0, 0, 0, 0.5); }
+        h1 { color: #fff; font-size: 2.5em; text-transform: uppercase; letter-spacing: 4px; }
+        .highlight { color: #ff3333; }
+        #countdown { font-size: 1.5em; color: #ff3333; font-weight: bold; margin: 20px 0; }
+        .global-msg { font-size: 1.1em; margin-bottom: 20px; font-weight: 300; }
+        .features { margin: 20px 0; border-top: 1px solid #222; padding-top: 20px; text-align: left; }
+        .features ul { list-style: none; padding: 0; }
+        .features li { margin: 10px 0; font-size: 0.9em; }
+        .legal { font-size: 0.8em; border-top: 1px solid #222; padding-top: 20px; text-align: left; margin-top: 20px; opacity: 0.8; }
+        button { background: #ff3333; color: white; border: none; padding: 10px 20px; cursor: pointer; font-weight: bold; margin-top: 20px; width: 100%; }
+        .btn-avisos { background: #333; border: 1px solid #ff3333; margin-top: 10px; }
+        .btn-rolox-atual {
+    background: transparent; 
+    border: 1px solid #ff3333; 
+    color: #ff3333; 
+    margin-top: 10px;
+}
+
+.btn-rolox-atual:hover {
+    background: #ff3333;
+    color: white;
+}
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>EM-BREVE rolox</h1>
+        <p class="global-msg">Conectando criadores de todos os cantos do mundo em uma única rede de inovação absoluta.</p>
+        
+        <div id="countdown">Carregando cronômetro...</div>
+        
+        <a href="Aviso.html" style="text-decoration: none;">
+            <button class="btn-avisos">VER AVISOS</button>
+        </a>
+<a href="https://one-mapas-officeal.github.io/rolox.guiantiga.com.github.io/?page-or-url=https://one-mapas-officeal.github.io/www.rolox.office.com.github.io/index&username=error&iduser=0&error=ui_antiga" style="text-decoration: none;">
+    <button class="btn-rolox-atual">VER O ROLOX ATUAL</button>
+</a>
+        <p><strong>Preview:</strong> 01/12/2026 | <strong>Versão de Teste:</strong> 01/01/2027</p>
+        
+        <div class="features">
+            <ul>
+                <li>🌎 <strong>Comunidade Global:</strong> Interaja com usuários de todo o planeta.</li>
+                <li>⚡ <strong>Rolox Studio:</strong> Ferramenta em Python para criar mapas, objetos OBJ, vídeos e moda 3D.</li>
+                <li>💰 <strong>Mundo dos Ticks:</strong> Economia orgânica global. Ganhe de 1 a 10¹⁸ Ticks por evento.</li>
+                <li>🛡️ <strong>Anti-Cheat The One:</strong> Proteção de hardware (HWID) de última geração com monitoramento de mapas oficiais.</li>
+                <li>😭 <strong> sentimos muito:</strong> O SITE ANTIGO DO ROLOX IRA CAIR DEVIDO GITHUB EMPRESAS</li>
+            </ul>
+        </div>
+
+        <div class="legal">
+            <h3>Termos de Uso e Política de Privacidade</h3>
+            <p>Ao utilizar o rolox, você autoriza o acesso completo ao seu PC para verificação de integridade. O app monitora sua tela em tempo real para identificar comportamentos suspeitos. A violação das políticas resulta em banimento físico permanente do computador.</p>
+            <input type="checkbox" id="terms" required>
+            <label for="terms">Declaro que li e aceito os termos de monitoramento e segurança.</label>
+            <button onclick="checkTerms()">CONFIRMAR E AGUARDAR</button>
+        </div>
+    </div>
+
+    <script>
+        const targetDate = new Date('2026-12-01T00:00:00').getTime();
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+            if (distance < 0) { document.getElementById('countdown').innerHTML = "O PREVIEW JÁ FOI LIBERADO!"; return; }
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            document.getElementById('countdown').innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s";
+        }
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        function checkTerms() {
+            if(document.getElementById('terms').checked) { alert('Termos aceitos. Prepare-se para o lançamento.'); } 
+            else { alert('Você precisa aceitar os termos de segurança para prosseguir.'); }
+        }
+    </script>
+</body>
+</html>
