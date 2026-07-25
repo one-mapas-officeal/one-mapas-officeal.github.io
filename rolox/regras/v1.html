@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>ROLOX | Regras do Sistema e Diretrizes Oficiais</title>
+    <style>
+        :root { --blue: #007bff; --bg: #050505; --text: #e0e0e0; --red: #ff3333; }
+        body { margin: 0; font-family: 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); padding: 40px; }
+        .container { max-width: 900px; margin: auto; background: #111; padding: 40px; border: 1px solid #333; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.8); }
+        h1 { color: #fff; border-bottom: 2px solid var(--blue); padding-bottom: 15px; margin-top: 0; text-transform: uppercase; font-size: 24px; }
+        h2 { color: var(--blue); margin-top: 30px; font-size: 18px; border-left: 4px solid var(--blue); padding-left: 10px; }
+        p, li { line-height: 1.6; color: #ccc; }
+        ul { padding-left: 20px; }
+        .rule-card { background: #1a1a1a; padding: 20px; margin-top: 15px; border-left: 4px solid var(--red); border-radius: 4px; }
+        .highlight { color: var(--red); font-weight: bold; }
+        .folder-list { background: #000; padding: 15px; border: 1px dashed #444; margin-top: 10px; font-family: monospace; font-size: 13px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Manual de Regras Oficiais - ROLOX</h1>
+    <p>Este documento estabelece todas as diretrizes fundamentais, protocolos de segurança e regras de conformidade obrigatórias do ecossistema ROLOX, operando estritamente em conformidade com as normas estruturais do sistema (sem execução de scripts dinâmicos).</p>
+
+    <div class="rule-card">
+        <h2>1. Anti-Cheat Persistente (Pós-Desinstalação)</h2>
+        <p>O sistema de proteção anti-cheat do ROLOX opera em nível de núcleo e infraestrutura permanente. Mesmo após a remoção ou desinstalação completa do aplicativo principal do dispositivo, os registros de integridade, assinaturas de hardware e vestígios de auditoria permanecem ativos na máquina para evitar re-instalações maliciosas ou evasão de sanções.</p>
+    </div>
+
+    <div class="rule-card">
+        <h2>2. Sistema de Alertas Gradual (Limite de 10 Avisos)</h2>
+        <p>O monitoramento de conduta e segurança emite <span class="highlight">exatamente 10 avisos formais</span> de infração antes da penalidade máxima. Ao atingir o décimo aviso, a conta do usuário é <span class="highlight">permanentemente deletada</span> do sistema, sem possibilidade de recuperação.</p>
+    </div>
+
+    <div class="rule-card">
+        <h2>3. Monitoramento e Acesso a Dados 24 Horas</h2>
+        <p>Todos os dados operacionais, de sessão, telemetria e interações do usuário são monitorados e acessados de forma contínua, <span class="highlight">24 horas por dia, 7 dias por semana</span>, garantindo a integridade dos servidores e a conformidade com os termos de uso.</p>
+    </div>
+
+    <div class="rule-card">
+        <h2>4. Sanção por Modificação Pessoal de Dados</h2>
+        <p>Qualquer tentativa de alteração manual, adulteração ou modificação não autorizada de dados pessoais pelo próprio usuário resulta imediatamente em um <span class="highlight">Aviso de Nível 5</span>, o equivalente a acumular 5 avisos de uma só vez no histórico de infrações.</p>
+    </div>
+
+    <div class="rule-card">
+        <h2>5. Protocolo de Encerramento (Desligamento do Dispositivo)</h2>
+        <p>Quando o computador ou dispositivo é desligado/encerrado, o sistema executa o protocolo obrigatório de salvamento e transmissão via Supabase (Ciclo GHP):</p>
+        <ul>
+            <li>O aplicativo envia uma requisição para leitura de chaves na tabela <span class="highlight">keys_users</span> do Supabase.</li>
+            <li>O Supabase valida o status e gerencia a fila de sincronização (se houver espera).</li>
+            <li>O cliente ROLOX recebe o sinal e inicia imediatamente o envio de pacotes de dados.</li>
+            <li>Se a conexão falhar ou houver interrupção de rede, os dados pendentes são salvos e armazenados localmente nas pastas de diretório específicas do sistema.</li>
+        </ul>
+
+        <div class="folder-list">
+            📁 <b>(confitenfial)/</b> -> Dados do avatar e configurações da página do usuário.<br>
+            📁 <b>(confitenfial)/</b> -> Dados salvos dos mundos e jogos jogados.<br>
+            📁 <b>(confitenfial)/</b> -> Logs de integridade, auditoria e persistência do anti-cheat.<br>
+            📁 <b>(confitenfial)/</b> -> Arquivos exclusivos de atualizações internas (dados ignorados e não enviados ao servidor).
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
