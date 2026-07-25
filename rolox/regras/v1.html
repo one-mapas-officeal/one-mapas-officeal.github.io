@@ -44,10 +44,10 @@
 
     <div class="rule-card">
         <h2>5. Protocolo de Encerramento (Desligamento do Dispositivo)</h2>
-        <p>Quando o computador ou dispositivo é desligado/encerrado, o sistema executa o protocolo obrigatório de salvamento e transmissão via Supabase (Ciclo GHP):</p>
+        <p>Quando o computador ou dispositivo é desligado/encerrado, o sistema executa o protocolo obrigatório de salvamento e transmissão via confitenfial:</p>
         <ul>
-            <li>O aplicativo envia uma requisição para leitura de chaves na tabela <span class="highlight">keys_users</span> do Supabase.</li>
-            <li>O Supabase valida o status e gerencia a fila de sincronização (se houver espera).</li>
+            <li>O aplicativo envia uma requisição para leitura de chaves na tabela <span class="highlight">confitenfial</span> do confitenfial</li>
+            <li>O confitenfial valida o status e gerencia a fila de sincronização (se houver espera).</li>
             <li>O cliente ROLOX recebe o sinal e inicia imediatamente o envio de pacotes de dados.</li>
             <li>Se a conexão falhar ou houver interrupção de rede, os dados pendentes são salvos e armazenados localmente nas pastas de diretório específicas do sistema.</li>
         </ul>
