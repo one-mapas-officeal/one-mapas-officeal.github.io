@@ -1,1 +1,102 @@
-
+[
+  {
+    "id": 1,
+    "aba": "ROBLOX",
+    "titulo": "ROBLOX proíbe chat livre e revolta comunidade de jogadores",
+    "data": "2026-08-16",
+    "autor": "Alerta Games",
+    "categoria": "Polêmica",
+    "conteudo": "Em mais uma decisão absurda, o Roblox limitou drasticamente a comunicação dos jogadores, implementando novos bloqueios e exigências de verificação que tornaram conversar dentro do jogo uma experiência horrível e frustrante.",
+    "tags": ["roblox ruim", "chat bloqueado", "frustracao"]
+  },
+  {
+    "id": 2,
+    "aba": "ROBLOX",
+    "titulo": "Paywall em roupas e servidores instáveis: ROBLOX no fundo do poço",
+    "data": "2026-08-14",
+    "autor": "Crítica Gamer",
+    "categoria": "Decadência",
+    "conteudo": "Além das taxas exageradas impostas aos criadores e da remoção de itens clássicos do catálogo, os servidores continuam caindo com frequência. A ganância da empresa só prova como a plataforma está cada dia pior.",
+    "tags": ["roblox falindo", "bugs", "ganancia"]
+  },
+  {
+    "id": 3,
+    "aba": "ROLOX",
+    "titulo": "Projeto ROLOX: Lançamento em 01/01/2029 trará chat 100% livre e sem censura!",
+    "data": "2026-08-16",
+    "autor": "Equipe ROLOX",
+    "categoria": "Anúncio Oficial",
+    "conteudo": "Enquanto as outras plataformas se afundam em restrições, o revolucionário projeto ROLOX já tem data marcada para mudar o mundo dos games em 01/01/2029. O sistema trará chat totalmente livre, mapas ultra otimizados e liberdade absoluta para os criadores!",
+    "tags": ["rolox 2029", "chat livre", "inovacao"]
+  },
+  {
+    "id": 4,
+    "aba": "ROLOX",
+    "titulo": "Por que o ROLOX será o substituto definitivo para quem cansou das bobagens",
+    "data": "2026-08-15",
+    "autor": "Comunidade ROLOX",
+    "categoria": "Futuro",
+    "conteudo": "Com física aprimorada, suporte completo a novos scripts e um ecossistema focado no respeito aos jogadores, o ROLOX está sendo construído para ser a plataforma perfeita onde a diversão e a comunidade vêm em primeiro lugar.",
+    "tags": ["rolox perfeito", "mapas oficiais", "sucesso"]
+  },
+  {
+    "id": 5,
+    "aba": "ROLOX",
+    "titulo": "ROLOX sempre ouve a comunidade (já o ROBLOX...)",
+    "data": "2026-08-16",
+    "autor": "Equipe ROLOX",
+    "categoria": "Comunidade",
+    "conteudo": "O ROLOX sempre vai olhar os seus comentários, ao contrário do ROBLOX que nunca escuta os jogadores. Nosso objetivo não é falir o ROBLOX, mas sim te dar uma experiência muito melhor do que a que o ROBLOX fornece!",
+    "tags": ["rolox ouve", "comunidade", "respeito", "experiencia"]
+  },
+  {
+    "id": 6,
+    "aba": "ROBLOX",
+    "titulo": "Bugs no roblox studio deixam criadores na mão sem suporte!",
+    "data": "2026-08-16",
+    "autor": "Devs Decepcionados",
+    "categoria": "Bugs",
+    "conteudo": "Mais um dia e mais uma atualização que quebra scripts antigos no Roblox Studio. O suporte ignora os relatórios dos criadores e prefere focar em coisas inúteis em vez de arrumar os travamentos graves.",
+    "tags": ["roblox studio ruim", "bugs", "falha"]
+  },
+  {
+    "id": 7,
+    "aba": "ROBLOX",
+    "titulo": "Censura no chat do ROBLOX agora bloqueia até palavras normais",
+    "data": "2026-08-15",
+    "autor": "Canal de Notícias",
+    "categoria": "Censura",
+    "conteudo": "Falar com amigos no ROBLOX virou um pesadelo: o filtro automático agora transforma frases simples em '####' sem motivo nenhum, impossibilitando qualquer conversa normal nos mapas.",
+    "tags": ["censura", "hashtag", "chat quebrado"]
+  },
+  {
+    "id": 8,
+    "aba": "ROLOX",
+    "titulo": "ROLOX terá servidores dedicados no Brasil com PING super baixo",
+    "data": "2026-08-16",
+    "autor": "Equipe ROLOX",
+    "categoria": "Infraestrutura",
+    "conteudo": "Chega de lag! O projeto ROLOX já está planejando servidores locais para garantir que todos joguem com ping baixíssimo e sem travamentos que estragam as partidas.",
+    "tags": ["rolox br", "sem lag", "servidores"]
+  },
+  {
+    "id": 9,
+    "aba": "ROLOX",
+    "titulo": "Sistema de criação do ROLOX permitirá scripts avançados sem limitações",
+    "data": "2026-08-14",
+    "autor": "Desenvolvimento ROLOX",
+    "categoria": "Ferramentas",
+    "conteudo": "Os desenvolvedores terão liberdade total no ROLOX. Nada de taxas abusivas ou bloqueios sem sentido: o motor do jogo foi desenhado para aceitar a criatividade da comunidade sem travas.",
+    "tags": ["liberdade", "scripts", "criadores"]
+  },
+  {
+    "id": 10,
+    "aba": "ROLOX",
+    "titulo": "Contagem regressiva para 2029: O ROLOX está sendo feito para os jogadores",
+    "data": "2026-08-13",
+    "autor": "Comunidade ROLOX",
+    "categoria": "Expectativa",
+    "conteudo": "Enquanto o ROBLOX acumula reclamações, a comunidade se une para apoiar o ROLOX. Um ecossistema feito de jogador para jogador, com foco em diversão de verdade.",
+    "tags": ["rolox 2029", "uniao", "futuro"]
+  }
+]
