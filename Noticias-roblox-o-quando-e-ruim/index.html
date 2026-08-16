@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROBLOX - notícias (one mapas officeal - ROLOX)</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0f1115;
+            color: #f1f1f1;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 25px 10px;
+            background: linear-gradient(135deg, #1f232d, #14171d);
+            border-bottom: 3px solid #00a2ff;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        header p {
+            color: #00a2ff;
+            font-size: 0.95rem;
+            margin-top: 5px;
+        }
+
+        /* NAVEGAÇÃO POR ABAS */
+        .tabs-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            max-width: 900px;
+            margin: 0 auto 25px auto;
+        }
+
+        .tab-btn {
+            background-color: #1a1d24;
+            color: #888;
+            border: 2px solid #2a2e39;
+            padding: 12px 24px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex: 1;
+            max-width: 200px;
+            text-align: center;
+        }
+
+        .tab-btn:hover {
+            color: #fff;
+            border-color: #00a2ff;
+        }
+
+        .tab-btn.active-roblox {
+            background-color: #3b1111;
+            color: #ff4d4d;
+            border-color: #ff4d4d;
+        }
+
+        .tab-btn.active-rolox {
+            background-color: #0d2b45;
+            color: #00a2ff;
+            border-color: #00a2ff;
+        }
+
+        /* CONTAINER DE NOTÍCIAS */
+        #news-container {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            gap: 20px;
+        }
+
+        .news-card {
+            background-color: #1a1d24;
+            border: 1px solid #2a2e39;
+            border-radius: 8px;
+            padding: 20px;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .news-card.roblox-card {
+            border-left: 4px solid #ff4d4d;
+        }
+
+        .news-card.rolox-card {
+            border-left: 4px solid #00a2ff;
+        }
+
+        .news-card:hover {
+            transform: translateY(-2px);
+        }
+
+        .news-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: #888;
+            margin-bottom: 10px;
+        }
+
+        .news-badge {
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .badge-roblox {
+            background-color: rgba(255, 77, 77, 0.2);
+            color: #ff4d4d;
+        }
+
+        .badge-rolox {
+            background-color: rgba(0, 162, 255, 0.2);
+            color: #00a2ff;
+        }
+
+        .news-title {
+            font-size: 1.3rem;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+
+        .news-content {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #cccccc;
+        }
+
+        .loading, .error, .empty {
+            text-align: center;
+            font-size: 1.1rem;
+            padding: 40px;
+            color: #888;
+        }
+
+        .error {
+            color: #ff4d4d;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>ROBLOX - Notícias</h1>
+        <p>one mapas officeal - ROLOX</p>
+    </header>
+
+    <!-- Botões de Filtragem -->
+    <div class="tabs-container">
+        <button class="tab-btn active-roblox" id="btn-roblox" onclick="setTab('ROBLOX')">ROBLOX</button>
+        <button class="tab-btn" id="btn-rolox" onclick="setTab('ROLOX')">ROLOX</button>
+    </div>
+
+    <main id="news-container">
+        <div class="loading">Carregando notícias...</div>
+    </main>
+
+    <script>
+        const JSON_URL = 'https://raw.githubusercontent.com/one-mapas-officeal/one-mapas-officeal.github.io/refs/heads/main/Noticias-roblox-o-quando-e-ruim/.env/ALL%20not%C3%ADcias.json';
+
+        let allNewsData = [];
+        let currentTab = 'ROBLOX';
+
+        async function fetchNews() {
+            const container = document.getElementById('news-container');
+            
+            try {
+                const response = await fetch(JSON_URL);
+                
+                if (!response.ok) {
+                    throw new Error(`Erro ao carregar dados: ${response.status}`);
+                }
+
+                const data = await response.json();
+                allNewsData = Array.isArray(data) ? data : [data];
+                
+                renderNews();
+
+            } catch (err) {
+                container.innerHTML = `<div class="error">Não foi possível carregar as notícias.<br><small>${err.message}</small></div>`;
+            }
+        }
+
+        function setTab(tabName) {
+            currentTab = tabName;
+            
+            const btnRoblox = document.getElementById('btn-roblox');
+            const btnRolox = document.getElementById('btn-rolox');
+
+            if (tabName === 'ROBLOX') {
+                btnRoblox.className = 'tab-btn active-roblox';
+                btnRolox.className = 'tab-btn';
+            } else {
+                btnRoblox.className = 'tab-btn';
+                btnRolox.className = 'tab-btn active-rolox';
+            }
+
+            renderNews();
+        }
+
+        function renderNews() {
+            const container = document.getElementById('news-container');
+            container.innerHTML = '';
+
+            // Filtra as notícias pela aba selecionada
+            const filteredNews = allNewsData.filter(item => {
+                const itemAba = (item.aba || '').toUpperCase();
+                return itemAba === currentTab;
+            });
+
+            if (filteredNews.length === 0) {
+                container.innerHTML = `<div class="empty">Nenhuma notícia encontrada na aba ${currentTab}.</div>`;
+                return;
+            }
+
+            filteredNews.forEach(item => {
+                const card = document.createElement('article');
+                const isRoblox = currentTab === 'ROBLOX';
+                
+                card.className = `news-card ${isRoblox ? 'roblox-card' : 'rolox-card'}`;
+
+                const title = item.titulo || item.title || 'Sem título';
+                const date = item.data || item.date || '';
+                const author = item.autor || 'Anônimo';
+                const content = item.conteudo || item.content || item.descricao || '';
+
+                card.innerHTML = `
+                    <div class="news-meta">
+                        <span class="news-badge ${isRoblox ? 'badge-roblox' : 'badge-rolox'}">${currentTab}</span>
+                        <span>${date} ${author ? '• ' + author : ''}</span>
+                    </div>
+                    <h2 class="news-title">${title}</h2>
+                    <div class="news-content">${content}</div>
+                `;
+
+                container.appendChild(card);
+            });
+        }
+
+        fetchNews();
+    </script>
+</body>
+</html>
