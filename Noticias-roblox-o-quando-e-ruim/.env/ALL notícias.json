@@ -598,6 +598,56 @@
     "categoria": "Conclusão",
     "conteudo": "Com tantas falhas acumuladas, censuras inexplicáveis, bugs no Studio e falta de suporte, a comunidade reforça que o ecossistema ROBLOX está esgotado, alimentando a busca por alternativas livres como o ROLOX em 2029.",
     "tags": ["decadencia", "rolox 2029", "mudanca", "futuro"]
+  },
+  {
+    "id": 61,
+    "aba": "ROBLOX",
+    "titulo": "Servidores Privados ficam inacessíveis após atualização do Roblox",
+    "data": "2026-08-16",
+    "autor": "Status Gamer YT",
+    "categoria": "Instabilidade",
+    "conteudo": "Milhares de jogadores relatam que não conseguem mais entrar em seus próprios servidores privados. Os erros de carregamento e links expirados sem motivo deixaram várias comunidades sem conseguir jogar em paz.",
+    "tags": ["servidor privado", "erro", "roblox ruim", "conexao"]
+  },
+  {
+    "id": 62,
+    "aba": "ROBLOX",
+    "titulo": "Suspensões por erro de cobrança desativam servidores VIP sem aviso",
+    "data": "2026-08-16",
+    "autor": "Central de Bugs",
+    "categoria": "Economia",
+    "conteudo": "Jogadores que tiveram problemas no processamento do pagamento viram seus servidores VIP serem bloqueados instantaneamente, sem período de carência para regularização. A ganância do Roblox ataca novamente!",
+    "tags": ["pagamento", "servidor vip", "bloqueio", "robux"]
+  },
+  {
+    "id": 63,
+    "aba": "ROBLOX",
+    "titulo": "Travamentos na verificação em duas etapas deixam usuários fora da conta",
+    "data": "2026-08-15",
+    "autor": "Suporte Falhou",
+    "categoria": "Autenticação",
+    "conteudo": "Um bug no sistema do Roblox impede o envio de códigos de segurança por e-mail, fazendo com que criadores e jogadores fiquem trancados fora de seus perfis por dias inteiros.",
+    "tags": ["bug de login", "codigo 2fa", "suporte ruim", "bloqueado"]
+  },
+  {
+    "id": 64,
+    "aba": "ROLOX",
+    "titulo": "ROLOX terá servidores privados 100% gratuitos para todos os jogadores!",
+    "data": "2026-08-16",
+    "autor": "Equipe ROLOX",
+    "categoria": "Anúncio Oficial",
+    "conteudo": "Chega de pagar mensalidades absurdas em Robux para jogar sozinho com seus amigos. No ROLOX, qualquer usuário poderá criar servidores VIP gratuitos com total controle de acesso!",
+    "tags": ["rolox 2029", "servidor gratis", "liberdade", "inovacao"]
+  },
+  {
+    "id": 65,
+    "aba": "ROLOX",
+    "titulo": "Painel do ROLOX facilitará o gerenciamento de permissões da comunidade",
+    "data": "2026-08-15",
+    "autor": "Desenvolvimento ROLOX",
+    "categoria": "Ferramentas",
+    "conteudo": "Esqueça os menus confusos do Roblox. O ecossistema ROLOX virá com uma interface simples onde você controla quem entra, quem usa chat e as regras da sua sala com apenas um clique.",
+    "tags": ["rolox perfeito", "painel simples", "comunidade", "respeito"]
   }
 
 ]
