@@ -298,6 +298,306 @@
     "categoria": "Migração",
     "conteudo": "Cansados de tantas restrições absurdas, taxas, censura e instabilidade, milhares de usuários estão abandonando a plataforma e migrando a sua expectativa para o projeto ROLOX em 2029.",
     "tags": ["debandada", "migracao", "rolox 2029", "fim do roblox"]
+  },
+  {
+    "id": 31,
+    "aba": "ROBLOX",
+    "titulo": "Nova interface de usuário (UI) irrita jogadores no PC e Mobile",
+    "data": "2026-08-16",
+    "autor": "DevForum News",
+    "categoria": "Interface",
+    "conteudo": "A reformulação do menu principal escondeu botões essenciais como a lista de amigos e as configurações do jogo. No YouTube, criadores mostram como o novo visual poluiu a tela e dificultou a navegação.",
+    "tags": ["ui", "menu", "design ruim", "atualizacao"]
+  },
+  {
+    "id": 32,
+    "aba": "ROBLOX",
+    "titulo": "Onda de banimentos por 'falso positivo' atinge jogadores inocentes",
+    "data": "2026-08-16",
+    "autor": "Reddit Roblox",
+    "categoria": "Banimentos",
+    "conteudo": "Relatos no Reddit apontam que o anticheat Hyperion está suspendendo contas por 7 dias apenas por executarem programas comuns em segundo plano, como gravadores de tela e antivírus.",
+    "tags": ["falso positivo", "ban injusto", "hyperion", "reddit"]
+  },
+  {
+    "id": 33,
+    "aba": "ROBLOX",
+    "titulo": "Remoção de crachás e badges antigos revolta colecionadores",
+    "data": "2026-08-15",
+    "autor": "Colecionadores ROBLOX",
+    "categoria": "Perfil",
+    "conteudo": "Uma mudança silenciosa na API do jogo fez com que conquistas antigas de 2012 a 2018 sumissem do inventário de perfis veteranos, apagando anos de história da comunidade.",
+    "tags": ["badges", "conquistas", "veteranos", "perfil"]
+  },
+  {
+    "id": 34,
+    "aba": "ROBLOX",
+    "titulo": "Jogos de terror sofrem com censura excessiva na iluminação",
+    "data": "2026-08-15",
+    "autor": "Horror Devs",
+    "categoria": "Censura",
+    "conteudo": "Desenvolvedores de jogos de suspense no Roblox Studio denunciam que novas regras de conteúdo obrigam a remoção de efeitos de escuridão e sombras realistas para 'não assustar menores'.",
+    "tags": ["jogos de terror", "graphics", "censura", "roblox studio"]
+  },
+  {
+    "id": 35,
+    "aba": "ROBLOX",
+    "titulo": "Mercado negro de contas antigas cresce após bloqueios de chat",
+    "data": "2026-08-14",
+    "autor": "Alerta de Segurança",
+    "categoria": "Economia Paralela",
+    "conteudo": "Com as novas travas de idade no chat, o valor de contas criadas antes de 2020 disparou em sites não autorizados. A prática viola os termos e gera onda de roubos de contas.",
+    "tags": ["contas antigas", "seguranca", "golpes", "hackers"]
+  },
+  {
+    "id": 36,
+    "aba": "ROBLOX",
+    "titulo": "Preço da assinatura Roblox Premium sobe e revolta assinantes",
+    "data": "2026-08-14",
+    "autor": "Gamer News",
+    "categoria": "Assinatura",
+    "conteudo": "O valor da mensalidade aumentou, mas o estipêndio de Robux entregue aos assinantes continuou o mesmo. Fóruns estão cheios de tópicos de cancelamento em massa.",
+    "tags": ["premium", "aumento de preco", "robux", "cancelamento"]
+  },
+  {
+    "id": 37,
+    "aba": "ROBLOX",
+    "titulo": "Roblox Studio perde suporte a plugins comunitários gratuitos",
+    "data": "2026-08-13",
+    "autor": "DevForum Brasil",
+    "categoria": "Desenvolvimento",
+    "conteudo": "Ferramentas essenciais criadas pela comunidade agora exigem pagamentos em Robux dentro do Marketplace do Studio, prejudicando pequenos desenvolvedores que não têm orçamento.",
+    "tags": ["roblox studio", "plugins", "devs", "cobrança"]
+  },
+  {
+    "id": 38,
+    "aba": "ROBLOX",
+    "titulo": "Sistema de recomendações da aba 'Descobrir' favorece apenas grandes estúdios",
+    "data": "2026-08-13",
+    "autor": "Indie Games ROBLOX",
+    "categoria": "Algoritmo",
+    "conteudo": "Pequenos criadores reclamam que o novo algoritmo da página inicial esconde jogos independentes e só recomenda jogos com microtransações pesadas.",
+    "tags": ["algoritmo", "descobrir", "jogos indie", "monopolio"]
+  },
+  {
+    "id": 39,
+    "aba": "ROBLOX",
+    "titulo": "Erro de carregamento 'Assets Failed' deixa avatares invisíveis",
+    "data": "2026-08-12",
+    "autor": "Bug Tracker YT",
+    "categoria": "Bugs",
+    "conteudo": "Um bug nos servidores de mídia do ROBLOX impede que roupas e corpos 3D carreguem, fazendo com que os personagens fiquem flutuando como blocos cinzas sem textura nas partidas.",
+    "tags": ["bug", "avatar", "textura", "invisivel"]
+  },
+  {
+    "id": 40,
+    "aba": "ROBLOX",
+    "titulo": "Trade de itens limitados vira alvo de bots de manipulação de preço",
+    "data": "2026-08-12",
+    "autor": "Traders ROBLOX",
+    "categoria": "Trade",
+    "conteudo": "O sistema de trocas de itens Limitados está dominado por bots automatizados que compram e vendem entre si para inflacionar preços de forma artificial.",
+    "tags": ["trade", "limitados", "bots", "mercado"]
+  },
+  {
+    "id": 41,
+    "aba": "ROBLOX",
+    "titulo": "Filtro de busca do catálogo deixa de exibir termos em português",
+    "data": "2026-08-11",
+    "autor": "Comunidade BR",
+    "categoria": "Traducao",
+    "conteudo": "Pesquisar por itens em português no catálogo de roupas e acessórios do ROBLOX está retornando 'Nenhum resultado'. Usuários brasileiros precisam pesquisar tudo em inglês.",
+    "tags": ["catalogo", "portugues", "busca", "erro"]
+  },
+  {
+    "id": 42,
+    "aba": "ROBLOX",
+    "titulo": "Falta de moderação em anúncios de jogos falsos irrita pais",
+    "data": "2026-08-11",
+    "autor": "Alerta Familiar",
+    "categoria": "Anúncios",
+    "conteudo": "Banners patrocinados dentro da plataforma promovem mapas falsos que prometem 'Robux Grátis' para roubar senhas de crianças, sem verificação prévia do ROBLOX.",
+    "tags": ["anuncios", "golpes", "robux gratis", "falso"]
+  },
+  {
+    "id": 43,
+    "aba": "ROBLOX",
+    "titulo": "Queda de framerate no PS4 e PS5 após patch de atualização",
+    "data": "2026-08-10",
+    "autor": "Console Gamer",
+    "categoria": "Consoles",
+    "conteudo": "Jogadores de PlayStation relatam travamentos severos e quedas de FPS para menos de 15 quadros por segundo em mapas como Blox Fruits e Pet Simulator.",
+    "tags": ["ps4", "ps5", "console", "lag", "fps"]
+  },
+  {
+    "id": 44,
+    "aba": "ROBLOX",
+    "titulo": "Grupos do ROBLOX sofrem invasão por bots de spam no mural",
+    "data": "2026-08-10",
+    "autor": "Comunidade Dev",
+    "categoria": "Segurança",
+    "conteudo": "O captcha de entrada nos grupos parou de funcionar e murais de comunidades com milhares de membros estão sendo lotados de links maliciosos em poucas horas.",
+    "tags": ["grupos", "bots", "spam", "captcha"]
+  },
+  {
+    "id": 45,
+    "aba": "ROBLOX",
+    "titulo": "Troca obrigatória de nomes de exibição (Display Name) gera confusão",
+    "data": "2026-08-09",
+    "autor": "YouTube Tech",
+    "categoria": "Perfis",
+    "conteudo": "A nova política do ROBLOX força a alteração de nomes de exibição que sejam parecidos com os de celebridades ou Youtubers, gerando perda de identificação de criadores reais.",
+    "tags": ["display name", "nome", "perfil", "regras"]
+  },
+  {
+    "id": 46,
+    "aba": "ROBLOX",
+    "titulo": "Servidores de eventos oficiais congelam durante lives no YouTube",
+    "data": "2026-08-09",
+    "autor": "Eventos ROBLOX",
+    "categoria": "Servidores",
+    "conteudo": "Durante o evento oficial de transmissão de um parceiro, os servidores principais não suportaram a carga de jogadores simultâneos e caíram por mais de 2 horas.",
+    "tags": ["evento", "queda", "live", "youtube"]
+  },
+  {
+    "id": 47,
+    "aba": "ROBLOX",
+    "titulo": "Nova política de reembolso recusa devolução de Robux por compras acidentais",
+    "data": "2026-08-08",
+    "autor": "Direito Gamer",
+    "categoria": "Economia",
+    "conteudo": "Jogadores que compraram gamepasses por engano devido a botões mal posicionados em jogos móveis relatam que o suporte se recusa a devolver as moedas virtuais.",
+    "tags": ["reembolso", "robux", "suporte", "gamepass"]
+  },
+  {
+    "id": 48,
+    "aba": "ROBLOX",
+    "titulo": "Problemas de sincronização no inventário fazem itens somem temporariamente",
+    "data": "2026-08-08",
+    "autor": "Inventario Bug",
+    "categoria": "Bugs",
+    "conteudo": "Um atraso nos bancos de dados do ROBLOX faz com que itens comprados levem até 48 horas para aparecer no inventário do jogador, gerando sustos e reclamações.",
+    "tags": ["inventario", "sumiu", "delay", "banco de dados"]
+  },
+  {
+    "id": 49,
+    "aba": "ROBLOX",
+    "titulo": "Ferramenta de tradução automática insere termos ofensivos nos jogos",
+    "data": "2026-08-07",
+    "autor": "DevForum Global",
+    "categoria": "Traducao",
+    "conteudo": "O tradutor automático de diálogos do Roblox Studio traduziu incorretamente frases simples em inglês para palavras inadequadas em outros idiomas, gerando punições indevidas a criadores.",
+    "tags": ["traducao", "roblox studio", "erro de traducao"]
+  },
+  {
+    "id": 50,
+    "aba": "ROBLOX",
+    "titulo": "Comunidade no Reddit organiza o 'Dia Sem Jogar ROBLOX' em protesto",
+    "data": "2026-08-07",
+    "autor": "Reddit Movement",
+    "categoria": "Protesto",
+    "conteudo": "Comunidades do Reddit e Discord marcaram uma data para que ninguém entre na plataforma por 24 horas como forma de protestar contra as taxas e o bloqueio de chat.",
+    "tags": ["boicote", "protesto", "reddit", "comunidade"]
+  },
+  {
+    "id": 51,
+    "aba": "ROBLOX",
+    "titulo": "Controle de voz no Xbox é desativado por tempo indeterminado",
+    "data": "2026-08-06",
+    "autor": "Xbox News BR",
+    "categoria": "Consoles",
+    "conteudo": "Jogadores do console Xbox perderam o acesso ao chat de voz dentro das partidas devido a incompatibilidades entre a moderação do ROBLOX e as políticas da Microsoft.",
+    "tags": ["xbox", "chat de voz", "microsoft", "desativado"]
+  },
+  {
+    "id": 52,
+    "aba": "ROBLOX",
+    "titulo": "Novo atraso no pagamento do DevEx deixa criadores sem renda",
+    "data": "2026-08-06",
+    "autor": "DevEx Tracker",
+    "categoria": "Desenvolvimento",
+    "conteudo": "O programa de conversão de Robux para dinheiro real (Developer Exchange) atrasou o processamento das solicitações deste mês, deixando desenvolvedores preocupados.",
+    "tags": ["devex", "pagamento", "devs", "atraso"]
+  },
+  {
+    "id": 53,
+    "aba": "ROBLOX",
+    "titulo": "Animações R15 quebradas fazem avatares 'deformarem' em certos mapas",
+    "data": "2026-08-05",
+    "autor": "Animation News",
+    "categoria": "Bugs",
+    "conteudo": "A atualização do esqueleto R15 causou um bug estético onde os braços e pernas dos avatares se esticam de forma bizarra ao andar ou pular em jogos mais antigos.",
+    "tags": ["r15", "animacao", "bug visual", "avatar"]
+  },
+  {
+    "id": 54,
+    "aba": "ROBLOX",
+    "titulo": "Proibição de links externos na descrição de perfis isola criadores",
+    "data": "2026-08-05",
+    "autor": "Redes Sociais Gamer",
+    "categoria": "Regras",
+    "conteudo": "O ROBLOX passou a punir usuários que colocam nomes de suas redes sociais ou canais do YouTube em suas biografias de perfil, cortando a divulgação dos próprios criadores.",
+    "tags": ["links", "redes sociais", "perfil", "punicao"]
+  },
+  {
+    "id": 55,
+    "aba": "ROBLOX",
+    "titulo": "Especialistas alertam para os perigos do vício em compras virtuais no jogo",
+    "data": "2026-08-04",
+    "autor": "PsicoGames",
+    "categoria": "Saúde",
+    "conteudo": "Estudos divulgados por psicólogos apontam que as mecânicas de 'caixas surpresa' (gacha) em jogos populares do ROBLOX estimulam comportamentos de compulsão em crianças.",
+    "tags": ["gacha", "vicio", "saude", "microtransacoes"]
+  },
+  {
+    "id": 56,
+    "aba": "ROBLOX",
+    "titulo": "Servidores de autenticação caem e impedem login via QR Code",
+    "data": "2026-08-04",
+    "autor": "Login Status",
+    "categoria": "Instabilidade",
+    "conteudo": "O recurso de entrar no computador usando a câmera do celular ficou fora do ar por horas, obrigando os usuários a digitarem senhas longas e verificações de 2 etapas.",
+    "tags": ["login", "qr code", "erro", "autenticacao"]
+  },
+  {
+    "id": 57,
+    "aba": "ROBLOX",
+    "titulo": "Preço mínimo para venda de camisas e calças UGC é elevado novamente",
+    "data": "2026-08-03",
+    "autor": "UGC Economy",
+    "categoria": "Marketplace",
+    "conteudo": "Criadores não podem mais vender roupas virtuais por valores baixos de Robux. A nova taxa mínima imposta dificulta que jogadores sem dinheiro consigam personalizar avatares.",
+    "tags": ["ugc", "roupas", "preço minimo", "robux"]
+  },
+  {
+    "id": 58,
+    "aba": "ROBLOX",
+    "titulo": "Remoção repentina de mapa popular gera indignação no YouTube",
+    "data": "2026-08-03",
+    "autor": "Game Coverage YT",
+    "categoria": "Remoção",
+    "conteudo": "Um dos mapas mais jogados da semana foi banido sem aviso prévio por supostas violações de direitos autorais de marca, deixando milhões de jogadores sem o progresso salvo.",
+    "tags": ["mapa banido", "direitos autorais", "perda de progresso"]
+  },
+  {
+    "id": 59,
+    "aba": "ROBLOX",
+    "titulo": "Usuários no Linux enfrentam bloqueios frequentes para rodar o cliente",
+    "data": "2026-08-02",
+    "autor": "Linux Gaming BR",
+    "categoria": "Compatibilidade",
+    "conteudo": "Com as constantes mudanças do anticheat Hyperion, a execução do ROBLOX via camadas de compatibilidade como Wine/Proton no Linux continua instável e gerando travamentos de inicialização.",
+    "tags": ["linux", "hyperion", "compatibilidade", "wine"]
+  },
+  {
+    "id": 60,
+    "aba": "ROBLOX",
+    "titulo": "Insatisfação geral atinge nível recorde e fortalece a expectativa pelo ROLOX",
+    "data": "2026-08-02",
+    "autor": "Visão da Comunidade",
+    "categoria": "Conclusão",
+    "conteudo": "Com tantas falhas acumuladas, censuras inexplicáveis, bugs no Studio e falta de suporte, a comunidade reforça que o ecossistema ROBLOX está esgotado, alimentando a busca por alternativas livres como o ROLOX em 2029.",
+    "tags": ["decadencia", "rolox 2029", "mudanca", "futuro"]
   }
 
 ]
