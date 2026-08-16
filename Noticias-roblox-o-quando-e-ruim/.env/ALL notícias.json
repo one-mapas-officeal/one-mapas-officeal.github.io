@@ -98,5 +98,206 @@
     "categoria": "Expectativa",
     "conteudo": "Enquanto o ROBLOX acumula reclamações, a comunidade se une para apoiar o ROLOX. Um ecossistema feito de jogador para jogador, com foco em diversão de verdade.",
     "tags": ["rolox 2029", "uniao", "futuro"]
+  },
+  {
+    "id": 11,
+    "aba": "ROBLOX",
+    "titulo": "Nova verificação facial obriga scan da câmera para liberar o chat!",
+    "data": "2026-08-16",
+    "autor": "Alerta Gamer YT",
+    "categoria": "Privacidade",
+    "conteudo": "A mais recente atualização do ROBLOX agora exige que os jogadores façam escaneamento facial pela câmera do celular para tentar liberar o chat. Quem não faz a verificação simplesmente não consegue nem dar 'oi' dentro das partidas.",
+    "tags": ["verificacao facial", "camera", "privacidade", "chat"]
+  },
+  {
+    "id": 12,
+    "aba": "ROBLOX",
+    "titulo": "Amigos não conseguem mais conversar devido às regras de faixa etária",
+    "data": "2026-08-16",
+    "autor": "Central de Polêmicas",
+    "categoria": "Censura",
+    "conteudo": "A nova tabela de idades do ROBLOX bloqueia totalmente a conversa entre pessoas com pequena diferença de idade. Se um jogador tem 14 anos e outro tem 17, o chat fica mudo para ambos, destruindo duplas e grupos de amigos antigos.",
+    "tags": ["idade", "bloqueio", "amigos", "ruim"]
+  },
+  {
+    "id": 13,
+    "aba": "ROLOX",
+    "titulo": "Protestos em Brookhaven! Jogadores fazem passeata contra a censura",
+    "data": "2026-08-15",
+    "autor": "Notícias do Roblox",
+    "categoria": "Protesto",
+    "conteudo": "Milhares de jogadores se reuniram no mapa Brookhaven segurando placas e fazendo barricadas virtuais contra as novas regras de chat. O evento virou notícia em canais do YouTube e mostrou a revolta da comunidade.",
+    "tags": ["brookhaven", "protesto", "revolta", "censura"]
+  },
+  {
+    "id": 14,
+    "aba": "ROBLOX",
+    "titulo": "Jogos de sobrevivência como '99 Noites na Floresta' foram prejudicados",
+    "data": "2026-08-15",
+    "autor": "Análise Dev",
+    "categoria": "Gameplay",
+    "conteudo": "Mapas que dependem de trabalho em equipe e comunicação rápida estão sendo abandonados. Como o chat agora é bloqueado por idade, os times não conseguem se organizar para sobreviver, arruinando a experiência de jogo.",
+    "tags": ["99 noites", "sobrevivencia", "trabalho em equipe", "chat quebrado"]
+  },
+  {
+    "id": 15,
+    "aba": "ROBLOX",
+    "titulo": "Boatos de banimento do ROBLOX assustam milhões de jogadores",
+    "data": "2026-08-14",
+    "autor": "YouTube News",
+    "categoria": "Fake News",
+    "conteudo": "Vídeos virais no YouTube espalharam o rumor de que o ROBLOX seria banido permanentemente por não conseguir proteger os menores. A empresa desmentiu, mas o pânico generalizado só mostrou a falta de confiança na plataforma.",
+    "tags": ["banimento", "rumores", "youtube", "crise"]
+  },
+  {
+    "id": 16,
+    "aba": "ROBLOX",
+    "titulo": "Erros na verificação de idade travam contas de milhares de usuários",
+    "data": "2026-08-14",
+    "autor": "Suporte Falho",
+    "categoria": "Bugs",
+    "conteudo": "Jogadores com mais de 18 anos relatam que o sistema automático de verificação errou suas idades ao ler o documento, colocando-os como menores de idade. Para piorar, o ROBLOX não permite refazer a verificação!",
+    "tags": ["bug de idade", "documentos", "suporte ruim"]
+  },
+  {
+    "id": 17,
+    "aba": "ROBLOX",
+    "titulo": "Reportagem na TV expõe gastos acidentais de crianças com Robux",
+    "data": "2026-08-13",
+    "autor": "Jornal do Game",
+    "categoria": "Escândalo",
+    "conteudo": "Matérias jornalísticas voltaram a criticar o ROBLOX após crianças gastarem milhares de reais nos cartões dos pais sem confirmação de senha adequada. A plataforma é acusada de criar sistemas 'pega-trouxa' para lucrar fácil.",
+    "tags": ["robux", "cartao de credito", "tv", "polemica"]
+  },
+  {
+    "id": 18,
+    "aba": "ROBLOX",
+    "titulo": "Jogadores com menos de 9 anos perdem o chat por padrão",
+    "data": "2026-08-13",
+    "autor": "Atualização Oficial",
+    "categoria": "Restrição",
+    "conteudo": "Crianças com 8 anos ou menos agora estão completamente proibidas de ler ou mandar mensagens no chat do jogo sem permissão formal dos pais via painel. O jogo virou praticamente um modo offline para elas.",
+    "tags": ["menores de 9 anos", "chat bloqueado", "sem conversa"]
+  },
+  {
+    "id": 19,
+    "aba": "ROBLOX",
+    "titulo": "Proibição do ROBLOX na Rússia gera alerta global na comunidade",
+    "data": "2026-08-12",
+    "autor": "Geopolítica Gamer",
+    "categoria": "Banimento",
+    "conteudo": "Após autoridades locais bloquearem o aplicativo alegando falta de segurança e conteúdo inadequado para crianças, criadores do mundo todo temem que outros países sigam o mesmo caminho.",
+    "tags": ["banido", "russia", "bloqueio global"]
+  },
+  {
+    "id": 20,
+    "aba": "ROBLOX",
+    "titulo": "Chat de voz continua exclusivo para maiores, mas com filtros invasivos",
+    "data": "2026-08-12",
+    "autor": "Tech Review YT",
+    "categoria": "Voice Chat",
+    "conteudo": "Mesmo quem tem o chat de voz ativado reclama de suspensões automáticas por microfone aberto. O robô de moderação pune jogadores até por barulho de fundo na casa.",
+    "tags": ["chat de voz", "microfone", "ban automatico"]
+  },
+  {
+    "id": 21,
+    "aba": "ROBLOX",
+    "titulo": "YouTubers famosos gravam vídeos detonando o estado atual do jogo",
+    "data": "2026-08-11",
+    "autor": "YouTube Trends",
+    "categoria": "Comunidade",
+    "conteudo": "Criadores com milhões de inscritos publicaram vídeos afirmando que o ROBLOX em 2026 'está no seu pior momento da história', criticando a ganância da empresa e o abandono dos velhos jogadores.",
+    "tags": ["youtubers", "critica", "decadencia"]
+  },
+  {
+    "id": 22,
+    "aba": "ROBLOX",
+    "titulo": "Sistemas Anti-Cheat causam travamentos até em PCs fracos e celulares",
+    "data": "2026-08-11",
+    "autor": "Hardware & Games",
+    "categoria": "Desempenho",
+    "conteudo": "A ferramenta de proteção Hyperion atualizada consome tanta memória RAM que celulares mais fracos e computadores simples travam assim que o jogo é aberto.",
+    "tags": ["lag", "hyperion", "travamentos", "celular fraco"]
+  },
+  {
+    "id": 23,
+    "aba": "ROBLOX",
+    "titulo": "Preço de servidores privados sobe e revolta donos de grupos",
+    "data": "2026-08-10",
+    "autor": "DevForum News",
+    "categoria": "Economia",
+    "conteudo": "Para jogar em paz sem os bugs do chat público, jogadores tentaram ir para servidores VIPs, mas o ROBLOX aumentou a taxa sobre Robux cobrada dos criadores de conteúdo.",
+    "tags": ["servidor vip", "robux", "inflacao"]
+  },
+  {
+    "id": 24,
+    "aba": "ROBLOX",
+    "titulo": "Filtro de palavras quebrado liberta palavrões e bloqueia frases normais",
+    "data": "2026-08-10",
+    "autor": "Gamer Bug",
+    "categoria": "Bugs",
+    "conteudo": "Uma falha grave no sistema de moderação fez com que palavras ofensivas passassem sem filtro em algumas regiões, enquanto frases comuns como 'vamos jogar' viravam '####'.",
+    "tags": ["filtro quebrado", "hashtag", "falha de moderação"]
+  },
+  {
+    "id": 25,
+    "aba": "ROBLOX",
+    "titulo": "Criadores de UGC reclamam de cópias e plágios não punidos",
+    "data": "2026-08-09",
+    "autor": "Marketplace News",
+    "categoria": "UGC",
+    "conteudo": "Artistas que passam horas criando acessórios 3D originais estão perdendo dinheiro para contas bots que copiam os itens e vendem pelo preço mínimo sem sofrer banimento.",
+    "tags": ["ugc", "plagio", "bots", "injustica"]
+  },
+  {
+    "id": 26,
+    "aba": "ROBLOX",
+    "titulo": "Crianças usam fotos dos pais para tentar burlar a verificação de idade",
+    "data": "2026-08-09",
+    "autor": "Segurança Digital",
+    "categoria": "Escândalo",
+    "conteudo": "Com o desespero para usar o chat de novo, tutoriais no YouTube ensinam crianças a usar fotos de adultos ou documentos antigos, provando que o sistema de segurança do ROBLOX é uma piada.",
+    "tags": ["burlar", "tutoriais", "falha de seguranca"]
+  },
+  {
+    "id": 27,
+    "aba": "ROBLOX",
+    "titulo": "Remoção de audios e sons antigos continua deixando mapas mudos",
+    "data": "2026-08-08",
+    "autor": "Devs Revoltados",
+    "categoria": "Trilha Sonora",
+    "conteudo": "Ainda colhendo os frutos da crise de direitos autorais, milhares de mapas clássicos do jogo continuam sem música de fundo e com efeitos sonoros quebrados.",
+    "tags": ["audios", "direitos autorais", "mapas mudos"]
+  },
+  {
+    "id": 28,
+    "aba": "ROBLOX",
+    "titulo": "Aumento no tempo de espera no suporte técnico irrita a comunidade",
+    "data": "2026-08-08",
+    "autor": "Consumidor Gamer",
+    "categoria": "Atendimento",
+    "conteudo": "Jogadores que tiveram suas contas hackeadas ou que perderam Robux relatam que o suporte por e-mail demora até 3 semanas para responder com uma mensagem automática genérica.",
+    "tags": ["suporte péssimo", "demora", "conta hackeada"]
+  },
+  {
+    "id": 29,
+    "aba": "ROBLOX",
+    "titulo": "Quedas globais de servidor no final de semana estragam partidas",
+    "data": "2026-08-07",
+    "autor": "Server Status",
+    "categoria": "Instabilidade",
+    "conteudo": "Servidores instáveis desconectaram milhões de jogadores no meio de eventos e partidas ranqueadas. O aviso de 'Erro 279' virou pesadelo nos finais de semana.",
+    "tags": ["queda de servidor", "erro 279", "desconexao"]
+  },
+  {
+    "id": 30,
+    "aba": "ROBLOX",
+    "titulo": "Debandada de jogadores faz busca por alternativas como o ROLOX crescer",
+    "data": "2026-08-07",
+    "autor": "Comunidade ROLOX",
+    "categoria": "Migração",
+    "conteudo": "Cansados de tantas restrições absurdas, taxas, censura e instabilidade, milhares de usuários estão abandonando a plataforma e migrando a sua expectativa para o projeto ROLOX em 2029.",
+    "tags": ["debandada", "migracao", "rolox 2029", "fim do roblox"]
   }
+
 ]
