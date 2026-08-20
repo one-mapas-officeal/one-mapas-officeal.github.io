@@ -649,14 +649,14 @@
     "conteudo": "Esqueça os menus confusos do Roblox. O ecossistema ROLOX virá com uma interface simples onde você controla quem entra, quem usa chat e as regras da sua sala com apenas um clique.",
     "tags": ["rolox perfeito", "painel simples", "comunidade", "respeito"]
   },
-{
-    "id": 166,
+  {
+    "id": 66,
     "aba": "ROBLOX",
     "titulo": "Novo 'Erro 317' bloqueia jogadores em dispositivos com sistemas modificados",
     "data": "2026-08-20",
     "autor": "Tech Security",
     "categoria": "Segurança",
-    "conteudo": "A nova trava de atestação remota de hardware do Roblox impede o acesso a mapas com segurança reforçada. O aviso 'Este jogo ativou requisitos adicionais de segurança de hardware' afeta emuladores, aparelhos com root ou bootloader desbloqueado.",
+    "conteudo": "A nova trava de atestação remota de hardware do Roblox impede o acesso a mapas com segurança reforçada. O aviso 'Este jogo ativou requisitos adicionais de segurança de hardware' afeta emuladores, aparelhos com root ou bootloader desbloqueado. este erro ja esta no mm2!!! cuidado com os jogos que jogam",
     "tags": ["erro 317", "hardware", "emulador", "root", "bloqueio"]
 }
 ]
