@@ -3,12 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ahiga Go AI - Checkout</title>
+  <title>Ahiga Go Life - Checkout</title>
   
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#6366f1">
-
-  <script src="https://js.stripe.com/v3/"></script>
 
   <style>
     :root {
@@ -23,92 +21,74 @@
     header { text-align: center; margin-bottom: 20px; }
     
     .status-box { background: #334155; padding: 12px; border-radius: 8px; margin-bottom: 20px; text-align: center; width: 100%; max-width: 400px; }
-    .pricing { display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; max-width: 1000px; }
-    .card { background: var(--card); border: 1px solid #334155; border-radius: 12px; padding: 20px; width: 280px; text-align: center; }
-    .price { font-size: 1.8rem; font-weight: bold; margin: 10px 0; }
-    .methods { font-size: 0.8rem; color: #94a3b8; margin-bottom: 15px; }
-    .btn { background: var(--primary); color: white; border: none; padding: 12px; border-radius: 6px; width: 100%; font-weight: bold; cursor: pointer; }
+    .pricing { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; max-width: 800px; }
+    .card { background: var(--card); border: 1px solid #334155; border-radius: 12px; padding: 25px; width: 300px; text-align: center; }
+    .price { font-size: 2rem; font-weight: bold; margin: 10px 0; }
+    .original-price { text-decoration: line-through; color: #94a3b8; font-size: 0.95rem; }
+    .methods { font-size: 0.85rem; color: #94a3b8; margin-bottom: 20px; }
+    .btn { background: var(--primary); color: white; border: none; padding: 12px; border-radius: 6px; width: 100%; font-weight: bold; cursor: pointer; text-decoration: none; display: block; }
     .btn:hover { opacity: 0.9; }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>Ahiga Go AI</h1>
-    <p>Escolha o plano e pague via <strong>PIX</strong> ou <strong>Cartão</strong></p>
+    <h1>Ahiga Go Life</h1>
+    <p>Acesse a plataforma pagando via <strong>PIX</strong> ou <strong>Cartão</strong></p>
   </header>
 
   <div class="status-box" id="status">Verificando permissão...</div>
 
   <div class="pricing">
+    <!-- Plano Diário -->
     <div class="card">
       <h3>Diário</h3>
-      <div class="price">R$ 4,99</div>
+      <div class="price">R$ 30,00</div>
       <div class="methods">💳 Cartão ou 📱 PIX</div>
-      <button class="btn" onclick="iniciarCheckout('4.99', 1)">Pagar Agora</button>
+      <button class="btn" onclick="pagar('https://buy.stripe.com/test_14A3cncG28ar9xUaUV7AI02', 1)">Pagar R$ 30,00</button>
     </div>
 
+    <!-- Plano Mensal -->
     <div class="card">
       <h3>Mensal (10% OFF)</h3>
-      <div class="price">R$ 134,73</div>
+      <div class="original-price">De R$ 900,00</div>
+      <div class="price">R$ 810,00</div>
       <div class="methods">💳 Cartão ou 📱 PIX</div>
-      <button class="btn" onclick="iniciarCheckout('134.73', 30)">Pagar Agora</button>
-    </div>
-
-    <div class="card">
-      <h3>Anual (30% OFF)</h3>
-      <div class="price">R$ 1.274,95</div>
-      <div class="methods">💳 Cartão ou 📱 PIX</div>
-      <button class="btn" onclick="iniciarCheckout('1274.95', 365)">Pagar Agora</button>
+      <button class="btn" onclick="pagar('https://buy.stripe.com/test_9B600bbBYeyPh0mgff7AI04', 30)">Pagar R$ 810,00</button>
     </div>
   </div>
 
   <script>
-    // Inicializa o Stripe (Insira sua Chave Pública aqui)
-    const stripe = Stripe('pk_test_suaChavePublicaStripeAqui');
-
-    // Checa o acesso salvo no localStorage ao carregar a página
     function checarAcesso() {
-      const exp = localStorage.getItem('ahiga_acesso_ate');
       const statusEl = document.getElementById('status');
-      
-      // Checa se voltou do checkout com sucesso
       const urlParams = new URLSearchParams(window.location.search);
-      if (urlParams.get('pagamento') === 'sucesso') {
-        const diasComprados = parseInt(urlParams.get('dias') || '1');
-        liberarAcesso(diasComprados);
+      
+      if (urlParams.get('sucesso') === 'true') {
+        const dias = parseInt(urlParams.get('dias') || '1');
+        liberarAcesso(dias);
         window.history.replaceState({}, document.title, window.location.pathname);
       }
 
+      const exp = localStorage.getItem('ahiga_acesso_ate');
       if (exp && new Date().getTime() < parseInt(exp)) {
         const data = new Date(parseInt(exp)).toLocaleString('pt-BR');
         statusEl.innerHTML = ` Status: <strong>Acesso Liberado</strong> até ${data}`;
         statusEl.style.color = '#4ade80';
         return true;
       }
+      
       statusEl.innerHTML = ' Status: <strong>Sem assinatura ativa</strong>';
       statusEl.style.color = '#f87171';
       return false;
     }
 
-    // Função de pagamento (abre o checkout seguro com PIX e Cartão)
-    async function iniciarCheckout(valor, dias) {
-      // Exemplo de integração: em ambiente de teste, redireciona/simula a aprovação
-      try {
-        // Redirecionamento de teste simulando a tela de pagamento do Stripe
-        const confirmarSimulacao = confirm(`[Checkout] Pagar R$ ${valor} via PIX ou Cartão?`);
-        
-        if (confirmarSimulacao) {
-          // Grava e libera o acesso no dispositivo do cliente
-          liberarAcesso(dias);
-          alert("Pagamento aprovado com sucesso!");
-        }
-      } catch (err) {
-        alert("Erro ao iniciar o pagamento.");
+    function pagar(linkStripe, dias) {
+      if (linkStripe.startsWith('http')) {
+        const urlRetorno = encodeURIComponent(window.location.origin + window.location.pathname + `?sucesso=true&dias=${dias}`);
+        window.location.href = `${linkStripe}?after_completion_url=${urlRetorno}`;
       }
     }
 
-    // Salva a permissão no localStorage
     function liberarAcesso(dias) {
       const expiraEm = new Date().getTime() + (dias * 24 * 60 * 60 * 1000);
       localStorage.setItem('ahiga_acesso_ate', expiraEm.toString());
