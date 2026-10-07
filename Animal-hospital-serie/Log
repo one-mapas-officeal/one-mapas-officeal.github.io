@@ -1,1 +1,9 @@
-so um teste mesmo 
+[
+  {
+    "Id": "0",
+    "Name-br": "aviso da série!!!!",
+    "Name-eua": "series notice!!!!",
+    "Conteudo-br": "cada episódio será lançado ACADA 1 mês isso foi criado pela nossa equipe ent esperando mais informações sobre a série",
+    "Conteudo-eua": "each episode will be released every 1 month. This was created by our team, so stay tuned for more information about the series"
+  }
+]
