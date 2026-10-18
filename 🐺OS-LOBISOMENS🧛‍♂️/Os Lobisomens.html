@@ -6,13 +6,13 @@
 <title>Os Lobisomens</title>
 <style>
 :root {
-  --bg:#f4f2f8; --text:#1e1b29; --muted:#6a6580; --accent:#5a3d9e; --gold:#b58a22; --red:#b02f3e; --rule:#d8d3e4;
+  --bg:#f4f2f8; --text:#1e1b29; --muted:#6a6580; --accent:#5a3d9e; --gold:#b58a22; --red:#b02f3e; --blue:#3b7dd8; --rule:#d8d3e4;
   box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
 }
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) { --bg:#13111c; --text:#e8e5ef; --muted:#9a94b0; --accent:#a98bf0; --gold:#e0b85a; --red:#e0525f; --rule:#2c2840; color-scheme:dark; }
+  :root:not([data-theme="light"]) { --bg:#13111c; --text:#e8e5ef; --muted:#9a94b0; --accent:#a98bf0; --gold:#e0b85a; --red:#e0525f; --blue:#6aaef5; --rule:#2c2840; color-scheme:dark; }
 }
-:root[data-theme="dark"] { --bg:#13111c; --text:#e8e5ef; --muted:#9a94b0; --accent:#a98bf0; --gold:#e0b85a; --red:#e0525f; --rule:#2c2840; color-scheme:dark; }
+:root[data-theme="dark"] { --bg:#13111c; --text:#e8e5ef; --muted:#9a94b0; --accent:#a98bf0; --gold:#e0b85a; --red:#e0525f; --blue:#6aaef5; --rule:#2c2840; color-scheme:dark; }
 *, *::before, *::after { box-sizing:inherit; }
 html { scroll-padding-top:calc(env(safe-area-inset-top,0px) + 1rem); }
 @media (prefers-reduced-motion: no-preference) { html { scroll-behavior:smooth; } }
@@ -26,6 +26,7 @@ header p { margin:0; color:var(--muted); font-style:italic; }
 .eyes i:nth-child(1) { background:var(--gold); }
 .eyes i:nth-child(2) { background:var(--accent); }
 .eyes i:nth-child(3) { background:var(--red); }
+.eyes i:nth-child(4) { background:var(--blue); }
 header .eyes { margin:1.5rem 0 0; }
 #indice h2 { font-size:1.35rem; margin:0 0 1rem; }
 #indice ol { list-style:none; margin:0; padding:0; columns:1; }
@@ -39,7 +40,11 @@ h4 { font-size:1.05rem; margin:1.5rem 0 .25rem; color:var(--muted); }
 p { margin:0 0 1.1rem; }
 blockquote { margin:1rem 0; padding-left:1rem; border-left:3px solid var(--accent); font-style:italic; }
 hr { border:0; border-top:1px solid var(--rule); margin:2rem auto; width:40%; }
-.pn { display:flex; justify-content:space-between; gap:1rem; margin-top:2.5rem; padding-top:1rem; border-top:1px solid var(--rule); font-size:.95rem; }
+.pn { display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:.75rem; margin-top:2.5rem; padding-top:1rem; border-top:1px solid var(--rule); font-size:.95rem; }
+.pn a { white-space:nowrap; }
+.pn a:first-child { justify-self:start; }
+.pn a:last-child { justify-self:end; }
+.pn span { display:block; }
 .pn a, header a { color:var(--accent); text-decoration:none; }
 .pn a:hover { text-decoration:underline; }
 a:focus-visible { outline:2px solid var(--accent); outline-offset:3px; border-radius:2px; }
@@ -50,7 +55,7 @@ a:focus-visible { outline:2px solid var(--accent); outline-offset:3px; border-ra
 <main>
 <header>
 <h1>Os Lobisomens</h1>
-<p>Partes 1 a 50</p>
+<p>Partes 1 a 100</p>
 <div class="eyes" aria-hidden="true"><i></i><i></i><i></i></div>
 </header>
 <nav id="indice" aria-label="Índice">
@@ -106,6 +111,56 @@ a:focus-visible { outline:2px solid var(--accent); outline-offset:3px; border-ra
 <li><a href="#parte-48">Parte 48 — A Maldição Quebrada</a></li>
 <li><a href="#parte-49">Parte 49 — Depois da Guerra</a></li>
 <li><a href="#parte-50">Parte 50 — O Novo Amanhecer</a></li>
+<li><a href="#parte-51">Parte 51 — O Império Novo</a></li>
+<li><a href="#parte-52">Parte 52 — Um Conselho de Dois Mundos</a></li>
+<li><a href="#parte-53">Parte 53 — O Primeiro Inverno</a></li>
+<li><a href="#parte-54">Parte 54 — O Voo do Duda</a></li>
+<li><a href="#parte-55">Parte 55 — Ecos do Norte</a></li>
+<li><a href="#parte-56">Parte 56 — A Mensagem na Neve</a></li>
+<li><a href="#parte-57">Parte 57 — Quem Vai Com Você</a></li>
+<li><a href="#parte-58">Parte 58 — A Estrada da Neve</a></li>
+<li><a href="#parte-59">Parte 59 — O Vale Esquecido</a></li>
+<li><a href="#parte-60">Parte 60 — O Líder da Ordem</a></li>
+<li><a href="#parte-61">Parte 61 — O Ultimato</a></li>
+<li><a href="#parte-62">Parte 62 — A Volta Apressada</a></li>
+<li><a href="#parte-63">Parte 63 — Os Sinos Tocam</a></li>
+<li><a href="#parte-64">Parte 64 — Refém</a></li>
+<li><a href="#parte-65">Parte 65 — Neve Vermelha</a></li>
+<li><a href="#parte-66">Parte 66 — O Preço da Vitória</a></li>
+<li><a href="#parte-67">Parte 67 — O Canto do Gelo</a></li>
+<li><a href="#parte-68">Parte 68 — A Torre de Gelo</a></li>
+<li><a href="#parte-69">Parte 69 — Subindo a Torre</a></li>
+<li><a href="#parte-70">Parte 70 — O Cristal Roxo</a></li>
+<li><a href="#parte-71">Parte 71 — A Descida</a></li>
+<li><a href="#parte-72">Parte 72 — O Poder Que Se Espalha</a></li>
+<li><a href="#parte-73">Parte 73 — Perdão de Morvana</a></li>
+<li><a href="#parte-74">Parte 74 — A Ordem Se Desfaz</a></li>
+<li><a href="#parte-75">Parte 75 — O Regresso de Duda</a></li>
+<li><a href="#parte-76">Parte 76 — A Carta de Aurora</a></li>
+<li><a href="#parte-77">Parte 77 — O Conselho Se Reúne</a></li>
+<li><a href="#parte-78">Parte 78 — Os Olhos de Duda</a></li>
+<li><a href="#parte-79">Parte 79 — O Chamado do Sul</a></li>
+<li><a href="#parte-80">Parte 80 — A Viagem Para o Sul</a></li>
+<li><a href="#parte-81">Parte 81 — Olhos Amarelos</a></li>
+<li><a href="#parte-82">Parte 82 — O Acampamento</a></li>
+<li><a href="#parte-83">Parte 83 — Teodoro</a></li>
+<li><a href="#parte-84">Parte 84 — A Lenda dos Guardiões</a></li>
+<li><a href="#parte-85">Parte 85 — O Sono da Terra</a></li>
+<li><a href="#parte-86">Parte 86 — Os Despertos</a></li>
+<li><a href="#parte-87">Parte 87 — Um Acordo Antigo</a></li>
+<li><a href="#parte-88">Parte 88 — A Sombra no Horizonte</a></li>
+<li><a href="#parte-89">Parte 89 — O Caçador Sem Nome</a></li>
+<li><a href="#parte-90">Parte 90 — O Controle Perdido</a></li>
+<li><a href="#parte-91">Parte 91 — A Batalha das Árvores Secas</a></li>
+<li><a href="#parte-92">Parte 92 — Quem Ele Era</a></li>
+<li><a href="#parte-93">Parte 93 — A Família Perdida</a></li>
+<li><a href="#parte-94">Parte 94 — O Perdão do Caçador</a></li>
+<li><a href="#parte-95">Parte 95 — O Vale dos Esquecidos</a></li>
+<li><a href="#parte-96">Parte 96 — Luz no Sul</a></li>
+<li><a href="#parte-97">Parte 97 — O Retorno</a></li>
+<li><a href="#parte-98">Parte 98 — A Cidade Esperando</a></li>
+<li><a href="#parte-99">Parte 99 — O Que Viram no Sul</a></li>
+<li><a href="#parte-100">Parte 100 — A Matilha de Muitos Mundos</a></li>
 </ol>
 </nav>
 <section id="parte-1">
@@ -1501,6 +1556,9 @@ a:focus-visible { outline:2px solid var(--accent); outline-offset:3px; border-ra
 <p>Padre Tomás abençoou a água do poço da igreja, e os frascos foram distribuídos aos poucos humanos que quiseram ajudar.</p>
 <p>Luminar organizou as equipes em turnos. Cada grupo tinha um lobisomem, um humano de confiança e um sino para dar o alarme.</p>
 <p>Na noite sem lua, o silêncio era total. Nem os grilos cantavam, e o vento parecia ter parado para escutar.</p>
+<p>Do alto, Arthur voava em círculos ao redor da cidade, de olhos fixos no horizonte. Foi ele quem viu primeiro: sombras enormes cortando as nuvens, vindas do norte e do sul.</p>
+<p>— Mika! — gritou Arthur, descendo por um instante até a torre. — Tem vampiros voadores vindo do norte e do sul! Os que só andam estão vindo pelo oeste e pelo leste!</p>
+<p>Mika assentiu, já escutando os passos distantes, e repassou o aviso à matilha inteira, bairro por bairro.</p>
 <p>Quando o primeiro sino tocou, Mika levantou a cabeça, de olhos arregalados.</p>
 <p>— Eles chegaram. Estão vindo de todos os lados.</p>
 <p>Dezenas de vampiros apareceram nas muralhas da cidade, pulando de telhado em telhado como sombras.</p>
@@ -1731,12 +1789,16 @@ a:focus-visible { outline:2px solid var(--accent); outline-offset:3px; border-ra
 </section>
 <section id="parte-41">
 <h2>Parte 41 — A Torre</h2>
-<div class="eyes" aria-hidden="true"><i></i><i></i><i></i></div>
+<div class="eyes" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
 <hr>
 <p>— Eu nunca vou ficar ao seu lado — respondeu Arthur, e a voz dele ecoou pelo Grande Salão.</p>
 <p>Lysandre suspirou, como quem esperava a resposta. Levantou do trono devagar e estalou os dedos.</p>
 <p>Das sombras, dezenas de vampiros de elite saíram, vestidos de preto, com espadas de osso e olhos que brilhavam em vermelho.</p>
 <p>A matilha se fechou ao redor de Arthur. Luminar gritou ordens, e Seraphine ergueu a espada, pronta para lutar contra o próprio clã.</p>
+<p>Arthur fechou os olhos e rezou por um momento, em silêncio, pedindo força a todos que ele amava.</p>
+<p>Quando abriu os olhos de novo, ouviu uma voz fraca e familiar descendo da torre, muito acima do salão. Era a voz da mãe dele, chamando o seu nome.</p>
+<p>O medo e a raiva tomaram Arthur ao mesmo tempo, apertando o peito como duas mãos. E, nos olhos dele, uma nova cor apareceu junto com o dourado, o roxo e o vermelho: o azul.</p>
+<p>Uma onda de energia correu pelo corpo dele. Arthur sentiu que, a partir dali, podia usar magia de qualquer tipo.</p>
 <p>— Macho, Mika! — gritou Arthur. — Segurem o salão! Eu vou buscar a minha mãe!</p>
 <p>Macho assentiu, com um sorriso torto. Mika limpou as lágrimas, ainda pensando em Vargas, e rosnou de volta.</p>
 <p>Nara correu ao lado de Arthur até a escadaria de pedra que subia pela torre. Ele abriu as asas e subiu voando, com ela se agarrando às suas costas.</p>
@@ -1747,7 +1809,7 @@ a:focus-visible { outline:2px solid var(--accent); outline-offset:3px; border-ra
 </section>
 <section id="parte-42">
 <h2>Parte 42 — Aurora</h2>
-<div class="eyes" aria-hidden="true"><i></i><i></i><i></i></div>
+<div class="eyes" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
 <hr>
 <p>No topo da torre, uma porta de ferro trancada com três cadeados. Arthur arrancou cada um com as garras, e a porta se abriu com um rangido.</p>
 <p>A cela era pequena, com uma janela estreita e uma cama de pedra. Sentada ao lado da janela, de costas, havia uma mulher de cabelos escuros presos num coque simples.</p>
@@ -1765,7 +1827,7 @@ a:focus-visible { outline:2px solid var(--accent); outline-offset:3px; border-ra
 </section>
 <section id="parte-43">
 <h2>Parte 43 — O Pacto de Lysandre</h2>
-<div class="eyes" aria-hidden="true"><i></i><i></i><i></i></div>
+<div class="eyes" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
 <hr>
 <p>Antes que Arthur pudesse tirar a mãe da cela, a janela estourou em mil pedaços. Lysandre entrou voando, com a capa aberta como duas asas pretas.</p>
 <p>Pousou diante deles sem fazer barulho. Dos corredores, os vampiros mais velhos o seguiram, bloqueando a saída.</p>
@@ -1783,7 +1845,7 @@ a:focus-visible { outline:2px solid var(--accent); outline-offset:3px; border-ra
 </section>
 <section id="parte-44">
 <h2>Parte 44 — A Lua de Sangue, Outra Vez</h2>
-<div class="eyes" aria-hidden="true"><i></i><i></i><i></i></div>
+<div class="eyes" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
 <hr>
 <p>A lua cheia surgiu no céu, enorme e prateada. Aos poucos, uma sombra escura começou a cobri-la, e ela foi ficando vermelha como brasa.</p>
 <p>Lysandre levou Arthur e Aurora de volta ao Grande Salão com um aceno, e as correntes de prata os prenderam ao centro da sala.</p>
@@ -1799,10 +1861,12 @@ a:focus-visible { outline:2px solid var(--accent); outline-offset:3px; border-ra
 </section>
 <section id="parte-45">
 <h2>Parte 45 — A Queda do Neto</h2>
-<div class="eyes" aria-hidden="true"><i></i><i></i><i></i></div>
+<div class="eyes" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
 <hr>
 <p>Lysandre, agora mais forte do que nunca, avançou contra Arthur com um golpe que o atirou contra uma coluna de pedra.</p>
 <p>Arthur tentou levantar. Não tinha asas, nem garras, nem forças. Era só um garoto de dezoito anos, ferido, de olhos meio apagados.</p>
+<p>Arthur tentou usar a sua magia, mas ela estava fraca. Ainda assim, aos poucos, conseguiu recuperar o seu poder, e junto dele veio o poder da mãe. Pela primeira vez em dez anos, mãe e filho lutaram juntos.</p>
+<p>Lysandre sentiu o poder dele sumindo, aos poucos. Em dez minutos, já não era mais um vampiro. Em vinte, perdeu os olhos vermelhos, roxos, azuis e dourados. Todo o império dele foi passado para a mãe de Arthur.</p>
 <p>— Você era a minha esperança — disse Lysandre, quase com tristeza. — Mas só serve como combustível.</p>
 <p>Ele levantou a mão para o golpe final. Foi então que uma figura se jogou entre os dois: Aurora, de braços abertos.</p>
 <p>— Pai, pare!</p>
@@ -1817,7 +1881,7 @@ a:focus-visible { outline:2px solid var(--accent); outline-offset:3px; border-ra
 </section>
 <section id="parte-46">
 <h2>Parte 46 — A Matilha Inteira</h2>
-<div class="eyes" aria-hidden="true"><i></i><i></i><i></i></div>
+<div class="eyes" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
 <hr>
 <p>Do lado de fora do Monastério, a coluna que tinha ficado para trás ouviu o uivo mais alto que já tinham escutado, vindo do Grande Salão.</p>
 <p>Os lobisomens, os caçadores e os Guardiões da Aurora entenderam que aquele era o chamado. Cem vozes responderam ao mesmo tempo, e o portão de pedra foi derrubado.</p>
@@ -1835,7 +1899,7 @@ a:focus-visible { outline:2px solid var(--accent); outline-offset:3px; border-ra
 </section>
 <section id="parte-47">
 <h2>Parte 47 — O Roxo Desperta</h2>
-<div class="eyes" aria-hidden="true"><i></i><i></i><i></i></div>
+<div class="eyes" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
 <hr>
 <p>No centro do salão, Arthur sentiu a brasa crescer. Primeiro, um calor suave. Depois, uma onda que subiu pelo peito, pelos braços, pelos olhos.</p>
 <p>O roxo acendeu, mas dessa vez foi diferente. Não era um brilho de luta, era uma luz quente, como o amanhecer.</p>
@@ -1853,7 +1917,7 @@ a:focus-visible { outline:2px solid var(--accent); outline-offset:3px; border-ra
 </section>
 <section id="parte-48">
 <h2>Parte 48 — A Maldição Quebrada</h2>
-<div class="eyes" aria-hidden="true"><i></i><i></i><i></i></div>
+<div class="eyes" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
 <hr>
 <p>Arthur avançou. Lysandre tentou se defender, mas cada golpe dele se desfazia no ar, como se o poder do neto o empurrasse para trás.</p>
 <p>Macho chegou ao pedestal primeiro. Segurou o Cálice de Sangue com as duas mãos e olhou para Arthur, esperando um sinal.</p>
@@ -1873,7 +1937,7 @@ a:focus-visible { outline:2px solid var(--accent); outline-offset:3px; border-ra
 </section>
 <section id="parte-49">
 <h2>Parte 49 — Depois da Guerra</h2>
-<div class="eyes" aria-hidden="true"><i></i><i></i><i></i></div>
+<div class="eyes" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
 <hr>
 <p>A volta para casa foi lenta e silenciosa. Cada um carregava seus feridos, e os que tinham perdido alguém caminhavam de cabeça baixa.</p>
 <p>Na entrada do Monastério, Mika e Macho cavaram uma sepultura simples para Vargas, ao lado do primeiro portão. Mika tocou o violão ali, por uma hora inteira.</p>
@@ -1889,7 +1953,7 @@ a:focus-visible { outline:2px solid var(--accent); outline-offset:3px; border-ra
 </section>
 <section id="parte-50">
 <h2>Parte 50 — O Novo Amanhecer</h2>
-<div class="eyes" aria-hidden="true"><i></i><i></i><i></i></div>
+<div class="eyes" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
 <hr>
 <p>Um ano depois, a cidade já parecia outra. As ruas tinham sido reconstruídas, e as crianças brincavam na praça sem medo de nada.</p>
 <p>Os lobisomens tinham um clube na floresta, aberto a qualquer um que quisesse aprender sobre a lua. Os vampiros que escolheram a paz abriram uma livraria que só funcionava à noite.</p>
@@ -1900,12 +1964,759 @@ a:focus-visible { outline:2px solid var(--accent); outline-offset:3px; border-ra
 <p>— Será que acabou? — perguntou Mika, olhando as nuvens.</p>
 <p>— Nunca acaba — respondeu Luminar, sorrindo. — Mas agora a gente sabe lidar.</p>
 <p>Arthur olhou para a lua, que já aparecia no céu mesmo antes do sol se pôr. Sorriu, e os olhos dele brilharam em dourado, roxo e vermelho.</p>
+<p>Mesmo sem nunca ter escolhido esse lado, os olhos de Arthur continuavam vermelhos. Ninguém sabe até hoje por que isso aconteceu.</p>
 <p>A matilha estava inteira. E a história, por enquanto, tinha chegado ao fim.</p>
 <hr>
 <h3>Fim da Parte 50</h3>
 <hr>
 <p><strong>Esta não é a última parte. Todos os dias, 10 partes são liberadas, e no total são 30 mil partes.</strong></p>
-<nav class="pn" aria-label="Navegação entre partes"><a href="#parte-49">Parte anterior</a><a href="#indice">Índice</a><span></span></nav>
+<nav class="pn" aria-label="Navegação entre partes"><a href="#parte-49">Parte anterior</a><a href="#indice">Índice</a><a href="#parte-51">Próxima parte</a></nav>
+</section>
+<section id="parte-51">
+<h2>Parte 51 — O Império Novo</h2>
+<div class="eyes" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<hr>
+<p>Nas semanas seguintes, o império de Lysandre virou um problema que ninguém sabia resolver. Os vampiros do clã procuravam uma liderança, e o nome da mãe de Arthur começou a circular em sussurros.</p>
+<p>Aurora não queria o trono. Disse isso à matilha numa reunião na praça, com as mãos trêmulas sobre a mesa.</p>
+<p>— Eu passei dezoito anos presa. Não quero governar ninguém.</p>
+<p>Arthur, sentado ao lado dela, segurou sua mão. Pela primeira vez, ele viu nos olhos da mãe o mesmo cansaço que via no próprio espelho.</p>
+<p>Foi Seraphine quem propôs a saída. Os vampiros que escolheram a paz formariam um conselho, e a mãe de Arthur seria a guardiã, não a rainha.</p>
+<p>Aurora aceitou, com uma condição: que ninguém bebesse sangue humano nunca mais, em nenhuma cidade.</p>
+<hr>
+<h3>Fim da Parte 51</h3>
+<nav class="pn" aria-label="Navegação entre partes"><a href="#parte-50">Parte anterior</a><a href="#indice">Índice</a><a href="#parte-52">Próxima parte</a></nav>
+</section>
+<section id="parte-52">
+<h2>Parte 52 — Um Conselho de Dois Mundos</h2>
+<div class="eyes" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<hr>
+<p>O conselho se reuniu pela primeira vez numa sala de pedra da antiga biblioteca de Vila Névoa. Lobisomens, vampiros e humanos sentaram lado a lado, o que ninguém teria imaginado um ano antes.</p>
+<p>Dona Ilka foi a primeira a falar. Disse que a vila tinha guardado segredos por séculos, e que chegara a hora de dividi-los.</p>
+<p>Um vampiro idoso, de cabelos brancos e voz rouca, levantou a mão. Chamava-se Ezra, e tinha sido um dos conselheiros de Lysandre.</p>
+<p>— Eu servi o seu avô por trezentos anos — disse ele a Arthur. — Não peço perdão. Só quero trabalhar para que isso nunca mais se repita.</p>
+<p>Arthur olhou para ele por um longo momento e assentiu.</p>
+<p>Luminar anotou cada decisão no caderno novo. Mika tocava uma melodia baixa enquanto os conselheiros discutiam, e o som acalmava as vozes mais exaltadas.</p>
+<p>No fim da reunião, ficou decidido: três cidades seriam protegidas pelo conselho, e cada uma teria um lobisomem, um humano e um vampiro como guardiões.</p>
+<hr>
+<h3>Fim da Parte 52</h3>
+<nav class="pn" aria-label="Navegação entre partes"><a href="#parte-51">Parte anterior</a><a href="#indice">Índice</a><a href="#parte-53">Próxima parte</a></nav>
+</section>
+<section id="parte-53">
+<h2>Parte 53 — O Primeiro Inverno</h2>
+<div class="eyes" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<hr>
+<p>O inverno chegou cedo naquele ano, cobrindo as montanhas de neve. As estradas ficaram intransitáveis, e a cidade passou a depender das fogueiras e das reservas de comida.</p>
+<p>Macho organizou a distribuição de lenha e de pão. Dizia que ninguém passaria fome enquanto ele tivesse um carrinho de mão.</p>
+<p>Mika foi até a escola nas tardes de domingo e ensinava música às crianças. Algumas delas tinham medo no começo, mas logo começaram a cantar junto com ele.</p>
+<p>Luminar passava as noites na biblioteca, copiando livros antigos para que nenhum deles se perdesse no frio.</p>
+<p>Arthur voava sobre a cidade todas as madrugadas, vigiando as bordas da floresta. Via as luzes das casas, uma a uma, e sentia algo parecido com orgulho.</p>
+<p>Numa dessas noites, ele pousou no telhado da escola e viu uma sombra pequena sentada no muro. Era Duda, o menino que Macho tinha protegido.</p>
+<p>— Eu não consigo dormir — disse Duda. — Posso ver você voar?</p>
+<hr>
+<h3>Fim da Parte 53</h3>
+<nav class="pn" aria-label="Navegação entre partes"><a href="#parte-52">Parte anterior</a><a href="#indice">Índice</a><a href="#parte-54">Próxima parte</a></nav>
+</section>
+<section id="parte-54">
+<h2>Parte 54 — O Voo do Duda</h2>
+<div class="eyes" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<hr>
+<p>Arthur hesitou. Olhou para a rua vazia, para a neve que caía fina, e depois para o menino, de olhos grandes e curiosos.</p>
+<p>— Só um pouco — respondeu, estendendo a mão.</p>
+<p>Ele pegou Duda com cuidado e abriu as asas. Os dois subiram devagar, acima dos telhados, e o menino riu tanto que a risada ecoou pela praça.</p>
+<p>Lá de cima, a cidade parecia um presépio: janelas acesas, fumaça saindo das chaminés, a igreja iluminada no centro.</p>
+<p>— Você consegue ver tudo daqui? — perguntou Duda.</p>
+<p>— Quase tudo — respondeu Arthur. — Consigo ver onde as pessoas estão seguras e onde elas precisam de ajuda.</p>
+<p>Duda ficou em silêncio, pensando. Depois disse, com a voz baixa:</p>
+<p>— Quando eu crescer, quero proteger as pessoas também.</p>
+<p>Arthur sorriu, e pela primeira vez em muito tempo não sentiu o aperto no peito. Sentiu esperança.</p>
+<hr>
+<h3>Fim da Parte 54</h3>
+<nav class="pn" aria-label="Navegação entre partes"><a href="#parte-53">Parte anterior</a><a href="#indice">Índice</a><a href="#parte-55">Próxima parte</a></nav>
+</section>
+<section id="parte-55">
+<h2>Parte 55 — Ecos do Norte</h2>
+<div class="eyes" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<hr>
+<p>Na primavera, mensageiros chegaram de uma cidade distante, no fim do vale. Traziam notícias de que vampiros de outro clã estavam se movendo pelas montanhas do norte.</p>
+<p>Eram criaturas diferentes, sem nenhum vínculo com Lysandre. Não se conheciam, não obedeciam a ninguém, e não tinham o mesmo cheiro doce e frio.</p>
+<p>Seraphine ouviu a notícia em silêncio. Depois, disse que aquele clã tinha uma história antiga com a família da mãe de Arthur.</p>
+<p>— Eles se chamam Ordem das Sombras — contou ela. — Acreditam que o sangue dos três mundos deve ser tomado, e que o roxo é uma chave para o poder absoluto.</p>
+<p>Arthur sentiu o peito apertar. Uma nova ameaça, e desta vez ninguém sabia quem os liderava.</p>
+<p>Luminar abriu o caderno numa página em branco e escreveu, em letras firmes: <em>Ordem das Sombras</em>.</p>
+<hr>
+<h3>Fim da Parte 55</h3>
+<nav class="pn" aria-label="Navegação entre partes"><a href="#parte-54">Parte anterior</a><a href="#indice">Índice</a><a href="#parte-56">Próxima parte</a></nav>
+</section>
+<section id="parte-56">
+<h2>Parte 56 — A Mensagem na Neve</h2>
+<div class="eyes" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<hr>
+<p>Uma coruja branca chegou ao amanhecer, com um pergaminho preso à pata. Macho tirou o papel com cuidado e leu em voz alta:</p>
+<p><em>“O herdeiro do roxo é nosso por direito. Entregue-se, ou o vale inteiro pagará o preço. — Ordem.”</em></p>
+<p>Ninguém falou por um momento. Duda, que tinha vindo ver a coruja, encostou-se na perna de Mika, assustado.</p>
+<p>— Eles sabem onde eu moro — disse Arthur, em voz baixa.</p>
+<p>— Eles sabem onde todos moram — corrigiu Seraphine. — Essa é a forma deles de intimidar.</p>
+<p>Orion, ainda com a bengala, bateu na mesa.</p>
+<p>— Não vamos ceder. Nenhum de nós é propriedade de ninguém.</p>
+<p>Arthur olhou para o velho, depois para os amigos, e tomou uma decisão. Iria até o norte, sozinho, para negociar, se fosse preciso.</p>
+<p>Mika levantou-se de um salto.</p>
+<p>— Sozinho, não. Você não aprende nunca?</p>
+<p>Arthur suspirou e olhou para os dois.</p>
+<p>— Ok, já que é assim, então sim. Vamos juntos.</p>
+<p>Ele ergueu as mãos e lançou um feitiço sobre os amigos. Um brilho prateado-azulado envolveu Mika e Luminar, e depois Arthur também, e os três sumiram diante dos olhos da coruja.</p>
+<p>— Pronto — disse Arthur. — Agora vocês estão invisíveis para todos. Mas eu e vocês conseguimos ver uns aos outros. Ninguém mais consegue ver a gente.</p>
+<p>Mika sorriu, ainda sem acreditar que podia se ver e ser visto ao mesmo tempo.</p>
+<hr>
+<h3>Fim da Parte 56</h3>
+<nav class="pn" aria-label="Navegação entre partes"><a href="#parte-55">Parte anterior</a><a href="#indice">Índice</a><a href="#parte-57">Próxima parte</a></nav>
+</section>
+<section id="parte-57">
+<h2>Parte 57 — Quem Vai Com Você</h2>
+<div class="eyes" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<hr>
+<p>A discussão durou a manhã inteira. Macho defendia que a matilha inteira fosse junto, com todos os lobisomens da cidade. Luminar era contra: dizia que um exército provocaria a guerra, e que a Ordem queria exatamente isso.</p>
+<p>No fim, decidiram o meio-termo. Arthur iria com Mika, Seraphine e Luminar. Macho ficaria com a cidade, junto com Orion, Nara e Aurora.</p>
+<p>Aurora chamou o filho de lado antes da partida. Entregou a ele um pequeno anel de prata, com uma pedra roxa no centro.</p>
+<p>— Foi do seu pai — disse ela. — Ele era um lobo como você. Quero que esteja com você.</p>
+<p>Arthur colocou o anel no dedo. Pela primeira vez, sentiu que não estava caminhando sozinho, mesmo que ninguém estivesse ao lado dele.</p>
+<hr>
+<h3>Fim da Parte 57</h3>
+<nav class="pn" aria-label="Navegação entre partes"><a href="#parte-56">Parte anterior</a><a href="#indice">Índice</a><a href="#parte-58">Próxima parte</a></nav>
+</section>
+<section id="parte-58">
+<h2>Parte 58 — A Estrada da Neve</h2>
+<div class="eyes" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<hr>
+<p>A viagem ao norte levou quatro dias, por estradas cobertas de gelo e trilhas que o vento apagava a cada hora.</p>
+<p>Mika ia à frente, escutando os sons da floresta. Dizia que os animais tinham se afastado, e que o silêncio era pesado demais para ser natural.</p>
+<p>Luminar ia no meio, de caderno aberto, marcando cada desvio e cada ponto de abrigo. Às vezes, ela parava de escrever e olhava para trás, como se alguém os seguisse.</p>
+<p>Seraphine caminhava ao lado de Arthur, quieta, com o capuz baixo. Numa noite, ela contou que, quando era jovem, viu a Ordem das Sombras destruir uma vila inteira.</p>
+<p>— Eles não matam por fome — disse ela. — Matam para provar que podem.</p>
+<p>Arthur não respondeu. Sentiu o anel de prata esquentar no dedo, como se concordasse.</p>
+<hr>
+<h3>Fim da Parte 58</h3>
+<nav class="pn" aria-label="Navegação entre partes"><a href="#parte-57">Parte anterior</a><a href="#indice">Índice</a><a href="#parte-59">Próxima parte</a></nav>
+</section>
+<section id="parte-59">
+<h2>Parte 59 — O Vale Esquecido</h2>
+<div class="eyes" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<hr>
+<p>No quarto dia, chegaram a um vale fechado por paredões de gelo. No centro, havia ruínas de um templo antigo, com colunas partidas e símbolos roxos gravados nas pedras.</p>
+<p>Mika parou na entrada e ouviu. Dezenas de corações batiam lá dentro, mais devagar que os de qualquer humano, quase em silêncio.</p>
+<p>— Eles estão esperando — sussurrou.</p>
+<p>Arthur deu um passo à frente. A neve estalou sob as botas, e o som ecoou pelas paredes.</p>
+<p>Das sombras das colunas, surgiu uma figura alta, envolta em um manto cinza. Tinha o rosto coberto e carregava um cajado de madeira escura, com um cristal roxo na ponta.</p>
+<p>— Você veio — disse a figura, com uma voz que parecia vir de várias gargantas ao mesmo tempo. — O herdeiro chegou.</p>
+<hr>
+<h3>Fim da Parte 59</h3>
+<nav class="pn" aria-label="Navegação entre partes"><a href="#parte-58">Parte anterior</a><a href="#indice">Índice</a><a href="#parte-60">Próxima parte</a></nav>
+</section>
+<section id="parte-60">
+<h2>Parte 60 — O Líder da Ordem</h2>
+<div class="eyes" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<hr>
+<p>A figura tirou o capuz. Era uma mulher de pele muito pálida, com cabelos brancos presos em tranças e olhos completamente roxos, sem nenhum traço de vermelho ou dourado.</p>
+<p>— Meu nome é Morvana — disse ela. — Eu sou a última filha de um clã que o seu avô traiu há mil anos. Ele roubou nosso poder, e nos fez fugir para o gelo.</p>
+<p>Seraphine deu um passo para trás, pálida.</p>
+<p>— Morvana… achei que você tivesse morrido no Monastério.</p>
+<p>— Eu fiquei escondida — respondeu Morvana. — Esperando o momento certo. E agora ele chegou, com um herdeiro que pode nos devolver tudo.</p>
+<p>Arthur sentiu o anel de prata queimar no dedo.</p>
+<p>— E se eu não quiser?</p>
+<p>Morvana sorriu, sem alegria.</p>
+<p>— Então você vai ver o que a Ordem faz com quem recusa.</p>
+<hr>
+<h3>Fim da Parte 60</h3>
+<nav class="pn" aria-label="Navegação entre partes"><a href="#parte-59">Parte anterior</a><a href="#indice">Índice</a><a href="#parte-61">Próxima parte</a></nav>
+</section>
+<section id="parte-61">
+<h2>Parte 61 — O Ultimato</h2>
+<div class="eyes" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<hr>
+<p>Arthur não recuou. Ficou de pé diante de Morvana, com o anel de prata brilhando no dedo e a voz firme.</p>
+<p>— Eu não sou propriedade de ninguém. Nem do seu clã, nem do meu avô.</p>
+<p>Morvana riu baixo, e o eco percorreu as ruínas.</p>
+<p>— Pense na sua cidade. Pense naquele menino que voou com você.</p>
+<p>O nome de Duda pesou no peito de Arthur como uma pedra. Mika cerrou os punhos, e Seraphine colocou a mão sobre o ombro do amigo.</p>
+<p>— Ela está blefando — sussurrou Luminar. — Se fosse capaz de chegar lá, já teria chegado.</p>
+<p>Morvana ergueu o cajado, e o cristal roxo se acendeu.</p>
+<p>— Vocês têm até a lua nova — disse. — Se o herdeiro não se entregar, a Ordem vai buscar o que é nosso.</p>
+<hr>
+<h3>Fim da Parte 61</h3>
+<nav class="pn" aria-label="Navegação entre partes"><a href="#parte-60">Parte anterior</a><a href="#indice">Índice</a><a href="#parte-62">Próxima parte</a></nav>
+</section>
+<section id="parte-62">
+<h2>Parte 62 — A Volta Apressada</h2>
+<div class="eyes" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<hr>
+<p>Eles voltaram pela neve sem parar. Dormiram pouco e comeram pão duro, mas ninguém reclamou.</p>
+<p>Na terceira noite, Mika parou de repente e levantou a mão.</p>
+<p>— Tem alguém seguindo a gente. Não é um, são muitos.</p>
+<p>Luminar apagou a lanterna, e a floresta ficou escura. Arthur abriu as asas por um instante e voou alto, olhando o caminho de cima.</p>
+<p>Viu sombras se movendo entre as árvores, em silêncio, dezenas delas, sempre à distância.</p>
+<p>— A Ordem já está em volta da cidade — disse ele, ao pousar. — Eles estão cercando a gente.</p>
+<p>Seraphine apertou a espada.</p>
+<p>— Então vamos ter que chegar antes deles.</p>
+<hr>
+<h3>Fim da Parte 62</h3>
+<nav class="pn" aria-label="Navegação entre partes"><a href="#parte-61">Parte anterior</a><a href="#indice">Índice</a><a href="#parte-63">Próxima parte</a></nav>
+</section>
+<section id="parte-63">
+<h2>Parte 63 — Os Sinos Tocam</h2>
+<div class="eyes" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<hr>
+<p>Quando finalmente avistaram a cidade, o sol já nascia sobre os telhados brancos de neve. Mas havia algo errado: a fumaça das chaminés não subia como antes.</p>
+<p>Os sinos da igreja estavam em silêncio.</p>
+<p>Arthur acelerou, e os outros correram atrás dele. Ao entrar na praça, encontraram Macho de pé, com uma barra de ferro na mão e um corte na testa.</p>
+<p>— Chegaram ontem à noite — disse ele, ofegante. — Vieram pelo rio. Levaram umas pessoas.</p>
+<p>— Quem? — perguntou Mika, com a voz embargada.</p>
+<p>Macho apontou para a escola. As portas estavam abertas, e lá dentro não havia nenhuma criança.</p>
+<p>— O Duda — respondeu Macho. — E mais doze.</p>
+<hr>
+<h3>Fim da Parte 63</h3>
+<nav class="pn" aria-label="Navegação entre partes"><a href="#parte-62">Parte anterior</a><a href="#indice">Índice</a><a href="#parte-64">Próxima parte</a></nav>
+</section>
+<section id="parte-64">
+<h2>Parte 64 — Refém</h2>
+<div class="eyes" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<hr>
+<p>Arthur sentiu o chão girar. Aquele menino, que tinha rido com a cabeça para fora da janela do céu, estava nas mãos da Ordem.</p>
+<p>— Quem fez isso? — perguntou, com a voz rouca.</p>
+<p>A raiva subiu pelo corpo de Arthur de uma vez, e ele se transformou num lobisomem completo. Ficou muito maior do que qualquer pessoa da praça, com a cabeça quase na altura do telhado da igreja, e os olhos brilhando em dourado, roxo, azul e vermelho.</p>
+<p>Orion surgiu da porta da igreja, apoiado em Nara. O velho estava pálido e trazia um papel amassado na mão.</p>
+<p>— Deixaram isso na porta — disse, entregando o papel a Arthur.</p>
+<p>Na folha, escrita em letra firme, havia uma única frase: <em>Venha sozinho até a neve vermelha. Ou os doze morrem ao amanhecer.</em></p>
+<p>Arthur amassou o papel nas mãos. Os olhos dele se acenderam em roxo, e o chão de pedra da praça rachou sob os pés.</p>
+<p>— Eu vou — disse.</p>
+<p>— Não vai sozinho — respondeu Seraphine. — Ninguém vai sozinho.</p>
+<hr>
+<h3>Fim da Parte 64</h3>
+<nav class="pn" aria-label="Navegação entre partes"><a href="#parte-63">Parte anterior</a><a href="#indice">Índice</a><a href="#parte-65">Próxima parte</a></nav>
+</section>
+<section id="parte-65">
+<h2>Parte 65 — Neve Vermelha</h2>
+<div class="eyes" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<hr>
+<p>A neve vermelha ficava numa planície no fim do vale, onde nada crescia. Quando Arthur chegou, o chão estava tingido em tons escuros, como se a terra tivesse bebido sangue por séculos.</p>
+<p>No centro, havia uma grande fogueira, e ao redor dela, dezenas de vultos encapuzados.</p>
+<p>Morvana estava de pé, ao lado de um poste de ferro. Preso a ele, estava Duda, com as mãos amarradas e o rosto sujo de lágrimas.</p>
+<p>— Solte ele — disse Arthur, com as garras já à mostra.</p>
+<p>— Você veio — respondeu Morvana. — Mas não veio sozinho. Eu não esperava menos.</p>
+<p>Ela estalou os dedos, e os vultos ao redor se abriram, revelando centenas de vampiros da Ordem, todos de olhos roxos.</p>
+<hr>
+<h3>Fim da Parte 65</h3>
+<nav class="pn" aria-label="Navegação entre partes"><a href="#parte-64">Parte anterior</a><a href="#indice">Índice</a><a href="#parte-66">Próxima parte</a></nav>
+</section>
+<section id="parte-66">
+<h2>Parte 66 — O Preço da Vitória</h2>
+<div class="eyes" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<hr>
+<p>Arthur voou sobre a multidão, mas Morvana o acompanhou com o olhar e ergueu o cajado.</p>
+<p>— Se você for para o alto, o menino morre — avisou ela. — Fique no chão.</p>
+<p>Arthur pousou devagar. As asas se dobraram, e a cauda caiu ao lado do corpo.</p>
+<p>— Negociar — disse ele. — É isso que você quer?</p>
+<p>— Quero o seu poder — respondeu Morvana. — Não tudo. Apenas o roxo. Dê ele para mim, e eu solto a criança e volto para o gelo.</p>
+<p>Mika, atrás dele, escutava com o rosto tenso. Sabia que ela mentia, e sabia que Arthur também sabia.</p>
+<p>Luminar sussurrou no ouvido dele:</p>
+<p>— Não aceite. Ela não vai cumprir.</p>
+<p>Arthur levantou os olhos, e o roxo se acendeu lentamente. Ele fechou a mão sobre o anel de prata.</p>
+<p>— Você não vai ter nada de mim.</p>
+<hr>
+<h3>Fim da Parte 66</h3>
+<nav class="pn" aria-label="Navegação entre partes"><a href="#parte-65">Parte anterior</a><a href="#indice">Índice</a><a href="#parte-67">Próxima parte</a></nav>
+</section>
+<section id="parte-67">
+<h2>Parte 67 — O Canto do Gelo</h2>
+<div class="eyes" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<hr>
+<p>Morvana riu alto, e a risada soou como vidro quebrando.</p>
+<p>— Então vai ser à força.</p>
+<p>Ela ergueu o cajado e começou a cantar em uma língua antiga. A neve se levantou do chão, formando redemoinhos brancos que giravam ao redor de todos.</p>
+<p>Mika tapou os ouvidos. Dizia que a canção era como milhares de corações batendo fora de compasso, e que cada batida machucava.</p>
+<p>Macho avançou, com as garras à mostra, e foi jogado para trás por uma rajada de vento gelado.</p>
+<p>Seraphine correu em direção ao poste, mas um vampiro da Ordem se colocou na frente dela e a jogou no chão com um golpe.</p>
+<p>Arthur sentiu o frio entrar nos ossos. O anel de prata esquentou, e o azul surgiu nos olhos dele, misturado ao roxo.</p>
+<p>Um raio de luz azul saiu da mão dele e atingiu o redemoinho, que se desfez em pedaços de gelo.</p>
+<hr>
+<h3>Fim da Parte 67</h3>
+<nav class="pn" aria-label="Navegação entre partes"><a href="#parte-66">Parte anterior</a><a href="#indice">Índice</a><a href="#parte-68">Próxima parte</a></nav>
+</section>
+<section id="parte-68">
+<h2>Parte 68 — A Torre de Gelo</h2>
+<div class="eyes" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<hr>
+<p>Morvana recuou, surpresa. Olhou para o anel no dedo de Arthur e ficou pálida.</p>
+<p>— A prata de Aurora — murmurou. — Ela ainda existe.</p>
+<p>— Existe — respondeu Arthur. — E agora ela me protege.</p>
+<p>Ele avançou, e cada passo deixava o chão coberto de geada azul. Os vampiros da Ordem tentaram cercá-lo, mas o gelo se espalhou sob eles, prendendo os pés no chão.</p>
+<p>Morvana ergueu o cajado de novo, e uma torre de gelo negro surgiu no centro da planície, com centenas de janelas vazias.</p>
+<p>— Dentro dela está o verdadeiro poder da Ordem — disse. — Se você quiser o menino, vai ter que subir.</p>
+<p>Arthur olhou para o alto da torre. Depois olhou para os amigos.</p>
+<p>— Eu vou — disse. — Vocês cuidam do resto.</p>
+<hr>
+<h3>Fim da Parte 68</h3>
+<nav class="pn" aria-label="Navegação entre partes"><a href="#parte-67">Parte anterior</a><a href="#indice">Índice</a><a href="#parte-69">Próxima parte</a></nav>
+</section>
+<section id="parte-69">
+<h2>Parte 69 — Subindo a Torre</h2>
+<div class="eyes" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<hr>
+<p>Arthur voou em direção à torre, mas o gelo negro devorava qualquer coisa que se aproximasse. As asas dele queimavam de frio a cada batida.</p>
+<p>Ele pousou na base e encontrou uma porta de pedra, marcada com o mesmo símbolo roxo do diário de Aurora.</p>
+<p>Lá dentro, uma escadaria espiralada subia sem fim. Nas paredes, havia pinturas antigas: vampiros e lobisomens lutando lado a lado, unidos por um círculo de luz.</p>
+<p>Arthur subiu por horas. A cada andar, sentia o roxo pulsar mais forte, como se a torre o reconhecesse.</p>
+<p>No último andar, uma sala redonda, com janelas que davam para a planície. No centro, sobre um altar de gelo, estava um cristal roxo do tamanho de uma cabeça.</p>
+<p>Ao lado, sentado numa cadeira de pedra, estava Duda, dormindo, com a cabeça encostada no braço.</p>
+<hr>
+<h3>Fim da Parte 69</h3>
+<nav class="pn" aria-label="Navegação entre partes"><a href="#parte-68">Parte anterior</a><a href="#indice">Índice</a><a href="#parte-70">Próxima parte</a></nav>
+</section>
+<section id="parte-70">
+<h2>Parte 70 — O Cristal Roxo</h2>
+<div class="eyes" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<hr>
+<p>Arthur correu até o menino e o pegou no colo. Duda acordou assustado, mas reconheceu o rosto dele e sorriu.</p>
+<p>— Você veio — sussurrou. — Eu sabia que vinha.</p>
+<p>— Vamos sair daqui — disse Arthur, abraçando-o com força.</p>
+<p>Ele se virou para a porta, mas a voz de Morvana ecoou pela sala, vinda de baixo.</p>
+<p>— Ele não vai sair, herdeiro. Esse cristal guarda o poder de todos os que já morreram nesta montanha. Quem o toca, fica preso a ele para sempre.</p>
+<p>Arthur olhou para o cristal. Sentiu o roxo dentro dele se agitar, como se quisesse ir até lá.</p>
+<p>— Não vou tocar — disse. — Não vou ser o próximo.</p>
+<p>Ele desceu a escada com Duda nos braços, e o cristal começou a rachar atrás dele, emitindo um som agudo, como um lamento.</p>
+<hr>
+<h3>Fim da Parte 70</h3>
+<nav class="pn" aria-label="Navegação entre partes"><a href="#parte-69">Parte anterior</a><a href="#indice">Índice</a><a href="#parte-71">Próxima parte</a></nav>
+</section>
+<section id="parte-71">
+<h2>Parte 71 — A Descida</h2>
+<div class="eyes" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<hr>
+<p>A escada descia em espiral, mais longa do que a subida. Arthur corria com Duda nos braços, e o cristal atrás deles soltava rachaduras que subiam pelas paredes.</p>
+<p>Quando chegaram à base, a planície estava coberta de vampiros da Ordem, todos de pé, esperando.</p>
+<p>Morvana estava no centro, com o cajado erguido.</p>
+<p>— Você deixou o cristal quebrar — disse, sem raiva. — Agora o poder vai se espalhar. E todos os que estiverem perto vão sentir.</p>
+<p>Arthur colocou Duda no chão, atrás de si.</p>
+<p>— Então vamos garantir que ele se espalhe para o lado certo.</p>
+<hr>
+<h3>Fim da Parte 71</h3>
+<nav class="pn" aria-label="Navegação entre partes"><a href="#parte-70">Parte anterior</a><a href="#indice">Índice</a><a href="#parte-72">Próxima parte</a></nav>
+</section>
+<section id="parte-72">
+<h2>Parte 72 — O Poder Que Se Espalha</h2>
+<div class="eyes" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<hr>
+<p>Uma onda roxa saiu do cristal quebrado, correndo pelo chão de gelo e subindo pelas paredes da torre. Os vampiros da Ordem cambalearam quando ela os atingiu.</p>
+<p>Muitos caíram de joelhos, com as mãos no peito, e os olhos roxos começaram a perder o brilho.</p>
+<p>Morvana gritou, tentando resistir, mas a luz a envolveu por inteiro.</p>
+<p>— Não! — gritou ela. — Eu sou a última! Eu preciso desse poder!</p>
+<p>Arthur se aproximou com passos firmes. Ao lado dele, Mika, Luminar e Seraphine já tinham se levantado, cercando a líder da Ordem.</p>
+<p>— O poder nunca foi seu — disse Arthur. — Ele sempre foi de quem cuida.</p>
+<p>Morvana caiu de joelhos na neve, e o cajado se partiu em duas metades.</p>
+<hr>
+<h3>Fim da Parte 72</h3>
+<nav class="pn" aria-label="Navegação entre partes"><a href="#parte-71">Parte anterior</a><a href="#indice">Índice</a><a href="#parte-73">Próxima parte</a></nav>
+</section>
+<section id="parte-73">
+<h2>Parte 73 — Perdão de Morvana</h2>
+<div class="eyes" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<hr>
+<p>Por um longo tempo, Morvana ficou em silêncio, olhando para a neve manchada. Quando finalmente falou, sua voz não tinha mais a força de antes.</p>
+<p>— Meu pai me ensinou que o mundo era de quem tinha mais poder — disse ela. — Eu passei a vida acreditando nisso.</p>
+<p>— E agora? — perguntou Arthur.</p>
+<p>Ela ergueu os olhos, e as lágrimas escorreram pelo rosto pálido.</p>
+<p>— Agora eu não sei quem eu sou.</p>
+<p>Seraphine se abaixou ao lado dela e tocou seu ombro com cuidado.</p>
+<p>— Então descubra — disse. — Você ainda tem tempo.</p>
+<p>Duda, escondido atrás das pernas de Arthur, espiou a líder da Ordem e perguntou, baixinho:</p>
+<p>— Você está triste?</p>
+<p>Morvana fechou os olhos e não respondeu. Mas assentiu, devagar.</p>
+<hr>
+<h3>Fim da Parte 73</h3>
+<nav class="pn" aria-label="Navegação entre partes"><a href="#parte-72">Parte anterior</a><a href="#indice">Índice</a><a href="#parte-74">Próxima parte</a></nav>
+</section>
+<section id="parte-74">
+<h2>Parte 74 — A Ordem Se Desfaz</h2>
+<div class="eyes" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<hr>
+<p>Nos dias seguintes, os vampiros da Ordem voltaram às montanhas, um a um, sem armas e sem bandeira. Alguns chegaram à cidade pedindo abrigo, e outros desapareceram na neve, sem deixar rastro.</p>
+<p>Seraphine ficou responsável por acolher os que chegaram. Ensinou a eles os costumes da cidade e as regras do conselho, com paciência que ninguém imaginava que ela tivesse.</p>
+<p>Morvana não voltou com eles. Ficou no vale, sozinha, ao lado das ruínas do templo, cuidando das pedras que o cristal tinha deixado para trás.</p>
+<p>Arthur foi vê-la uma vez. Levou pão e um cobertor, e ela aceitou em silêncio.</p>
+<p>— Você podia ter me matado — disse ela.</p>
+<p>— Podia — respondeu Arthur. — Mas não era isso que eu queria.</p>
+<hr>
+<h3>Fim da Parte 74</h3>
+<nav class="pn" aria-label="Navegação entre partes"><a href="#parte-73">Parte anterior</a><a href="#indice">Índice</a><a href="#parte-75">Próxima parte</a></nav>
+</section>
+<section id="parte-75">
+<h2>Parte 75 — O Regresso de Duda</h2>
+<div class="eyes" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<hr>
+<p>O resgate dos doze prisioneiros foi completo. Todos voltaram à cidade com frio, fome e medo, mas vivos.</p>
+<p>Duda correu até a mãe, que o pegou no colo e chorou por muito tempo, sem conseguir falar.</p>
+<p>Na praça, Macho organizou uma festa improvisada, com sopa quente e pão de sobra. Mika tocou o violão, e as crianças dançaram na neve.</p>
+<p>Luminar sentou num banco com o caderno aberto e escreveu a última página do capítulo do norte: <em>Nem toda sombra é inimiga. Algumas só precisam de alguém que as escute.</em></p>
+<p>Arthur observava tudo de longe, encostado na parede da igreja. O anel de prata estava quente no dedo, e ele sorriu.</p>
+<p>Pela primeira vez desde o inverno, a cidade parecia inteira.</p>
+<hr>
+<h3>Fim da Parte 75</h3>
+<nav class="pn" aria-label="Navegação entre partes"><a href="#parte-74">Parte anterior</a><a href="#indice">Índice</a><a href="#parte-76">Próxima parte</a></nav>
+</section>
+<section id="parte-76">
+<h2>Parte 76 — A Carta de Aurora</h2>
+<div class="eyes" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<hr>
+<p>Naquela noite, Aurora entregou ao filho uma carta selada com cera roxa. Ela tinha escrito durante os anos de cativeiro, às escondidas, em folhas arrancadas de um livro.</p>
+<p>Arthur abriu com cuidado. A letra era delicada, mas firme.</p>
+<p><em>“Meu filho, não sei se você vai ler isso um dia. Eu passei anos no escuro, pensando em como seria te ver crescer. Eu não pude estar lá, mas você cresceu melhor do que eu poderia ter sonhado.”</em></p>
+<p>Arthur parou de ler por um momento. Os olhos ficaram úmidos, e ele respirou fundo antes de continuar.</p>
+<p><em>“O roxo não é um poder de guerra. É um poder de cuidado. Se algum dia você esquecer disso, lembre-se de quem te segurou no colo naquela noite de tempestade.”</em></p>
+<p>Aurora estava sentada na cadeira ao lado, observando o filho em silêncio. Quando ele levantou os olhos, ela sorriu.</p>
+<hr>
+<h3>Fim da Parte 76</h3>
+<nav class="pn" aria-label="Navegação entre partes"><a href="#parte-75">Parte anterior</a><a href="#indice">Índice</a><a href="#parte-77">Próxima parte</a></nav>
+</section>
+<section id="parte-77">
+<h2>Parte 77 — O Conselho Se Reúne</h2>
+<div class="eyes" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<hr>
+<p>O conselho de três mundos se reuniu de novo, desta vez no Grande Salão de Vila Névoa, agora aberto para todos.</p>
+<p>Dona Ilka abriu a reunião com um discurso curto. Disse que a cidade tinha aprendido que a união valia mais que qualquer império.</p>
+<p>Ezra, o antigo conselheiro de Lysandre, levantou-se e propôs uma regra nova: nenhum vampiro poderia ocupar cargo de decisão sem ter vivido ao menos um ano entre humanos.</p>
+<p>Houve debate. Alguns lobisomens achavam a regra dura demais, outros acharam justa.</p>
+<p>Aurora ouviu tudo sem falar. Quando chegou a sua vez, levantou-se devagar e disse:</p>
+<p>— Essa regra é boa. Mas a melhor regra é a que vocês escolhem juntos, todos os dias.</p>
+<p>Ninguém contestou. A votação foi unânime, e o conselho seguiu com outras decisões até o fim da tarde.</p>
+<hr>
+<h3>Fim da Parte 77</h3>
+<nav class="pn" aria-label="Navegação entre partes"><a href="#parte-76">Parte anterior</a><a href="#indice">Índice</a><a href="#parte-78">Próxima parte</a></nav>
+</section>
+<section id="parte-78">
+<h2>Parte 78 — Os Olhos de Duda</h2>
+<div class="eyes" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<hr>
+<p>Duda começou a ter pesadelos depois do resgate. Acordava de madrugada, chorando e falando de uma torre de gelo que o perseguia.</p>
+<p>Arthur sentou ao lado da cama dele numa noite e segurou sua mão.</p>
+<p>— A torre não existe mais — disse. — Ela se desfez quando o cristal quebrou.</p>
+<p>— Eu sei — respondeu Duda, fungando. — Mas eu ainda vejo ela quando fecho os olhos.</p>
+<p>Arthur pensou um pouco, depois fechou os próprios olhos e respirou fundo. Imaginou o céu da cidade, as luzes das casas, os sinos da igreja.</p>
+<p>Quando abriu os olhos de novo, o roxo brilhava suave, sem força, como uma vela acesa.</p>
+<p>— Olha — disse ele. — Agora tem luz lá também.</p>
+<p>Duda sorriu e adormeceu sem mais um pesadelo.</p>
+<hr>
+<h3>Fim da Parte 78</h3>
+<nav class="pn" aria-label="Navegação entre partes"><a href="#parte-77">Parte anterior</a><a href="#indice">Índice</a><a href="#parte-79">Próxima parte</a></nav>
+</section>
+<section id="parte-79">
+<h2>Parte 79 — O Chamado do Sul</h2>
+<div class="eyes" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<hr>
+<p>Numa tarde de primavera, uma carta chegou de uma cidade ao sul, escrita por um homem chamado Teodoro. Ele dizia que havia outras criaturas da noite espalhadas pelo continente, e que algumas delas estavam começando a se reunir.</p>
+<p>Não eram vampiros da Ordem. Nem lobisomens. Eram seres que nenhum dos conselheiros conhecia, com olhos amarelos e cheiro de terra molhada.</p>
+<p>Seraphine leu a carta duas vezes, com o rosto tenso.</p>
+<p>— Eu já ouvi falar deles — disse, por fim. — Dizem que são os primeiros filhos da lua, antes de qualquer maldição.</p>
+<p>Mika franziu a testa.</p>
+<p>— Então eles não são nossos inimigos?</p>
+<p>— Não sabemos — respondeu Seraphine. — Mas quando criaturas antigas despertam, o mundo sempre muda.</p>
+<p>Arthur olhou para o horizonte ao sul. Pela primeira vez, sentiu que a história estava apenas começando.</p>
+<hr>
+<h3>Fim da Parte 79</h3>
+<nav class="pn" aria-label="Navegação entre partes"><a href="#parte-78">Parte anterior</a><a href="#indice">Índice</a><a href="#parte-80">Próxima parte</a></nav>
+</section>
+<section id="parte-80">
+<h2>Parte 80 — A Viagem Para o Sul</h2>
+<div class="eyes" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<hr>
+<p>Decidiram partir no começo do verão. O conselho aprovou a missão com uma condição: o grupo iria apenas observar, sem atacar, e voltaria ao primeiro sinal de perigo.</p>
+<p>Arthur escolheu os companheiros com cuidado. Levou Mika, que ouvia tudo a quilômetros de distância. Levou Luminar, que lia mapas e línguas antigas. E levou Seraphine, que conhecia os caminhos do sul.</p>
+<p>Macho ficou na cidade, com a responsabilidade de cuidar das crianças e do pão. Reclamou durante uma semana inteira, e no dia da partida entregou a cada um uma sacola cheia de biscoitos.</p>
+<p>— Para o caminho — disse. — E nada de heroísmo sem comer antes.</p>
+<p>Aurora abraçou o filho na porta da casa.</p>
+<p>— Volte inteiro — pediu. — Eu já perdi muito tempo.</p>
+<p>Arthur prometeu, e os quatro seguiram para o sul, enquanto o sol nascia atrás das montanhas.</p>
+<hr>
+<h3>Fim da Parte 80</h3>
+<nav class="pn" aria-label="Navegação entre partes"><a href="#parte-79">Parte anterior</a><a href="#indice">Índice</a><a href="#parte-81">Próxima parte</a></nav>
+</section>
+<section id="parte-81">
+<h2>Parte 81 — Olhos Amarelos</h2>
+<div class="eyes" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<hr>
+<p>A estrada do sul atravessava campos secos e vilas abandonadas. Quanto mais avançavam, mais o ar ficava pesado, com cheiro de terra molhada e algo doce, mas diferente do cheiro da Ordem.</p>
+<p>Mika parou numa colina e ficou escutando por um bom tempo.</p>
+<p>— Tem muitos deles — disse. — Mas não batem o coração. Eles respiram devagar, como animais na toca.</p>
+<p>Luminar anotou no caderno: <em>Não é morte. É hibernação.</em></p>
+<p>Seraphine olhou para o vale abaixo, onde uma fogueira fraca tremeluzia entre as árvores.</p>
+<p>— Lá — disse. — Esse é o acampamento deles.</p>
+<hr>
+<h3>Fim da Parte 81</h3>
+<nav class="pn" aria-label="Navegação entre partes"><a href="#parte-80">Parte anterior</a><a href="#indice">Índice</a><a href="#parte-82">Próxima parte</a></nav>
+</section>
+<section id="parte-82">
+<h2>Parte 82 — O Acampamento</h2>
+<div class="eyes" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<hr>
+<p>Ao se aproximarem, viram dezenas de seres sentados ao redor do fogo. Tinham a pele acinzentada, olhos amarelos e mãos longas, com unhas finas como agulhas.</p>
+<p>Nenhum deles se levantou. Apenas um, o mais velho, ergueu a cabeça devagar e os observou com calma.</p>
+<p>— Vocês são os filhos da lua — disse ele, com uma voz que soava como vento entre folhas secas. — E trazem o cheiro da Ordem.</p>
+<p>Arthur deu um passo à frente, com as mãos abertas.</p>
+<p>— Não somos da Ordem. Viemos em paz.</p>
+<p>O velho inclinou a cabeça e sorriu, mostrando dentes pequenos e afiados.</p>
+<p>— Paz é uma palavra que muitos usam antes de tomar tudo.</p>
+<hr>
+<h3>Fim da Parte 82</h3>
+<nav class="pn" aria-label="Navegação entre partes"><a href="#parte-81">Parte anterior</a><a href="#indice">Índice</a><a href="#parte-83">Próxima parte</a></nav>
+</section>
+<section id="parte-83">
+<h2>Parte 83 — Teodoro</h2>
+<div class="eyes" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<hr>
+<p>O velho se apresentou como Teodoro, o mesmo homem que tinha escrito a carta. Contou que ele e os seus eram chamados de Guardiões do Sono, pois eram as criaturas mais antigas da noite.</p>
+<p>— Antes da maldição, antes dos vampiros, antes de Lysandre — disse. — Nós já estávamos aqui, dormindo sob a terra, esperando a lua certa para despertar.</p>
+<p>— E por que despertaram agora? — perguntou Luminar.</p>
+<p>Teodoro olhou para Arthur, e os olhos amarelos brilharam ao fogo.</p>
+<p>— Porque sentimos o roxo. Ele nos chamou de volta do sono.</p>
+<hr>
+<h3>Fim da Parte 83</h3>
+<nav class="pn" aria-label="Navegação entre partes"><a href="#parte-82">Parte anterior</a><a href="#indice">Índice</a><a href="#parte-84">Próxima parte</a></nav>
+</section>
+<section id="parte-84">
+<h2>Parte 84 — A Lenda dos Guardiões</h2>
+<div class="eyes" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<hr>
+<p>Naquela noite, Teodoro contou uma história antiga, enquanto o fogo estalava.</p>
+<p>Dizia que, no começo do mundo, a lua tinha três filhos: um lobo, um morcego e um guardião silencioso. O lobo caçava para proteger, o morcego voava para ver longe, e o guardião dormia na terra para cuidar do que ficava embaixo.</p>
+<p>— Um dia, os três se desentenderam — contou Teodoro. — E a lua ficou triste. Então ela criou um quarto filho, que carregasse os três dentro de si, para que nunca mais se separassem.</p>
+<p>— Esse filho… — começou Arthur, sem terminar a frase.</p>
+<p>— É você — respondeu Teodoro, sem rodeios. — O herdeiro do roxo.</p>
+<hr>
+<h3>Fim da Parte 84</h3>
+<nav class="pn" aria-label="Navegação entre partes"><a href="#parte-83">Parte anterior</a><a href="#indice">Índice</a><a href="#parte-85">Próxima parte</a></nav>
+</section>
+<section id="parte-85">
+<h2>Parte 85 — O Sono da Terra</h2>
+<div class="eyes" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<hr>
+<p>Arthur não dormiu aquela noite. Ficou sentado perto do fogo, pensando nas palavras do velho.</p>
+<p>De madrugada, Mika se aproximou e sentou ao lado dele, com o violão no colo.</p>
+<p>— Você está com medo? — perguntou.</p>
+<p>— Não de eles nos machucarem — respondeu Arthur. — Mas de eu não ser o que eles esperam.</p>
+<p>Mika dedilhou algumas notas, sem pressa.</p>
+<p>— Você nunca foi o que ninguém espera — disse. — Você foi o que a gente precisava.</p>
+<p>Arthur sorriu, e pela primeira vez na viagem sentiu o peito leve.</p>
+<hr>
+<h3>Fim da Parte 85</h3>
+<nav class="pn" aria-label="Navegação entre partes"><a href="#parte-84">Parte anterior</a><a href="#indice">Índice</a><a href="#parte-86">Próxima parte</a></nav>
+</section>
+<section id="parte-86">
+<h2>Parte 86 — Os Despertos</h2>
+<div class="eyes" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<hr>
+<p>Ao amanhecer, o acampamento inteiro estava de pé. Os seres se levantavam devagar da terra, sacudindo a poeira dos corpos, com os olhos amarelos iluminando a névoa.</p>
+<p>Teodoro se aproximou de Arthur e tocou sua testa com um dedo longo e frio.</p>
+<p>— Agora você precisa escolher — disse. — Pode ser o guardião de todos nós, ou pode deixar que a Ordem e os vampiros continuem usando o roxo como arma.</p>
+<p>— E se eu escolher proteger? — perguntou Arthur.</p>
+<p>— Então vai precisar de nós — respondeu Teodoro. — Porque proteger sozinho é muito cansativo.</p>
+<hr>
+<h3>Fim da Parte 86</h3>
+<nav class="pn" aria-label="Navegação entre partes"><a href="#parte-85">Parte anterior</a><a href="#indice">Índice</a><a href="#parte-87">Próxima parte</a></nav>
+</section>
+<section id="parte-87">
+<h2>Parte 87 — Um Acordo Antigo</h2>
+<div class="eyes" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<hr>
+<p>Os Guardiões do Sono e o conselho de três mundos se reuniram na beira do lago, sob um céu cinzento. Foi Luminar quem escreveu o acordo, em duas línguas, para que ninguém pudesse dizer que não entendeu.</p>
+<p>O texto era simples: os Guardiões protegeriam a terra e as florestas do sul, e em troca, o conselho ajudaria a defender os que dormiam sob o solo quando o mundo começasse a despertar.</p>
+<p>Teodoro assinou primeiro, com um traço de unha no papel. Arthur assinou depois, com o anel de prata no dedo tocando a folha.</p>
+<p>Quando a tinta secou, o lago refletiu, por um instante, a lua cheia, mesmo sendo dia.</p>
+<hr>
+<h3>Fim da Parte 87</h3>
+<nav class="pn" aria-label="Navegação entre partes"><a href="#parte-86">Parte anterior</a><a href="#indice">Índice</a><a href="#parte-88">Próxima parte</a></nav>
+</section>
+<section id="parte-88">
+<h2>Parte 88 — A Sombra no Horizonte</h2>
+<div class="eyes" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<hr>
+<p>Logo após o acordo, Mika parou no meio da margem e levantou a cabeça.</p>
+<p>— Tem alguma coisa vindo do leste — disse. — Muito rápido, e muito grande.</p>
+<p>Seraphine olhou para o horizonte e empalideceu.</p>
+<p>— Não é um vampiro — murmurou. — Não é um lobo. É algo que caça os dois.</p>
+<p>Teodoro se levantou devagar, com o rosto sério.</p>
+<p>— O Caçador Sem Nome — disse. — Ele dorme nas montanhas do leste desde que a lua se partiu. Se acordou, é porque alguém o chamou.</p>
+<p>Arthur sentiu o anel esquentar no dedo.</p>
+<p>— Quem poderia tê-lo chamado?</p>
+<hr>
+<h3>Fim da Parte 88</h3>
+<nav class="pn" aria-label="Navegação entre partes"><a href="#parte-87">Parte anterior</a><a href="#indice">Índice</a><a href="#parte-89">Próxima parte</a></nav>
+</section>
+<section id="parte-89">
+<h2>Parte 89 — O Caçador Sem Nome</h2>
+<div class="eyes" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<hr>
+<p>A criatura surgiu ao meio-dia, entre as árvores secas da margem. Era alta, de corpo esguio e pele cor de ferro, com olhos que não piscavam.</p>
+<p>Não tinha asas, nem garras, nem dentes à mostra. Carregava apenas uma corrente de prata enrolada no braço, e cada passo que dava deixava marcas na terra.</p>
+<p>— Filho da lua — disse ela, com uma voz metálica. — Eu vim pelo seu roxo.</p>
+<p>Arthur se colocou na frente dos amigos.</p>
+<p>— Quem te mandou?</p>
+<p>O Caçador inclinou a cabeça, lentamente.</p>
+<p>— Ninguém me mandou — respondeu. — Eu sou o que vem quando o roxo perde o controle. E ele está perdendo.</p>
+<hr>
+<h3>Fim da Parte 89</h3>
+<nav class="pn" aria-label="Navegação entre partes"><a href="#parte-88">Parte anterior</a><a href="#indice">Índice</a><a href="#parte-90">Próxima parte</a></nav>
+</section>
+<section id="parte-90">
+<h2>Parte 90 — O Controle Perdido</h2>
+<div class="eyes" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<hr>
+<p>Arthur sentiu o roxo dentro de si se agitar de repente. Não era o calor suave de sempre, mas uma fúria antiga, que subia pela garganta como fogo.</p>
+<p>Os olhos dele mudaram de cor, e o azul e o dourado começaram a girar junto com o roxo, como redemoinhos que não obedeciam a ninguém.</p>
+<p>— Arthur! — gritou Luminar, segurando o braço dele. — Você está brilhando demais!</p>
+<p>Ele tentou controlar, respirando fundo, mas a luz saiu das mãos e atingiu o chão, abrindo uma fenda na terra.</p>
+<p>Teodoro se aproximou, sem medo.</p>
+<p>— Ele é o seu poder — disse, calmo. — Não é seu inimigo. Mas precisa de um motivo para ficar quieto.</p>
+<p>Arthur fechou os olhos e pensou em Duda, em Aurora, em Macho e na cidade inteira. Aos poucos, a fenda parou de crescer, e a luz voltou para dentro dele.</p>
+<hr>
+<h3>Fim da Parte 90</h3>
+<nav class="pn" aria-label="Navegação entre partes"><a href="#parte-89">Parte anterior</a><a href="#indice">Índice</a><a href="#parte-91">Próxima parte</a></nav>
+</section>
+<section id="parte-91">
+<h2>Parte 91 — A Batalha das Árvores Secas</h2>
+<div class="eyes" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<hr>
+<p>O Caçador Sem Nome avançou contra o grupo, e a corrente de prata estalou no ar como um chicote. Os Guardiões do Sono se ergueram em círculo, com garras longas e olhos amarelos acesos.</p>
+<p>Arthur voou alto e lançou uma rajada roxa que atingiu o peito do Caçador. A criatura cambaleou, mas não caiu. A pele de ferro absorvia a luz e a devolvia em ondas frias.</p>
+<p>— Ele não sente dor — gritou Mika. — Ele só sente o roxo!</p>
+<p>Seraphine correu pela lateral, com a espada em punho, e cortou a corrente. O metal se partiu com um estalo, e a criatura ficou com as mãos vazias.</p>
+<p>Por um instante, o Caçador olhou para ela com algo parecido com surpresa.</p>
+<hr>
+<h3>Fim da Parte 91</h3>
+<nav class="pn" aria-label="Navegação entre partes"><a href="#parte-90">Parte anterior</a><a href="#indice">Índice</a><a href="#parte-92">Próxima parte</a></nav>
+</section>
+<section id="parte-92">
+<h2>Parte 92 — Quem Ele Era</h2>
+<div class="eyes" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<hr>
+<p>A criatura caiu de joelhos na terra seca, respirando pesado. A pele de ferro começou a rachar, revelando por baixo uma superfície cinzenta e cansada.</p>
+<p>— Faz mil anos que ninguém me vence — disse, com a voz mais baixa. — Mas eu também fui um filho da lua.</p>
+<p>Teodoro se aproximou devagar e se ajoelhou ao lado dele.</p>
+<p>— Então por que você se tornou isso?</p>
+<p>O Caçador demorou para responder. Olhou para as próprias mãos, rachadas, e falou com a voz de quem carregou um peso por muito tempo.</p>
+<p>— Porque alguém me disse que o roxo me faria forte. E eu acreditei. Eu queria proteger uma família que já tinha morrido.</p>
+<hr>
+<h3>Fim da Parte 92</h3>
+<nav class="pn" aria-label="Navegação entre partes"><a href="#parte-91">Parte anterior</a><a href="#indice">Índice</a><a href="#parte-93">Próxima parte</a></nav>
+</section>
+<section id="parte-93">
+<h2>Parte 93 — A Família Perdida</h2>
+<div class="eyes" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<hr>
+<p>Seraphine se abaixou ao lado do Caçador e olhou para o rosto dele com atenção. Os traços estavam apagados pela pele de ferro, mas ainda era possível ver uma cicatriz antiga na testa.</p>
+<p>— Eu conheço essa cicatriz — murmurou. — É da cidade de Lirena, a primeira que Lysandre destruiu.</p>
+<p>O Caçador fechou os olhos.</p>
+<p>— Eu era o filho mais velho de lá. Meus irmãos estavam dentro da casa quando ela foi incendiada. Eu não consegui salvar ninguém.</p>
+<p>Arthur se aproximou, devagar. Sentiu o roxo dentro de si se acalmar, como se entendesse a dor dele.</p>
+<p>— Você nunca mais precisa caçar ninguém — disse.</p>
+<hr>
+<h3>Fim da Parte 93</h3>
+<nav class="pn" aria-label="Navegação entre partes"><a href="#parte-92">Parte anterior</a><a href="#indice">Índice</a><a href="#parte-94">Próxima parte</a></nav>
+</section>
+<section id="parte-94">
+<h2>Parte 94 — O Perdão do Caçador</h2>
+<div class="eyes" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<hr>
+<p>O Caçador ficou em silêncio por muito tempo. O vento passava entre as árvores secas, e o lago, lá embaixo, refletia o céu cinzento.</p>
+<p>— Eu não sei mais quem eu sou — disse, enfim.</p>
+<p>— Então descubra — respondeu Arthur, usando as mesmas palavras que Seraphine tinha dito a Morvana.</p>
+<p>Teodoro estendeu a mão, e o Caçador a segurou com cuidado. A pele de ferro começou a se soltar em lascas finas, como casca de árvore, deixando a pele real aparecer por baixo, pálida e humana.</p>
+<p>Ele abriu os olhos, e neles não havia mais nem o roxo nem o vermelho. Só um castanho simples, cansado, mas livre.</p>
+<hr>
+<h3>Fim da Parte 94</h3>
+<nav class="pn" aria-label="Navegação entre partes"><a href="#parte-93">Parte anterior</a><a href="#indice">Índice</a><a href="#parte-95">Próxima parte</a></nav>
+</section>
+<section id="parte-95">
+<h2>Parte 95 — O Vale dos Esquecidos</h2>
+<div class="eyes" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<hr>
+<p>Os Guardiões do Sono levaram o homem que fora o Caçador até uma colina verde, onde havia um cemitério antigo, com pedras cobertas de musgo.</p>
+<p>Ali estavam enterrados os irmãos dele, a família que ele tinha perdido em Lirena. Ninguém sabia que eles haviam sido sepultados ali, mas Teodoro conhecia o lugar desde sempre.</p>
+<p>O homem se ajoelhou diante das pedras e ficou em silêncio. Depois, pôs a mão sobre a terra e chorou, pela primeira vez em séculos.</p>
+<p>Arthur se afastou, deixando-o sozinho com a dor. Mika tocou uma melodia suave ao longe, e o som chegou até o homem, que sorriu entre as lágrimas.</p>
+<hr>
+<h3>Fim da Parte 95</h3>
+<nav class="pn" aria-label="Navegação entre partes"><a href="#parte-94">Parte anterior</a><a href="#indice">Índice</a><a href="#parte-96">Próxima parte</a></nav>
+</section>
+<section id="parte-96">
+<h2>Parte 96 — Luz no Sul</h2>
+<div class="eyes" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<hr>
+<p>Quando voltaram à margem do lago, o acampamento estava mudado. Os Guardiões do Sono cuidavam dos feridos, dividiam comida e ensinavam as crianças a plantar sementes na terra fértil.</p>
+<p>Teodoro observava tudo de longe, com um sorriso discreto.</p>
+<p>— Há muito tempo, este lugar era só silêncio — disse a Arthur. — Agora tem vida de novo.</p>
+<p>Luminar anotou cada detalhe no caderno, incluindo os nomes dos que tinham se unido ao acordo. A lista estava ficando grande.</p>
+<p>— Quando voltarmos para a cidade, o conselho vai querer saber de tudo — disse ela.</p>
+<p>— Então vamos contar tudo — respondeu Arthur. — Inclusive o que a gente aprendeu com eles.</p>
+<hr>
+<h3>Fim da Parte 96</h3>
+<nav class="pn" aria-label="Navegação entre partes"><a href="#parte-95">Parte anterior</a><a href="#indice">Índice</a><a href="#parte-97">Próxima parte</a></nav>
+</section>
+<section id="parte-97">
+<h2>Parte 97 — O Retorno</h2>
+<div class="eyes" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<hr>
+<p>A viagem de volta foi mais leve. Os dias estavam mais longos, e o caminho do norte, que antes parecia tão perigoso, agora estava coberto de flores silvestres.</p>
+<p>Seraphine caminhava com o capuz para trás, deixando o vento tocar seu rosto. Dizia que sentia falta de algo que não sabia nomear.</p>
+<p>— Talvez seja esperança — sugeriu Mika.</p>
+<p>Seraphine sorriu de leve.</p>
+<p>— Talvez seja, Mika. Faz muito tempo que eu não sinto isso.</p>
+<p>Arthur voava sempre um pouco à frente, olhando o caminho, e de vez em quando voltava para perto dos amigos para contar o que tinha visto.</p>
+<hr>
+<h3>Fim da Parte 97</h3>
+<nav class="pn" aria-label="Navegação entre partes"><a href="#parte-96">Parte anterior</a><a href="#indice">Índice</a><a href="#parte-98">Próxima parte</a></nav>
+</section>
+<section id="parte-98">
+<h2>Parte 98 — A Cidade Esperando</h2>
+<div class="eyes" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<hr>
+<p>Quando avistaram a cidade, Macho estava na torre da igreja, acenando com um lenço vermelho. Ao lado dele, Duda pulava de alegria, e Aurora segurava o braço de Orion, que se apoiava na bengala.</p>
+<p>Arthur pousou na praça, e Duda correu até ele, abraçando suas pernas.</p>
+<p>— Você voltou! — gritou o menino. — Eu sabia!</p>
+<p>Arthur o levantou no ar e girou com ele, como quem comemora uma vitória que ninguém mais via.</p>
+<p>Macho desceu da torre quatro degraus de cada vez e abraçou os quatro ao mesmo tempo, quase derrubando todos no chão.</p>
+<p>— Eu sabia que vocês não iam me deixar sozinho com as crianças — disse, rindo e chorando.</p>
+<hr>
+<h3>Fim da Parte 98</h3>
+<nav class="pn" aria-label="Navegação entre partes"><a href="#parte-97">Parte anterior</a><a href="#indice">Índice</a><a href="#parte-99">Próxima parte</a></nav>
+</section>
+<section id="parte-99">
+<h2>Parte 99 — O Que Viram no Sul</h2>
+<div class="eyes" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<hr>
+<p>Na reunião do conselho, Luminar leu o relatório completo da viagem. Falou dos Guardiões do Sono, do acordo, do Caçador Sem Nome e da cidade de Lirena.</p>
+<p>Quando terminou, o silêncio durou alguns segundos. Depois, Ezra foi o primeiro a falar.</p>
+<p>— Nunca imaginei que os primeiros filhos da lua ainda existissem — disse ele, com a voz embargada. — Achei que tivessem desaparecido com o tempo.</p>
+<p>Dona Ilka pediu que o acordo fosse registrado nos livros da biblioteca, junto com o diário de Aurora.</p>
+<p>Aurora, sentada ao lado do filho, colocou a mão sobre o anel de prata e sorriu.</p>
+<p>— Estamos aprendendo a dividir o mundo — disse ela. — E isso é a coisa mais bonita que eu já vi.</p>
+<hr>
+<h3>Fim da Parte 99</h3>
+<nav class="pn" aria-label="Navegação entre partes"><a href="#parte-98">Parte anterior</a><a href="#indice">Índice</a><a href="#parte-100">Próxima parte</a></nav>
+</section>
+<section id="parte-100">
+<h2>Parte 100 — A Matilha de Muitos Mundos</h2>
+<div class="eyes" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<hr>
+<p>Um ano depois, a cidade tinha se tornado um lugar diferente de todos os que existiam. Lobisomens, vampiros, humanos e Guardiões do Sono viviam lado a lado, cada um com seus costumes e suas histórias.</p>
+<p>Os Guardiões plantavam árvores ao redor da cidade, e as raízes seguravam a terra nas encostas. Os vampiros trabalhavam nas noites, cuidando da biblioteca e dos arquivos. Os humanos cuidavam das escolas e das lojas. Os lobisomens protegiam as bordas da floresta.</p>
+<p>Arthur, agora com dezenove anos, voava sobre tudo isso todas as manhãs, e via a cidade acordar, uma janela de cada vez.</p>
+<p>Duda, já maior, voava ao lado dele de vez em quando, com um sorriso largo, do jeito que tinha pedido no primeiro inverno.</p>
+<p>Quando a noite chegou, os quatro amigos se sentaram no velho banco da praça. A lua cheia subia no céu, e os olhos de Arthur brilhavam em dourado, roxo, azul e vermelho.</p>
+<p>— Parece que a história nunca acaba — disse Mika.</p>
+<p>— Não acaba — respondeu Luminar. — Só muda de lado.</p>
+<p>Macho riu e entregou uma sacola de biscoitos para cada um. A matilha estava inteira, e o livro chegava à última página.</p>
+<hr>
+<h3>Fim da Parte 100</h3>
+<hr>
+<p><strong>Esta não é a última parte. Todos os dias, 10 partes são liberadas, e no total são 30 mil partes.</strong></p>
+<nav class="pn" aria-label="Navegação entre partes"><a href="#parte-99">Parte anterior</a><a href="#indice">Índice</a><span></span></nav>
 </section>
 </main>
 </body>
