@@ -184,6 +184,17 @@
   <a class="btn" href="https://discord.gg/yNmaNmsPS" target="_blank" rel="noreferrer">🔗 ENTRAR NO DISCORD</a>
 </header>
 
+<!-- ===== CONVITE DE PARCERIA ===== -->
+<section style="padding-top: 30px;">
+  <div class="wrap centro">
+    <div class="card" style="border-left-color: var(--dourado);">
+      <h2>🤝 Venha fazer parte de uma comunidade de Mine CLM Mods</h2>
+      <p>Sou o criador de alguns mods da comunidade.</p>
+      <a class="btn" href="convite-paeceria-1.html">Ver convite de parceria</a>
+    </div>
+  </div>
+</section>
+
 <!-- ===== O QUE VOCÊ VAI ENCONTRAR ===== -->
 <section>
   <div class="wrap">
@@ -311,27 +322,27 @@
   // mes: 0 = janeiro ... 11 = dezembro
   const MESES = ["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"];
   const EVENTOS = [
-    { id: "ano-novo", nome: "Torneio de Ano Novo", mes: 0, dia: 10, hora: "20:00", tipo: "PvP", desc: "PvP em equipes para começar o ano com tudo.", premio: "🏆 Kit de diamante para a equipe vencedora" },
-    { id: "inverno-sobrevivencia", nome: "Desafio de Sobrevivência de Inverno", mes: 0, dia: 24, hora: "19:00", tipo: "Sobrevivência", desc: "Sobreviva ao frio extremo com recursos limitados.", premio: "❄️ Título Sobrevivente do Gelo" },
-    { id: "coracoes", nome: "Concurso de Construção de Corações", mes: 1, dia: 14, hora: "19:00", tipo: "Construção", desc: "Construções com tema romântico.", premio: "💖 Destaque no spawn" },
-    { id: "tesouro-primavera", nome: "Caça ao Tesouro de Primavera", mes: 2, dia: 8, hora: "18:00", tipo: "Caça ao tesouro", desc: "Encontre os baús escondidos pelo mapa florido.", premio: "🌸 Baú lendário" },
-    { id: "parkour", nome: "Corrida de Parkour", mes: 2, dia: 22, hora: "20:00", tipo: "Minigame", desc: "Percurso de pulos cada vez mais difícil.", premio: "🥇 Elytra" },
-    { id: "bedwars", nome: "Torneio de Bedwars", mes: 3, dia: 5, hora: "20:00", tipo: "Minigame", desc: "Proteja sua cama e destrua as dos rivais.", premio: "🛏️ Cargo Mestre do Bedwars" },
-    { id: "pesca", nome: "Festival de Pesca", mes: 3, dia: 19, hora: "17:00", tipo: "Minigame", desc: "Quem pescar os melhores itens vence.", premio: "🎣 Vara encantada" },
-    { id: "casas", nome: "Festival de Construção de Casas", mes: 4, dia: 16, hora: "19:00", tipo: "Construção", desc: "Mostre a casa mais criativa do servidor.", premio: "🏠 Terreno VIP" },
-    { id: "batalha-naval", nome: "Evento Aquático: Batalha Naval", mes: 5, dia: 7, hora: "20:00", tipo: "PvP", desc: "Batalhas em barcos no oceano.", premio: "⚓ Tridente encantado" },
-    { id: "mineracao-jun", nome: "Competição de Mineração", mes: 5, dia: 21, hora: "18:00", tipo: "Mineração", desc: "Quem minerar mais minérios raros vence.", premio: "⛏️ Picareta de netherite" },
-    { id: "maratona-mineracao", nome: "Maratona de Mineração", mes: 6, dia: 5, hora: "15:00", tipo: "Mineração", desc: "Horas de mineração sem parar.", premio: "💎 Pilha de diamantes" },
-    { id: "cavalos", nome: "Torneio de Corrida de Cavalos", mes: 6, dia: 19, hora: "19:00", tipo: "Corrida", desc: "Corrida em pista com obstáculos.", premio: "🐎 Cavalo com armadura de diamante" },
-    { id: "redstone", nome: "Concurso de Redstone", mes: 7, dia: 9, hora: "19:00", tipo: "Construção", desc: "Crie a máquina mais incrível.", premio: "🔴 Cargo Engenheiro" },
-    { id: "barcos", nome: "Corrida de Barcos", mes: 7, dia: 23, hora: "20:00", tipo: "Corrida", desc: "Corrida no gelo com barcos.", premio: "🚤 Título Capitão" },
-    { id: "medievais", nome: "Concurso de Casas Medievais", mes: 8, dia: 6, hora: "19:00", tipo: "Construção", desc: "Construções no estilo medieval.", premio: "🏰 Destaque no spawn" },
-    { id: "skywars-set", nome: "Torneio de Skywars", mes: 8, dia: 20, hora: "20:00", tipo: "PvP", desc: "Ilhas no céu, só um sobrevive.", premio: "☁️ Kit lendário" },
-    { id: "labirinto", nome: "Labirinto Assombrado", mes: 9, dia: 31, hora: "21:00", tipo: "Exploração", desc: "Mapa de exploração com armadilhas e bosses escondidos.", premio: "🎃 Cabeça rara + título Caça-Fantasmas" },
-    { id: "skywars-nov", nome: "Torneio de Skywars", mes: 10, dia: 14, hora: "20:00", tipo: "PvP", desc: "Revanche nas ilhas do céu.", premio: "☁️ Kit lendário" },
-    { id: "fazendas", nome: "Concurso de Fazendas Automáticas", mes: 10, dia: 28, hora: "19:00", tipo: "Construção", desc: "A fazenda mais eficiente vence.", premio: "🌾 Cargo Fazendeiro" },
-    { id: "festival-inverno", nome: "Festival de Inverno", mes: 11, dia: 12, hora: "19:00", tipo: "Minigame", desc: "Minigames de neve e muita diversão.", premio: "⛄ Itens exclusivos de inverno" },
-    { id: "presentes", nome: "Concurso de Presentes", mes: 11, dia: 23, hora: "19:00", tipo: "Construção", desc: "Construa o presente mais bonito.", premio: "🎁 Baú surpresa" }
+    { id: "ano-novo", nome: "Torneio de Ano Novo", mes: 0, dia: 10, hora: "20:00", tipo: "PvP", desc: "PvP em equipes para começar o ano com tudo." },
+    { id: "inverno-sobrevivencia", nome: "Desafio de Sobrevivência de Inverno", mes: 0, dia: 24, hora: "19:00", tipo: "Sobrevivência", desc: "Sobreviva ao frio extremo com recursos limitados." },
+    { id: "coracoes", nome: "Concurso de Construção de Corações", mes: 1, dia: 14, hora: "19:00", tipo: "Construção", desc: "Construções com tema romântico." },
+    { id: "tesouro-primavera", nome: "Caça ao Tesouro de Primavera", mes: 2, dia: 8, hora: "18:00", tipo: "Caça ao tesouro", desc: "Encontre os baús escondidos pelo mapa florido." },
+    { id: "parkour", nome: "Corrida de Parkour", mes: 2, dia: 22, hora: "20:00", tipo: "Minigame", desc: "Percurso de pulos cada vez mais difícil." },
+    { id: "bedwars", nome: "Torneio de Bedwars", mes: 3, dia: 5, hora: "20:00", tipo: "Minigame", desc: "Proteja sua cama e destrua as dos rivais." },
+    { id: "pesca", nome: "Festival de Pesca", mes: 3, dia: 19, hora: "17:00", tipo: "Minigame", desc: "Quem pescar os melhores itens vence." },
+    { id: "casas", nome: "Festival de Construção de Casas", mes: 4, dia: 16, hora: "19:00", tipo: "Construção", desc: "Mostre a casa mais criativa do servidor." },
+    { id: "batalha-naval", nome: "Evento Aquático: Batalha Naval", mes: 5, dia: 7, hora: "20:00", tipo: "PvP", desc: "Batalhas em barcos no oceano." },
+    { id: "mineracao-jun", nome: "Competição de Mineração", mes: 5, dia: 21, hora: "18:00", tipo: "Mineração", desc: "Quem minerar mais minérios raros vence." },
+    { id: "maratona-mineracao", nome: "Maratona de Mineração", mes: 6, dia: 5, hora: "15:00", tipo: "Mineração", desc: "Horas de mineração sem parar." },
+    { id: "cavalos", nome: "Torneio de Corrida de Cavalos", mes: 6, dia: 19, hora: "19:00", tipo: "Corrida", desc: "Corrida em pista com obstáculos." },
+    { id: "redstone", nome: "Concurso de Redstone", mes: 7, dia: 9, hora: "19:00", tipo: "Construção", desc: "Crie a máquina mais incrível." },
+    { id: "barcos", nome: "Corrida de Barcos", mes: 7, dia: 23, hora: "20:00", tipo: "Corrida", desc: "Corrida no gelo com barcos." },
+    { id: "medievais", nome: "Concurso de Casas Medievais", mes: 8, dia: 6, hora: "19:00", tipo: "Construção", desc: "Construções no estilo medieval." },
+    { id: "skywars-set", nome: "Torneio de Skywars", mes: 8, dia: 20, hora: "20:00", tipo: "PvP", desc: "Ilhas no céu, só um sobrevive." },
+    { id: "labirinto", nome: "Labirinto Assombrado", mes: 9, dia: 31, hora: "21:00", tipo: "Exploração", desc: "Mapa de exploração com armadilhas e bosses escondidos." },
+    { id: "skywars-nov", nome: "Torneio de Skywars", mes: 10, dia: 14, hora: "20:00", tipo: "PvP", desc: "Revanche nas ilhas do céu." },
+    { id: "fazendas", nome: "Concurso de Fazendas Automáticas", mes: 10, dia: 28, hora: "19:00", tipo: "Construção", desc: "A fazenda mais eficiente vence." },
+    { id: "festival-inverno", nome: "Festival de Inverno", mes: 11, dia: 12, hora: "19:00", tipo: "Minigame", desc: "Minigames de neve e muita diversão." },
+    { id: "presentes", nome: "Concurso de Presentes", mes: 11, dia: 23, hora: "19:00", tipo: "Construção", desc: "Construa o presente mais bonito." }
   ];
 
   // ===== SESSÃO =====
@@ -445,7 +456,6 @@
             "<h4>" + ev.nome + "</h4>" +
             "<p>🗓️ " + formatarData(dataEvento(ev)) + "</p>" +
             "<p>" + ev.desc + "</p>" +
-            "<p>" + ev.premio + "</p>" +
             '<div style="margin-top:10px;">' + botao + "</div>" +
           "</div>";
       });
