@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Survival Word — Sobrevivência 24h</title>
+  <meta name="description" content="Servidor de Minecraft sobrevivência online 24h. Eventos de Minecraft Bedrock com inscrição pelo Discord." />
+  <style>
+    :root {
+      --verde: #5a9e3a;
+      --verde-escuro: #2f5e1f;
+      --marrom: #6b4a2b;
+      --cinza: #2e2e2e;
+      --cinza-claro: #9a9a9a;
+      --fundo: #161616;
+      --texto: #f2f2f2;
+      --dourado: #d4a22a;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: var(--fundo);
+      color: var(--texto);
+      line-height: 1.45;
+    }
+    a { color: var(--verde); }
+    h1, h2, h3 { margin: 0 0 10px; }
+    section { padding: 40px 20px; }
+    .wrap { max-width: 900px; margin: 0 auto; }
+    .centro { text-align: center; }
+    .hero {
+      background: linear-gradient(180deg, #1f3a18 0%, var(--fundo) 100%);
+      border-bottom: 4px solid var(--verde);
+      padding: 60px 20px;
+      text-align: center;
+    }
+    .hero h1 { color: var(--verde); font-size: clamp(28px, 6vw, 48px); }
+    .tag {
+      display: inline-block;
+      background: var(--verde-escuro);
+      color: #fff;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 13px;
+      margin-bottom: 12px;
+    }
+    .card {
+      background: var(--cinza);
+      border-left: 5px solid var(--verde);
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 12px;
+    }
+    .grid { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+    .titulo-secao {
+      color: var(--verde);
+      border-bottom: 2px solid var(--marrom);
+      padding-bottom: 8px;
+      margin-bottom: 20px;
+    }
+    .btn {
+      display: inline-block;
+      background: var(--verde);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 12px 20px;
+      font-size: 15px;
+      font-weight: bold;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .btn:hover { background: var(--verde-escuro); }
+    .btn:disabled { background: #555; cursor: not-allowed; }
+    .btn-sec { background: var(--marrom); }
+    .btn-bloco { display: block; width: 100%; text-align: center; }
+    .btn-ghost { background: transparent; border: 1px solid var(--cinza-claro); color: var(--texto); }
+    input, select {
+      width: 100%;
+      background: var(--fundo);
+      color: var(--texto);
+      border: 1px solid var(--verde);
+      border-radius: 6px;
+      padding: 10px;
+      font-size: 15px;
+      margin: 4px 0 10px;
+    }
+    label { font-size: 14px; color: var(--cinza-claro); }
+    .faixa-login {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--cinza);
+      border-radius: 8px;
+      padding: 14px;
+      margin-bottom: 20px;
+    }
+    .aviso {
+      background: var(--marrom);
+      border-radius: 6px;
+      padding: 10px;
+      margin: 12px 0;
+      text-align: center;
+    }
+    .conexao {
+      display: grid;
+      gap: 8px;
+      grid-template-columns: 1fr 1fr;
+      text-align: left;
+      margin: 12px 0;
+    }
+    .conexao div span { display: block; font-size: 12px; color: var(--cinza-claro); }
+    .conexao div b { font-size: 16px; word-break: break-all; }
+    .proximo {
+      background: var(--verde-escuro);
+      border-radius: 8px;
+      padding: 16px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .filtros { display: grid; gap: 12px; grid-template-columns: 1fr 1fr; margin-bottom: 20px; }
+    .mes { margin-bottom: 28px; }
+    .mes h3 { color: var(--verde); }
+    .evento {
+      background: var(--cinza);
+      border-left: 5px solid var(--verde);
+      border-radius: 8px;
+      padding: 14px;
+      margin-bottom: 12px;
+    }
+    .evento h4 { margin: 4px 0 6px; font-size: 17px; }
+    .evento p { margin: 4px 0; color: var(--cinza-claro); font-size: 14px; }
+    .evento .chip {
+      background: var(--marrom);
+      color: #fff;
+      font-size: 12px;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+    .msg { margin-top: 10px; font-size: 14px; min-height: 18px; }
+    .msg-ok { color: #8be07a; }
+    .msg-erro { color: #ff8a80; }
+    .oculto { display: none !important; }
+    .modal {
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.75);
+      display: flex; align-items: center; justify-content: center;
+      padding: 16px; z-index: 50;
+    }
+    .modal-box {
+      background: var(--cinza);
+      border-top: 4px solid var(--verde);
+      border-radius: 8px;
+      padding: 20px;
+      width: 100%;
+      max-width: 420px;
+    }
+    .modal-acoes { display: flex; gap: 10px; justify-content: flex-end; margin-top: 8px; }
+    .rodape {
+      border-top: 4px solid var(--verde);
+      padding: 30px 20px;
+      text-align: center;
+      color: var(--cinza-claro);
+      font-size: 14px;
+    }
+    @media (max-width: 600px) {
+      .filtros, .conexao { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<header class="hero">
+  <span class="tag">🟢 ONLINE 24H / 7 DIAS</span>
+  <h1>SURVIVAL WORD ⛏️</h1>
+  <p><strong>MINE SOBREVIVÊNCIA 24H POR DIA</strong></p>
+  <p class="wrap" style="color: var(--cinza-claro);">
+    🚀 Procurando um servidor de sobrevivência sempre aberto? Chegou a hora de conhecer o SURVIVAL WORD! 🔥
+  </p>
+  <a class="btn" href="https://discord.gg/yNmaNmsPS" target="_blank" rel="noreferrer">🔗 ENTRAR NO DISCORD</a>
+</header>
+
+<!-- ===== O QUE VOCÊ VAI ENCONTRAR ===== -->
+<section>
+  <div class="wrap">
+    <h2 class="titulo-secao">⛏️ O que você vai encontrar?</h2>
+    <div class="grid">
+      <div class="card">🌎 Chat global para conversar com todo mundo</div>
+      <div class="card">🤣 Memes, resenha e novas amizades</div>
+      <div class="card">😈 Desafios com o mod THE SIFT (deep dark, bússola, nether e end... será que você aguenta?)</div>
+      <div class="card">💡 Sugestões de mods e melhorias, com espaço para você opinar</div>
+      <div class="card">🐞 Canal para reportar bugs do servidor</div>
+      <div class="card">🎁 Doações de animais, eletrônicos e mobília</div>
+      <div class="card">🎫 Suporte rápido por tickets</div>
+      <div class="card">🖼️ Canal de imagens para mostrar suas construções</div>
+      <div class="card">🤝 Parcerias e novos vídeos</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== COMUNIDADE ===== -->
+<section style="padding-top: 0;">
+  <div class="wrap">
+    <h2 class="titulo-secao">📜 Comunidade organizada e segura</h2>
+    <div class="card">✅ Regras claras no Minecraft e na comunidade</div>
+    <div class="card">✅ Sem pornografia, NSFW ou links suspeitos</div>
+    <div class="card">✅ Avisos antes de qualquer mudança no servidor</div>
+  </div>
+</section>
+
+<!-- ===== BOT ===== -->
+<section style="padding-top: 0;">
+  <div class="wrap centro">
+    <h2 class="titulo-secao">🤖 Nosso bot</h2>
+    <p>Bot oficial do servidor. Use o painel para configurar e saque suas moedas diárias.</p>
+    <div class="grid" style="margin-top: 16px;">
+      <a class="btn btn-sec btn-bloco" href="https://survival-word-entrada-discorde-links.lovable.app/painel" target="_blank" rel="noreferrer">⚙️ Abrir painel do bot</a>
+      <a class="btn btn-sec btn-bloco" href="https://survival-word-entrada-discorde-links.lovable.app/saque" target="_blank" rel="noreferrer">🪙 Sacar moedas</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== EVENTOS ===== -->
+<section id="eventos" style="background: #1d1d1d; border-top: 4px solid var(--verde);">
+  <div class="wrap">
+    <h2 class="titulo-secao">🎉 events SURVIVAL word</h2>
+
+    <div class="aviso">
+      ⚠️ <strong>Evento exclusivo para jogadores de Minecraft Bedrock</strong><br />
+      (celular, Windows 10/11, Xbox e consoles)
+    </div>
+
+    <div class="conexao">
+      <div><span>Endereço</span><b>Eventoarthurdevproma.aternos.me</b></div>
+      <div><span>Porta</span><b>19132</b></div>
+    </div>
+    <div class="centro">
+      <button class="btn btn-sec" id="btnCopiar">📋 Copiar endereço e porta</button>
+    </div>
+
+    <div class="faixa-login" style="margin-top: 20px;">
+      <span id="estadoLogin">Entre com Discord para se inscrever nos eventos.</span>
+      <div>
+        <a class="btn" id="btnEntrar" href="#">Entrar com Discord</a>
+        <button class="btn btn-ghost oculto" id="btnSair">Sair</button>
+      </div>
+    </div>
+
+    <div class="proximo">
+      <strong>⏳ Próximo evento:</strong>
+      <div id="proximoNome">—</div>
+      <div id="proximoData" style="color: var(--cinza-claro); font-size: 14px;"></div>
+      <div id="contagem" style="font-size: 20px; font-weight: bold; margin-top: 6px;"></div>
+    </div>
+
+    <div class="filtros">
+      <div>
+        <label for="filtroMes">Mês</label>
+        <select id="filtroMes"></select>
+      </div>
+      <div>
+        <label for="filtroTipo">Tipo de evento</label>
+        <select id="filtroTipo"></select>
+      </div>
+    </div>
+
+    <div id="listaEventos"></div>
+  </div>
+</section>
+
+<!-- ===== RODAPÉ ===== -->
+<footer class="rodape">
+  <p><strong style="color: var(--verde);">💚 SURVIVAL WORD</strong></p>
+  <p>Sua próxima sobrevivência está esperando por você! ⛏️🔥</p>
+  <p>👑 Dono: @1548813716122894439</p>
+  <p>events SURVIVAL word · Eventoarthurdevproma.aternos.me · Porta 19132</p>
+</footer>
+
+<!-- ===== MODAL DE INSCRIÇÃO ===== -->
+<div class="modal oculto" id="modalInscricao" role="dialog" aria-modal="true">
+  <div class="modal-box">
+    <h3 id="modalTitulo">Inscrição</h3>
+    <label for="inputNick">Nick do Mine</label>
+    <input type="text" id="inputNick" placeholder="Seu nick no Minecraft" maxlength="32" />
+    <label for="inputRaca">Raça</label>
+    <input type="text" id="inputRaca" placeholder="Sua raça" maxlength="32" />
+    <div class="modal-acoes">
+      <button class="btn btn-ghost" id="btnCancelar">Cancelar</button>
+      <button class="btn" id="btnConfirmar">Confirmar inscrição</button>
+    </div>
+    <div class="msg" id="msgInscricao"></div>
+  </div>
+</div>
+
+<script>
+  // ===== CONFIGURAÇÃO =====
+  // Função de login já existente no Supabase
+  const LOGIN_URL = "https://auytitpxyqlvafiaznlx.supabase.co/functions/v1/discord-login";
+  // Bot que recebe as inscrições (mesmo endpoint usado no eventos.tsx)
+  const BOT_API = "https://site-api-ticket-ia.onrender.com";
+  const INSCRICAO_URL = BOT_API + "/api/v1/eventos/inscrever";
+  const SALDO_URL = BOT_API + "/api/v1/saldo";
+  const HOST = "Eventoarthurdevproma.aternos.me";
+  const PORTA = "19132";
+
+  // ===== EVENTOS =====
+  // mes: 0 = janeiro ... 11 = dezembro
+  const MESES = ["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"];
+  const EVENTOS = [
+    { id: "ano-novo", nome: "Torneio de Ano Novo", mes: 0, dia: 10, hora: "20:00", tipo: "PvP", desc: "PvP em equipes para começar o ano com tudo.", premio: "🏆 Kit de diamante para a equipe vencedora" },
+    { id: "inverno-sobrevivencia", nome: "Desafio de Sobrevivência de Inverno", mes: 0, dia: 24, hora: "19:00", tipo: "Sobrevivência", desc: "Sobreviva ao frio extremo com recursos limitados.", premio: "❄️ Título Sobrevivente do Gelo" },
+    { id: "coracoes", nome: "Concurso de Construção de Corações", mes: 1, dia: 14, hora: "19:00", tipo: "Construção", desc: "Construções com tema romântico.", premio: "💖 Destaque no spawn" },
+    { id: "tesouro-primavera", nome: "Caça ao Tesouro de Primavera", mes: 2, dia: 8, hora: "18:00", tipo: "Caça ao tesouro", desc: "Encontre os baús escondidos pelo mapa florido.", premio: "🌸 Baú lendário" },
+    { id: "parkour", nome: "Corrida de Parkour", mes: 2, dia: 22, hora: "20:00", tipo: "Minigame", desc: "Percurso de pulos cada vez mais difícil.", premio: "🥇 Elytra" },
+    { id: "bedwars", nome: "Torneio de Bedwars", mes: 3, dia: 5, hora: "20:00", tipo: "Minigame", desc: "Proteja sua cama e destrua as dos rivais.", premio: "🛏️ Cargo Mestre do Bedwars" },
+    { id: "pesca", nome: "Festival de Pesca", mes: 3, dia: 19, hora: "17:00", tipo: "Minigame", desc: "Quem pescar os melhores itens vence.", premio: "🎣 Vara encantada" },
+    { id: "casas", nome: "Festival de Construção de Casas", mes: 4, dia: 16, hora: "19:00", tipo: "Construção", desc: "Mostre a casa mais criativa do servidor.", premio: "🏠 Terreno VIP" },
+    { id: "batalha-naval", nome: "Evento Aquático: Batalha Naval", mes: 5, dia: 7, hora: "20:00", tipo: "PvP", desc: "Batalhas em barcos no oceano.", premio: "⚓ Tridente encantado" },
+    { id: "mineracao-jun", nome: "Competição de Mineração", mes: 5, dia: 21, hora: "18:00", tipo: "Mineração", desc: "Quem minerar mais minérios raros vence.", premio: "⛏️ Picareta de netherite" },
+    { id: "maratona-mineracao", nome: "Maratona de Mineração", mes: 6, dia: 5, hora: "15:00", tipo: "Mineração", desc: "Horas de mineração sem parar.", premio: "💎 Pilha de diamantes" },
+    { id: "cavalos", nome: "Torneio de Corrida de Cavalos", mes: 6, dia: 19, hora: "19:00", tipo: "Corrida", desc: "Corrida em pista com obstáculos.", premio: "🐎 Cavalo com armadura de diamante" },
+    { id: "redstone", nome: "Concurso de Redstone", mes: 7, dia: 9, hora: "19:00", tipo: "Construção", desc: "Crie a máquina mais incrível.", premio: "🔴 Cargo Engenheiro" },
+    { id: "barcos", nome: "Corrida de Barcos", mes: 7, dia: 23, hora: "20:00", tipo: "Corrida", desc: "Corrida no gelo com barcos.", premio: "🚤 Título Capitão" },
+    { id: "medievais", nome: "Concurso de Casas Medievais", mes: 8, dia: 6, hora: "19:00", tipo: "Construção", desc: "Construções no estilo medieval.", premio: "🏰 Destaque no spawn" },
+    { id: "skywars-set", nome: "Torneio de Skywars", mes: 8, dia: 20, hora: "20:00", tipo: "PvP", desc: "Ilhas no céu, só um sobrevive.", premio: "☁️ Kit lendário" },
+    { id: "labirinto", nome: "Labirinto Assombrado", mes: 9, dia: 31, hora: "21:00", tipo: "Exploração", desc: "Mapa de exploração com armadilhas e bosses escondidos.", premio: "🎃 Cabeça rara + título Caça-Fantasmas" },
+    { id: "skywars-nov", nome: "Torneio de Skywars", mes: 10, dia: 14, hora: "20:00", tipo: "PvP", desc: "Revanche nas ilhas do céu.", premio: "☁️ Kit lendário" },
+    { id: "fazendas", nome: "Concurso de Fazendas Automáticas", mes: 10, dia: 28, hora: "19:00", tipo: "Construção", desc: "A fazenda mais eficiente vence.", premio: "🌾 Cargo Fazendeiro" },
+    { id: "festival-inverno", nome: "Festival de Inverno", mes: 11, dia: 12, hora: "19:00", tipo: "Minigame", desc: "Minigames de neve e muita diversão.", premio: "⛄ Itens exclusivos de inverno" },
+    { id: "presentes", nome: "Concurso de Presentes", mes: 11, dia: 23, hora: "19:00", tipo: "Construção", desc: "Construa o presente mais bonito.", premio: "🎁 Baú surpresa" }
+  ];
+
+  // ===== SESSÃO =====
+  // Guardada em sessionStorage para sobreviver ao recarregar a página
+  const CHAVE_SESSAO = "sw_sessao";
+  let sessao = null;
+  let nomeUsuario = null;
+
+  function lerSessao() {
+    const params = new URLSearchParams(window.location.search);
+    const nova = params.get("sessao");
+    if (nova) {
+      sessao = nova;
+      try { sessionStorage.setItem(CHAVE_SESSAO, nova); } catch (e) {}
+      // Remove o código da URL
+      window.history.replaceState({}, "", window.location.pathname + window.location.hash);
+    } else {
+      try { sessao = sessionStorage.getItem(CHAVE_SESSAO); } catch (e) {}
+    }
+  }
+
+  function sair() {
+    sessao = null;
+    nomeUsuario = null;
+    try { sessionStorage.removeItem(CHAVE_SESSAO); } catch (e) {}
+    atualizarLogin();
+    renderizarEventos();
+  }
+
+  async function buscarNome() {
+    if (!sessao) return;
+    try {
+      const r = await fetch(SALDO_URL, { headers: { Authorization: "Bearer " + sessao } });
+      if (r.status === 401) { sair(); return; }
+      const d = await r.json().catch(() => ({}));
+      nomeUsuario = d.nome || d.username || d.usuario || d.global_name || "jogador";
+    } catch (e) {
+      nomeUsuario = "jogador";
+    }
+    atualizarLogin();
+  }
+
+  function atualizarLogin() {
+    const estado = document.getElementById("estadoLogin");
+    const entrar = document.getElementById("btnEntrar");
+    const sairBtn = document.getElementById("btnSair");
+    if (sessao) {
+      estado.textContent = "Olá, " + (nomeUsuario || "...") + " 👋";
+      entrar.classList.add("oculto");
+      sairBtn.classList.remove("oculto");
+    } else {
+      estado.textContent = "Entre com Discord para se inscrever nos eventos.";
+      entrar.classList.remove("oculto");
+      sairBtn.classList.add("oculto");
+    }
+    // Volta para esta mesma página depois do login
+    const voltar = window.location.origin + window.location.pathname;
+    entrar.href = LOGIN_URL + "?voltar=" + encodeURIComponent(voltar);
+  }
+
+  // ===== DATAS (horário de Brasília, UTC-3) =====
+  // Todos os eventos são de 2027
+  const ANO_EVENTOS = 2027;
+
+  function dataEvento(ev) {
+    const [h, m] = ev.hora.split(":").map(Number);
+    return new Date(Date.UTC(ANO_EVENTOS, ev.mes, ev.dia, h + 3, m));
+  }
+
+  const formatarData = (d) =>
+    new Intl.DateTimeFormat("pt-BR", {
+      timeZone: "America/Sao_Paulo", day: "2-digit", month: "long", year: "numeric", hour: "2-digit", minute: "2-digit"
+    }).format(d);
+
+  // ===== FILTROS =====
+  function preencherFiltros() {
+    const selMes = document.getElementById("filtroMes");
+    selMes.innerHTML = '<option value="todos">Todos os meses</option>';
+    MESES.forEach((m, i) => selMes.insertAdjacentHTML("beforeend", '<option value="' + i + '">' + m + "</option>"));
+
+    const tipos = [...new Set(EVENTOS.map((e) => e.tipo))];
+    const selTipo = document.getElementById("filtroTipo");
+    selTipo.innerHTML = '<option value="todos">Todos os tipos</option>';
+    tipos.forEach((t) => selTipo.insertAdjacentHTML("beforeend", '<option value="' + t + '">' + t + "</option>"));
+
+    selMes.onchange = renderizarEventos;
+    selTipo.onchange = renderizarEventos;
+  }
+
+  // ===== RENDERIZAÇÃO =====
+  function renderizarEventos() {
+    const mesF = document.getElementById("filtroMes").value;
+    const tipoF = document.getElementById("filtroTipo").value;
+    const lista = document.getElementById("listaEventos");
+    const agora = new Date();
+    let html = "";
+
+    MESES.forEach((nomeMes, i) => {
+      if (mesF !== "todos" && Number(mesF) !== i) return;
+      const doMes = EVENTOS.filter((e) => e.mes === i && (tipoF === "todos" || e.tipo === tipoF));
+      if (!doMes.length) return;
+
+      html += '<div class="mes"><h3>📅 ' + nomeMes + "</h3>";
+      doMes.forEach((ev) => {
+        const botao = sessao
+          ? '<button class="btn" onclick="abrirInscricao(\'' + ev.id + '\')">Inscrever-se</button>'
+          : '<button class="btn" disabled>🔒 Entre com Discord para se inscrever</button>';
+        html +=
+          '<div class="evento">' +
+            '<span class="chip">' + ev.tipo + "</span>" +
+            "<h4>" + ev.nome + "</h4>" +
+            "<p>🗓️ " + formatarData(dataEvento(ev)) + "</p>" +
+            "<p>" + ev.desc + "</p>" +
+            "<p>" + ev.premio + "</p>" +
+            '<div style="margin-top:10px;">' + botao + "</div>" +
+          "</div>";
+      });
+      html += "</div>";
+    });
+
+    lista.innerHTML = html || '<p class="centro">Nenhum evento encontrado com esses filtros.</p>';
+  }
+
+  // ===== PRÓXIMO EVENTO + CONTAGEM =====
+  function atualizarProximo() {
+    const agora = new Date();
+    const prox = EVENTOS
+      .map((ev) => ({ ev, d: dataEvento(ev) }))
+      .filter((x) => x.d.getTime() > agora.getTime())
+      .sort((a, b) => a.d - b.d)[0];
+
+    if (!prox) {
+      document.getElementById("proximoNome").textContent = "Nenhum evento futuro cadastrado.";
+      document.getElementById("proximoData").textContent = "";
+      document.getElementById("contagem").textContent = "";
+      return;
+    }
+
+    document.getElementById("proximoNome").textContent = prox.ev.nome;
+    document.getElementById("proximoData").textContent = formatarData(prox.d);
+
+    const atualizar = () => {
+      const s = Math.max(0, Math.floor((prox.d.getTime() - Date.now()) / 1000));
+      document.getElementById("contagem").textContent =
+        Math.floor(s / 86400) + "d " + Math.floor((s % 86400) / 3600) + "h " +
+        Math.floor((s % 3600) / 60) + "m " + (s % 60) + "s";
+    };
+    atualizar();
+    setInterval(atualizar, 1000);
+  }
+
+  // ===== INSCRIÇÃO =====
+  let eventoAtual = null;
+
+  function abrirInscricao(id) {
+    if (!sessao) return alert("Entre com Discord para se inscrever.");
+    eventoAtual = EVENTOS.find((e) => e.id === id);
+    document.getElementById("modalTitulo").textContent = "Inscrição: " + eventoAtual.nome;
+    document.getElementById("inputNick").value = "";
+    document.getElementById("inputRaca").value = "";
+    document.getElementById("msgInscricao").textContent = "";
+    document.getElementById("msgInscricao").className = "msg";
+    document.getElementById("modalInscricao").classList.remove("oculto");
+  }
+
+  function fecharInscricao() {
+    document.getElementById("modalInscricao").classList.add("oculto");
+    eventoAtual = null;
+  }
+
+  async function confirmarInscricao() {
+    const nick = document.getElementById("inputNick").value.trim();
+    const raca = document.getElementById("inputRaca").value.trim();
+    const msg = document.getElementById("msgInscricao");
+    msg.className = "msg";
+
+    if (!nick || !raca) {
+      msg.classList.add("msg-erro");
+      msg.textContent = "Preencha o nick e a raça.";
+      return;
+    }
+
+    const btn = document.getElementById("btnConfirmar");
+    btn.disabled = true;
+    msg.textContent = "Enviando...";
+
+    try {
+      const r = await fetch(INSCRICAO_URL, {
+        method: "POST",
+        headers: { Authorization: "Bearer " + sessao, "Content-Type": "application/json" },
+        body: JSON.stringify({ evento_id: eventoAtual.id, evento: eventoAtual.nome, nick: nick, raca: raca })
+      });
+      const d = await r.json().catch(() => ({}));
+
+      if (r.status === 401) {
+        msg.classList.add("msg-erro");
+        msg.textContent = "Sua sessão expirou. Entre de novo com o Discord.";
+      } else if (!r.ok) {
+        msg.classList.add("msg-erro");
+        msg.textContent = d.erro || d.mensagem || "Não consegui fazer a inscrição. Tente de novo em alguns segundos.";
+      } else {
+        msg.classList.add("msg-ok");
+        msg.textContent = "Perfeito! ✅ Você está inscrito no evento com: " + nick + " e " + raca;
+      }
+    } catch (e) {
+      msg.classList.add("msg-erro");
+      msg.textContent = "Não consegui falar com o bot. Ele pode estar acordando; tente de novo em alguns segundos.";
+    } finally {
+      btn.disabled = false;
+    }
+  }
+
+  // ===== EVENTOS DA PÁGINA =====
+  document.getElementById("btnSair").onclick = sair;
+  document.getElementById("btnCancelar").onclick = fecharInscricao;
+  document.getElementById("btnConfirmar").onclick = confirmarInscricao;
+  document.getElementById("btnCopiar").onclick = async () => {
+    const botao = document.getElementById("btnCopiar");
+    try {
+      await navigator.clipboard.writeText(HOST + ":" + PORTA);
+      botao.textContent = "✅ Copiado!";
+      setTimeout(() => (botao.textContent = "📋 Copiar endereço e porta"), 2000);
+    } catch (e) {
+      alert(HOST + ":" + PORTA);
+    }
+  };
+  window.abrirInscricao = abrirInscricao;
+
+  // ===== INÍCIO =====
+  lerSessao();
+  preencherFiltros();
+  atualizarLogin();
+  renderizarEventos();
+  atualizarProximo();
+  if (sessao) buscarNome();
+</script>
+</body>
+</html>
