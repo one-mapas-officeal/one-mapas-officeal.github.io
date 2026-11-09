@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Enviar arquivos</title>
+<style>
+  :root { color-scheme: light dark; }
+  body {
+    font-family: system-ui, -apple-system, sans-serif;
+    max-width: 480px;
+    margin: 40px auto;
+    padding: 0 16px;
+    background: #f5f5f7;
+    color: #1c1c1e;
+  }
+  @media (prefers-color-scheme: dark) {
+    body { background: #1c1c1e; color: #f2f2f7; }
+    select, input, button { background: #2c2c2e !important; color: #f2f2f7 !important; border-color: #3a3a3c !important; }
+  }
+  h1 { font-size: 1.5rem; margin-bottom: 20px; }
+  form { display: flex; flex-direction: column; gap: 14px; }
+  label { font-weight: 600; font-size: 0.95rem; }
+  select, input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #c7c7cc;
+    border-radius: 8px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    background: #fff;
+  }
+  button {
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: #0a84ff;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  button:disabled { opacity: 0.5; cursor: default; }
+  #resultado {
+    margin-top: 18px;
+    padding: 12px;
+    border-radius: 8px;
+    display: none;
+    font-size: 0.95rem;
+  }
+  #resultado.ok { display: block; background: #d1f7d6; color: #1d5c2a; }
+  #resultado.erro { display: block; background: #ffd6d6; color: #7a1c1c; }
+</style>
+</head>
+<body>
+  <h1>Enviar arquivo</h1>
+
+  <form id="form">
+    <div>
+      <label for="categoria">Tipo do arquivo</label>
+      <select id="categoria" required>
+        <option value="">Selecione...</option>
+        <option value="textura">Textura</option>
+        <option value="add-ons">Add-ons</option>
+        <option value="skins">Skins</option>
+        <option value="mapas">Mapas</option>
+        <option value="mods">Mods</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="arquivo">Arquivo</label>
+      <input type="file" id="arquivo" required>
+    </div>
+
+    <button type="submit" id="enviar">Enviar</button>
+  </form>
+
+  <div id="resultado"></div>
+
+<script>
+  const URL_FUNCAO = "https://eqeleozhqwmziiscsyco.supabase.co/functions/v1/upload-arquivo";
+
+  const form = document.getElementById("form");
+  const botao = document.getElementById("enviar");
+  const resultado = document.getElementById("resultado");
+
+  function mostrar(texto, tipo) {
+    resultado.textContent = texto;
+    resultado.className = tipo;
+  }
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const categoria = document.getElementById("categoria").value;
+    const arquivo = document.getElementById("arquivo").files[0];
+
+    if (!categoria || !arquivo) {
+      mostrar("Escolha o tipo e o arquivo.", "erro");
+      return;
+    }
+
+    const dados = new FormData();
+    dados.append("categoria", categoria);
+    dados.append("arquivo", arquivo);
+
+    botao.disabled = true;
+    botao.textContent = "Enviando...";
+    resultado.className = "";
+    resultado.style.display = "none";
+
+    try {
+      const resposta = await fetch(URL_FUNCAO, { method: "POST", body: dados });
+      const corpo = await resposta.json().catch(() => ({}));
+
+      if (resposta.ok) {
+        mostrar(corpo.mensagem || "Arquivo enviado com sucesso.", "ok");
+        form.reset();
+      } else {
+        mostrar(corpo.mensagem || corpo.erro || "Erro ao enviar o arquivo.", "erro");
+      }
+    } catch (err) {
+      mostrar("Falha de conexão. Tente novamente.", "erro");
+    } finally {
+      botao.disabled = false;
+      botao.textContent = "Enviar";
+    }
+  });
+</script>
+</body>
+</html>
