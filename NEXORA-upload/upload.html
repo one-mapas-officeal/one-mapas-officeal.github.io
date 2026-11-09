@@ -115,7 +115,23 @@
       const corpo = await resposta.json().catch(() => ({}));
 
       if (resposta.ok) {
-        mostrar(corpo.mensagem || "Arquivo enviado com sucesso.", "ok");
+        resultado.className = "ok";
+        resultado.style.display = "block";
+        resultado.textContent = "";
+        const texto = document.createElement("div");
+        texto.textContent = corpo.mensagem || "Arquivo enviado com sucesso.";
+        resultado.appendChild(texto);
+        if (corpo.link) {
+          const a = document.createElement("a");
+          a.href = corpo.link;
+          a.textContent = "Baixar pacote";
+          a.download = corpo.nome || "";
+          a.style.display = "inline-block";
+          a.style.marginTop = "8px";
+          a.style.color = "#0a6e2c";
+          a.style.fontWeight = "600";
+          resultado.appendChild(a);
+        }
         form.reset();
       } else {
         mostrar(corpo.mensagem || corpo.erro || "Erro ao enviar o arquivo.", "erro");
