@@ -3,135 +3,309 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Enviar arquivos</title>
+<title>Enviar arquivos do Minecraft</title>
 <style>
-  :root { color-scheme: light dark; }
-  body {
-    font-family: system-ui, -apple-system, sans-serif;
-    max-width: 480px;
-    margin: 40px auto;
-    padding: 0 16px;
-    background: #f5f5f7;
-    color: #1c1c1e;
+  :root {
+    color-scheme: light dark;
+    --fundo: #f4f4f7;
+    --cartao: #ffffff;
+    --texto: #1c1c1e;
+    --secundario: #6e6e73;
+    --borda: #c7c7cc;
+    --destaque: #0a84ff;
+    --sucesso-fundo: #d6f5dc;
+    --sucesso-texto: #1d5c2a;
+    --erro-fundo: #ffd9d9;
+    --erro-texto: #7a1c1c;
   }
   @media (prefers-color-scheme: dark) {
-    body { background: #1c1c1e; color: #f2f2f7; }
-    select, input, button { background: #2c2c2e !important; color: #f2f2f7 !important; border-color: #3a3a3c !important; }
+    :root {
+      --fundo: #111113;
+      --cartao: #1c1c1e;
+      --texto: #f2f2f7;
+      --secundario: #aeaeb2;
+      --borda: #3a3a3c;
+      --destaque: #0a84ff;
+      --sucesso-fundo: #163d22;
+      --sucesso-texto: #9ff0b0;
+      --erro-fundo: #4a1c1c;
+      --erro-texto: #ffb4b4;
+    }
   }
-  h1 { font-size: 1.5rem; margin-bottom: 20px; }
-  form { display: flex; flex-direction: column; gap: 14px; }
-  label { font-weight: 600; font-size: 0.95rem; }
-  select, input[type="file"] {
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    padding: 32px 16px;
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 18px;
+    line-height: 1.5;
+    background: var(--fundo);
+    color: var(--texto);
+  }
+
+  .cartao {
+    max-width: 560px;
+    margin: 0 auto;
+    background: var(--cartao);
+    border: 2px solid var(--borda);
+    border-radius: 16px;
+    padding: 28px;
+  }
+
+  h1 { font-size: 1.9rem; margin: 0 0 6px; }
+
+  .subtitulo {
+    color: var(--secundario);
+    margin: 0 0 24px;
+    font-size: 1.05rem;
+  }
+
+  .rotulo {
+    display: block;
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+  }
+
+  .campo { margin-bottom: 22px; }
+
+  select {
     width: 100%;
-    padding: 10px;
-    border: 1px solid #c7c7cc;
-    border-radius: 8px;
-    font-size: 1rem;
-    box-sizing: border-box;
-    background: #fff;
+    padding: 14px;
+    font-size: 1.05rem;
+    border: 2px solid var(--borda);
+    border-radius: 10px;
+    background: var(--cartao);
+    color: var(--texto);
   }
-  button {
-    padding: 12px;
-    border: none;
-    border-radius: 8px;
-    background: #0a84ff;
-    color: #fff;
+
+  select:focus, .soltar:focus-within {
+    outline: none;
+    border-color: var(--destaque);
+  }
+
+  .soltar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 6px;
+    padding: 36px 20px;
+    border: 3px dashed var(--borda);
+    border-radius: 14px;
+    cursor: pointer;
+    transition: border-color 0.15s, background 0.15s;
+  }
+
+  .soltar.sobre {
+    border-color: var(--destaque);
+    background: rgba(10, 132, 255, 0.08);
+  }
+
+  .soltar .icone { font-size: 2.4rem; }
+  .soltar .principal { font-weight: 700; font-size: 1.15rem; }
+  .soltar .secundario { color: var(--secundario); font-size: 0.95rem; }
+  .soltar .tipos { color: var(--secundario); font-size: 0.9rem; margin-top: 4px; }
+
+  .soltar input[type="file"] { display: none; }
+
+  .arquivo-escolhido {
+    margin-top: 10px;
     font-size: 1rem;
-    font-weight: 600;
+    word-break: break-all;
+  }
+
+  button#enviar {
+    width: 100%;
+    padding: 16px;
+    font-size: 1.15rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 12px;
+    background: var(--destaque);
+    color: #fff;
     cursor: pointer;
   }
-  button:disabled { opacity: 0.5; cursor: default; }
+
+  button#enviar:disabled { opacity: 0.5; cursor: default; }
+
   #resultado {
-    margin-top: 18px;
-    padding: 12px;
-    border-radius: 8px;
+    margin-top: 22px;
+    padding: 16px;
+    border-radius: 12px;
+    font-size: 1.05rem;
     display: none;
-    font-size: 0.95rem;
   }
-  #resultado.ok { display: block; background: #d1f7d6; color: #1d5c2a; }
-  #resultado.erro { display: block; background: #ffd6d6; color: #7a1c1c; }
+
+  #resultado.ok {
+    display: block;
+    background: var(--sucesso-fundo);
+    color: var(--sucesso-texto);
+  }
+
+  #resultado.erro {
+    display: block;
+    background: var(--erro-fundo);
+    color: var(--erro-texto);
+  }
+
+  #resultado a.baixar {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 10px 18px;
+    border-radius: 10px;
+    background: var(--sucesso-texto);
+    color: var(--sucesso-fundo);
+    font-weight: 700;
+    text-decoration: none;
+  }
 </style>
 </head>
 <body>
-  <h1>Enviar arquivo</h1>
+  <main class="cartao">
+    <h1>Enviar arquivo</h1>
+    <p class="subtitulo">Envie seu pacote do Minecraft. Se o nome já existir, você precisará enviar outro arquivo.</p>
 
-  <form id="form">
-    <div>
-      <label for="categoria">Tipo do arquivo</label>
-      <select id="categoria" required>
-        <option value="">Selecione...</option>
-        <option value="textura">Textura</option>
-        <option value="add-ons">Add-ons</option>
-        <option value="skins">Skins</option>
-        <option value="mapas">Mapas</option>
-        <option value="mods">Mods</option>
-      </select>
-    </div>
+    <form id="form" novalidate>
+      <div class="campo">
+        <label class="rotulo" for="categoria">Tipo do arquivo</label>
+        <select id="categoria" required>
+          <option value="">Selecione...</option>
+          <option value="textura">Textura</option>
+          <option value="add-ons">Add-ons</option>
+          <option value="skins">Skins</option>
+          <option value="mapas">Mapas</option>
+          <option value="mods">Mods</option>
+        </select>
+      </div>
 
-    <div>
-      <label for="arquivo">Arquivo</label>
-      <input type="file" id="arquivo" required>
-    </div>
+      <div class="campo">
+        <span class="rotulo">Arquivo</span>
+        <label class="soltar" id="area" for="arquivo" tabindex="0">
+          <span class="icone">📦</span>
+          <span class="principal">Arraste o arquivo aqui</span>
+          <span class="secundario">ou toque para escolher</span>
+          <span class="tipos">Aceitos: .mcpack, .mcaddon, .mcworld, .mctemplate, .png, .json</span>
+          <input type="file" id="arquivo" accept=".mcpack,.mcaddon,.mcworld,.mctemplate,.png,.json">
+        </label>
+        <div class="arquivo-escolhido" id="nomeArquivo"></div>
+      </div>
 
-    <button type="submit" id="enviar">Enviar</button>
-  </form>
+      <button type="submit" id="enviar">Enviar</button>
+    </form>
 
-  <div id="resultado"></div>
+    <div id="resultado" role="status"></div>
+  </main>
 
 <script>
   const URL_FUNCAO = "https://eqeleozhqwmziiscsyco.supabase.co/functions/v1/upload-arquivo";
+  const EXTENSOES = [".mcpack", ".mcaddon", ".mcworld", ".mctemplate", ".png", ".json"];
 
   const form = document.getElementById("form");
   const botao = document.getElementById("enviar");
   const resultado = document.getElementById("resultado");
+  const area = document.getElementById("area");
+  const inputArquivo = document.getElementById("arquivo");
+  const nomeArquivo = document.getElementById("nomeArquivo");
+
+  let arquivoSelecionado = null;
+
+  function extensaoValida(nome) {
+    const lower = nome.toLowerCase();
+    return EXTENSOES.some((ext) => lower.endsWith(ext));
+  }
 
   function mostrar(texto, tipo) {
-    resultado.textContent = texto;
+    resultado.innerHTML = "";
     resultado.className = tipo;
+    const p = document.createElement("div");
+    p.textContent = texto;
+    resultado.appendChild(p);
   }
+
+  function escolherArquivo(arq) {
+    if (!arq) return;
+    if (!extensaoValida(arq.name)) {
+      arquivoSelecionado = null;
+      inputArquivo.value = "";
+      nomeArquivo.textContent = "";
+      mostrar("Tipo de arquivo não permitido. Use: " + EXTENSOES.join(", "), "erro");
+      return;
+    }
+    arquivoSelecionado = arq;
+    nomeArquivo.textContent = "Selecionado: " + arq.name;
+    resultado.className = "";
+    resultado.style.display = "none";
+  }
+
+  inputArquivo.addEventListener("change", () => {
+    escolherArquivo(inputArquivo.files[0]);
+  });
+
+  ["dragenter", "dragover"].forEach((evt) => {
+    area.addEventListener(evt, (e) => {
+      e.preventDefault();
+      area.classList.add("sobre");
+    });
+  });
+
+  ["dragleave", "drop"].forEach((evt) => {
+    area.addEventListener(evt, (e) => {
+      e.preventDefault();
+      area.classList.remove("sobre");
+    });
+  });
+
+  area.addEventListener("drop", (e) => {
+    escolherArquivo(e.dataTransfer.files[0]);
+  });
+
+  // Impede que o navegador abra o arquivo se ele for solto fora da área
+  window.addEventListener("dragover", (e) => e.preventDefault());
+  window.addEventListener("drop", (e) => e.preventDefault());
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     const categoria = document.getElementById("categoria").value;
-    const arquivo = document.getElementById("arquivo").files[0];
 
-    if (!categoria || !arquivo) {
-      mostrar("Escolha o tipo e o arquivo.", "erro");
+    if (!categoria) {
+      mostrar("Escolha o tipo do arquivo.", "erro");
+      return;
+    }
+    if (!arquivoSelecionado) {
+      mostrar("Escolha um arquivo para enviar.", "erro");
       return;
     }
 
     const dados = new FormData();
     dados.append("categoria", categoria);
-    dados.append("arquivo", arquivo);
+    dados.append("arquivo", arquivoSelecionado);
 
     botao.disabled = true;
     botao.textContent = "Enviando...";
-    resultado.className = "";
-    resultado.style.display = "none";
 
     try {
       const resposta = await fetch(URL_FUNCAO, { method: "POST", body: dados });
       const corpo = await resposta.json().catch(() => ({}));
 
       if (resposta.ok) {
-        resultado.className = "ok";
-        resultado.style.display = "block";
-        resultado.textContent = "";
-        const texto = document.createElement("div");
-        texto.textContent = corpo.mensagem || "Arquivo enviado com sucesso.";
-        resultado.appendChild(texto);
+        mostrar(corpo.mensagem || "Arquivo enviado com sucesso.", "ok");
         if (corpo.link) {
           const a = document.createElement("a");
           a.href = corpo.link;
+          a.className = "baixar";
           a.textContent = "Baixar pacote";
-          a.download = corpo.nome || "";
-          a.style.display = "inline-block";
-          a.style.marginTop = "8px";
-          a.style.color = "#0a6e2c";
-          a.style.fontWeight = "600";
+          a.setAttribute("download", corpo.nome || "");
+          resultado.appendChild(document.createElement("br"));
           resultado.appendChild(a);
         }
+        arquivoSelecionado = null;
+        inputArquivo.value = "";
+        nomeArquivo.textContent = "";
         form.reset();
       } else {
         mostrar(corpo.mensagem || corpo.erro || "Erro ao enviar o arquivo.", "erro");
