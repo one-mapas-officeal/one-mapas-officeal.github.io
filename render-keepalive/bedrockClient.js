@@ -40,6 +40,14 @@ export function createBedrockClient(options) {
   client.on("connect_allowed", () => connect(client));
 
   if (options.skipPing) {
+    // Sem ping nao ha auto-deteccao de versao: usa a informada ou a mais
+    // recente que a biblioteca suporta.
+    if (!client.options.version) {
+      client.options.version = Options.CURRENT_VERSION;
+    }
+    client.conLog?.(
+      `Pulando ping; conectando direto a ${client.options.host}:${client.options.port} como versao ${client.options.version}`
+    );
     client.init();
   } else {
     pingBedrock(client.options)

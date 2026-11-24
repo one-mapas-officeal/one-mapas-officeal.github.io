@@ -24,8 +24,13 @@ export function loadConfig() {
     // login por codigo aparece nos logs no 1o start).
     botAuth: clean(process.env.BOT_AUTH) || "offline",
 
-    // Versao do Minecraft Bedrock (opcional; detecta sozinho via ping se vazio).
+    // Versao do Minecraft Bedrock (opcional). Com skipPing ligado, se vazio
+    // usa a versao mais recente que a biblioteca suporta.
     mcVersion: clean(process.env.MC_VERSION) || false,
+
+    // Pular o ping (que tem timeout curto, ~1s, e o Aternos demora a responder)
+    // e ir direto na conexao (timeout de 9s). Padrao: ligado.
+    skipPing: clean(process.env.SKIP_PING).toLowerCase() !== "false",
 
     // Mensagem enviada ao entrar pedindo teleporte pra um lugar sem monstros.
     // O bot NAO consegue se teleportar sozinho sem permissao; ele pede.

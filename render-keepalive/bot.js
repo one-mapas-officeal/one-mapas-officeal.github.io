@@ -70,7 +70,8 @@ function conectar(cfg) {
       port: cfg.portaAternos,
       username: cfg.botUsername,
       offline, // true = servidor sem autenticacao Xbox; false = login Microsoft
-      version: cfg.mcVersion || undefined, // auto-detecta se vazio
+      version: cfg.mcVersion || undefined, // usa a mais recente suportada se vazio
+      skipPing: cfg.skipPing, // pula o ping curto; vai direto na conexao (9s)
       conLog: (...a) => console.log("[bedrock]", ...a),
     });
   } catch (err) {
