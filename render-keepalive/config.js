@@ -24,9 +24,9 @@ export function loadConfig() {
     // login por codigo aparece nos logs no 1o start).
     botAuth: clean(process.env.BOT_AUTH) || "offline",
 
-    // Versao do Minecraft Bedrock (opcional). Com skipPing ligado, se vazio
-    // usa a versao mais recente que a biblioteca suporta.
-    mcVersion: clean(process.env.MC_VERSION) || false,
+    // Versao do Minecraft Bedrock. Padrao 1.26.60 (teto suportado pela lib,
+    // = Aternos 26.60.6). Sobrescreva com MC_VERSION se precisar de outra.
+    mcVersion: clean(process.env.MC_VERSION) || "1.26.60",
 
     // Pular o ping (que tem timeout curto, ~1s, e o Aternos demora a responder)
     // e ir direto na conexao (timeout de 9s). Padrao: ligado.
