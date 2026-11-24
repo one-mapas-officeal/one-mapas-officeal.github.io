@@ -20,10 +20,11 @@ export function loadConfig() {
     // so entra e fica parado (AFK).
     botUsername: clean(process.env.BOT_USERNAME) || "nao-cair",
 
-    // "offline" (servidor cracked) ou "microsoft" (conta real).
+    // Bedrock: "offline" (servidor sem auth Xbox) ou "microsoft" (conta real,
+    // login por codigo aparece nos logs no 1o start).
     botAuth: clean(process.env.BOT_AUTH) || "offline",
 
-    // Versao do Minecraft (opcional; mineflayer detecta sozinho se vazio).
+    // Versao do Minecraft Bedrock (opcional; detecta sozinho via ping se vazio).
     mcVersion: clean(process.env.MC_VERSION) || false,
 
     // Mensagem enviada ao entrar pedindo teleporte pra um lugar sem monstros.

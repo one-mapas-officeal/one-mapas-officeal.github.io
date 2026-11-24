@@ -10,6 +10,16 @@ import { loadConfig, validarConfig } from "./config.js";
 import { iniciarBot, getBotEstado } from "./bot.js";
 import { escolherPorta, PORT_MIN, PORT_MAX } from "./port.js";
 
+// Rede de seguranca: um erro de socket do RakNet (jsp-raknet usa UDP cru e nem
+// sempre trata 'error') NAO pode derrubar o Web Service. Registramos e seguimos;
+// o bot tem logica propria de reconexao.
+process.on("uncaughtException", (err) => {
+  console.error("[uncaught]", err?.message || err);
+});
+process.on("unhandledRejection", (err) => {
+  console.error("[unhandled]", err?.message || err);
+});
+
 const SELF_URL = (process.env.SELF_URL || "").trim();
 const PING_MINUTES = Number(process.env.PING_MINUTES || 10);
 

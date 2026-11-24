@@ -3,10 +3,13 @@ services:
     name: render-keepalive
     runtime: node
     plan: free
-    buildCommand: npm install
+    buildCommand: npm install --ignore-scripts
     startCommand: npm start
     healthCheckPath: /health
     envVars:
+      # Bedrock usa RakNet em JS puro; pula o modulo nativo raknet-native.
+      - key: NPM_CONFIG_IGNORE_SCRIPTS
+        value: "true"
       # --- OBRIGATORIO: prova de que o servidor e seu ---
       # Link de compartilhamento do Aternos. Ex.: add.aternos.org/Survivalword24h
       - key: LINK_ATERNOS_ADD
@@ -21,7 +24,7 @@ services:
       # --- Conta do bot (ele nao mexe nessa conta, so fica AFK) ---
       - key: BOT_USERNAME
         value: "nao-cair"
-      - key: BOT_AUTH             # "offline" (cracked) ou "microsoft"
+      - key: BOT_AUTH             # "offline" (sem auth Xbox) ou "microsoft"
         value: "offline"
 
       # --- Auto-ping do proprio servico no Render ---

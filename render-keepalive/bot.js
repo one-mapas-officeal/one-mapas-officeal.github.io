@@ -1,16 +1,18 @@
-// Bot AFK: entra no servidor Aternos e fica parado para nao hibernar.
-// Comportamento passivo: nao quebra blocos, nao mexe em inventario,
-// nao mexe na conta. So entra, pede teleporte seguro e se mantem AFK.
+// Bot AFK para Minecraft BEDROCK: entra no servidor Aternos e fica conectado
+// para ele nao hibernar. Usa bedrock-protocol com backend RakNet em JS puro.
+//
+// Passivo: so entra, pede teleporte seguro por chat e mantem a conexao viva.
+// Nao mexe na conta alem de ficar online.
 
-import mineflayer from "mineflayer";
+import { createBedrockClient } from "./bedrockClient.js";
 
 let estado = {
   conectado: false,
+  edicao: "bedrock",
   username: null,
   ultimaEntrada: null,
   tentativas: 0,
   ultimoErro: null,
-  health: null,
 };
 
 export function getBotEstado() {
@@ -18,6 +20,7 @@ export function getBotEstado() {
 }
 
 let reconectarTimer = null;
+let clienteAtual = null;
 
 export function iniciarBot(cfg) {
   estado.username = cfg.botUsername;
@@ -37,77 +40,83 @@ function agendarReconexao(cfg, motivo) {
   }, delay);
 }
 
+function enviarChat(client, msg) {
+  try {
+    client.queue("text", {
+      type: "chat",
+      needs_translation: false,
+      source_name: client.options?.username || "",
+      xuid: "",
+      platform_chat_id: "",
+      filtered_message: "",
+      message: msg,
+    });
+  } catch (_) {
+    // Em algumas versoes o pacote de chat difere; ignora sem derrubar o bot.
+  }
+}
+
 function conectar(cfg) {
   estado.tentativas += 1;
+  const offline = cfg.botAuth === "offline";
   console.log(
-    `[bot] conectando a ${cfg.urlAternos}:${cfg.portaAternos} como "${cfg.botUsername}" (auth=${cfg.botAuth}) [tentativa ${estado.tentativas}]`
+    `[bot] (bedrock) conectando a ${cfg.urlAternos}:${cfg.portaAternos} como "${cfg.botUsername}" (offline=${offline}) [tentativa ${estado.tentativas}]`
   );
 
-  let bot;
+  let client;
   try {
-    bot = mineflayer.createBot({
+    client = createBedrockClient({
       host: cfg.urlAternos,
       port: cfg.portaAternos,
       username: cfg.botUsername,
-      auth: cfg.botAuth, // "offline" ou "microsoft"
-      version: cfg.mcVersion,
-      hideErrors: false,
+      offline, // true = servidor sem autenticacao Xbox; false = login Microsoft
+      version: cfg.mcVersion || undefined, // auto-detecta se vazio
+      conLog: (...a) => console.log("[bedrock]", ...a),
     });
   } catch (err) {
-    agendarReconexao(cfg, "falha ao criar bot: " + err.message);
+    agendarReconexao(cfg, "falha ao criar cliente: " + err.message);
     return;
   }
 
-  bot.once("spawn", () => {
+  clienteAtual = client;
+
+  client.on("spawn", () => {
     estado.conectado = true;
     estado.ultimaEntrada = new Date().toISOString();
     estado.ultimoErro = null;
     console.log(`[bot] entrou no servidor @ ${estado.ultimaEntrada}`);
-
     // Pede teleporte para um lugar seguro (sem monstros).
-    try {
-      bot.chat(cfg.pedidoTeleporte);
-    } catch (_) {}
-
-    // Anti-AFK leve e passivo: so um leve girar da cabeca, sem andar
-    // nem interagir com nada. Mantem conexao viva sem baguncar nada.
-    const girar = setInterval(() => {
-      if (!estado.conectado) {
-        clearInterval(girar);
-        return;
-      }
-      try {
-        const yaw = Math.random() * Math.PI * 2;
-        bot.look(yaw, 0, false);
-      } catch (_) {}
-    }, 60_000);
+    setTimeout(() => enviarChat(client, cfg.pedidoTeleporte), 2_000);
   });
 
-  bot.on("health", () => {
-    estado.health = bot.health;
-    // Se a vida estiver baixa, apenas registra e pede teleporte de novo.
-    // O bot nao foge/ataca (passivo) — depende do dono deixar area segura.
-    if (bot.health <= 6) {
-      try {
-        bot.chat(cfg.pedidoTeleporte);
-      } catch (_) {}
+  client.on("text", (packet) => {
+    // So registra mensagens; o bot nao responde/age (passivo).
+    if (packet?.message && packet.source_name !== cfg.botUsername) {
+      console.log(`[chat] <${packet.source_name || "?"}> ${packet.message}`);
     }
   });
 
-  bot.on("kicked", (reason) => {
-    const motivo = typeof reason === "string" ? reason : JSON.stringify(reason);
+  client.on("kick", (packet) => {
+    const motivo =
+      packet?.message || packet?.reason || JSON.stringify(packet || {});
     console.warn("[bot] kickado:", motivo);
-    agendarReconexao(cfg, "kicked: " + motivo);
+    agendarReconexao(cfg, "kick: " + motivo);
   });
 
-  bot.on("end", (reason) => {
-    console.warn("[bot] conexao encerrada:", reason);
-    agendarReconexao(cfg, "end: " + reason);
+  client.on("disconnect", (packet) => {
+    const motivo = packet?.message || JSON.stringify(packet || {});
+    console.warn("[bot] desconectado:", motivo);
+    agendarReconexao(cfg, "disconnect: " + motivo);
   });
 
-  bot.on("error", (err) => {
-    console.error("[bot] erro:", err.message);
-    // "end" normalmente dispara em seguida e agenda a reconexao.
-    estado.ultimoErro = err.message;
+  client.on("close", () => {
+    console.warn("[bot] conexao fechada");
+    agendarReconexao(cfg, "close");
+  });
+
+  client.on("error", (err) => {
+    console.error("[bot] erro:", err?.message || err);
+    estado.ultimoErro = String(err?.message || err);
+    agendarReconexao(cfg, "error: " + (err?.message || err));
   });
 }

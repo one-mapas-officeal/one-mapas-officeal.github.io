@@ -3,8 +3,14 @@
 Web Service do Render que:
 
 1. **Não deixa a si mesmo hibernar** (auto-ping no plano free do Render).
-2. Roda um **bot AFK** que entra no seu servidor **Aternos** como jogador e
-   fica parado, para o servidor não cair por inatividade.
+2. Roda um **bot AFK para Minecraft Bedrock** que entra no seu servidor
+   **Aternos** como jogador e fica conectado, para o servidor não cair por
+   inatividade.
+
+> Engine: [`bedrock-protocol`](https://github.com/PrismarineJS/bedrock-protocol)
+> com backend RakNet em **JavaScript puro** (`jsp-raknet`), sem módulo nativo —
+> por isso o build usa `--ignore-scripts` / `NPM_CONFIG_IGNORE_SCRIPTS=true`.
+> (É Bedrock, não Java. A porta padrão do Bedrock é `19132`.)
 
 O bot é **passivo**: não quebra blocos, não mexe em inventário e **não mexe
 na conta** — só entra, pede teleporte para um lugar seguro e se mantém AFK.
@@ -26,9 +32,9 @@ Sem ele, o bot **não sobe** e o `/health` responde:
 | ------------------ | ----------- | ----------- | ------------------------------------------------------- |
 | `LINK_ATERNOS_ADD` | ✅ Sim      | —           | Link de compartilhamento. Ex.: `add.aternos.org/...`    |
 | `URL_ATERNOS`      | ✅ Sim      | —           | Endereço do servidor. Ex.: `Survivalword24h.aternos.me` |
-| `PORTA_ATERNOS`    | Não         | `25565`     | Porta do servidor.                                      |
+| `PORTA_ATERNOS`    | Não         | `25565`     | Porta do servidor (Bedrock normalmente `19132`).        |
 | `BOT_USERNAME`     | Não         | `nao-cair`  | Nome da conta do bot (ele só fica AFK).                 |
-| `BOT_AUTH`         | Não         | `offline`   | `offline` (cracked) ou `microsoft` (conta real).        |
+| `BOT_AUTH`         | Não         | `offline`   | `offline` (sem auth Xbox) ou `microsoft` (conta real).  |
 | `PEDIDO_TELEPORTE` | Não         | (mensagem)  | Frase que o bot envia pedindo teleporte seguro.         |
 | `SELF_URL`         | Não         | —           | URL pública do serviço (para o auto-ping).              |
 | `PING_MINUTES`     | Não         | `10`        | Intervalo do auto-ping, em minutos.                     |
@@ -51,7 +57,8 @@ Sem ele, o bot **não sobe** e o `/health` responde:
   teleportar sozinho sem permissão (`op`). Deixe a dificuldade em
   **peaceful** ou dê `op` à conta do bot e configure um `/tp` no mundo, para
   ele não morrer para monstros.
-- **Conta Microsoft:** com `BOT_AUTH=microsoft`, o mineflayer pede login por
-  código no primeiro start (veja os logs do Render).
+- **Conta Microsoft/Xbox:** com `BOT_AUTH=microsoft`, o `bedrock-protocol`
+  pede login por código no primeiro start (veja os logs do Render). Use
+  `offline` só se o servidor estiver sem autenticação Xbox.
 - Use apenas em **servidor seu**. O link de compartilhamento é exigido como
   essa prova.
