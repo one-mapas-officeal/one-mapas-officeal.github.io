@@ -1,0 +1,16 @@
+{
+  "name": "render-keepalive",
+  "version": "1.0.0",
+  "description": "Mantem um Web Service do Render acordado (sem hibernar) via health check e auto-ping.",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "mineflayer": "^4.39.0"
+  }
+}

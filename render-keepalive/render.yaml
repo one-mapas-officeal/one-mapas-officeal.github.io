@@ -1,0 +1,31 @@
+services:
+  - type: web
+    name: render-keepalive
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      # --- OBRIGATORIO: prova de que o servidor e seu ---
+      # Link de compartilhamento do Aternos. Ex.: add.aternos.org/Survivalword24h
+      - key: LINK_ATERNOS_ADD
+        sync: false
+
+      # --- Servidor Aternos ---
+      - key: URL_ATERNOS          # ex.: Survivalword24h.aternos.me
+        sync: false
+      - key: PORTA_ATERNOS        # porta do servidor
+        value: "25565"
+
+      # --- Conta do bot (ele nao mexe nessa conta, so fica AFK) ---
+      - key: BOT_USERNAME
+        value: "nao-cair"
+      - key: BOT_AUTH             # "offline" (cracked) ou "microsoft"
+        value: "offline"
+
+      # --- Auto-ping do proprio servico no Render ---
+      - key: SELF_URL             # URL publica apos o 1o deploy
+        sync: false
+      - key: PING_MINUTES
+        value: "10"
